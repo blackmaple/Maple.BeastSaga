@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<InvariantGlobalization>true</InvariantGlobalization>
+
+		<PublishAot>true</PublishAot>
+		<IsAotCompatible>true</IsAotCompatible>
+		<OptimizationPreference>Speed</OptimizationPreference>
+
+		<OutputType>Library</OutputType>
+		<AssemblyName>maple</AssemblyName>
+
+		<!--https://learn.microsoft.com/zh-cn/dotnet/core/deploying/trimming/trimming-options?pivots=dotnet-8-0-->
+
+		<DebuggerSupport>false</DebuggerSupport>
+		<EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
+		<EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
+		<EventSourceSupport>false</EventSourceSupport>
+		<!--<HttpActivityPropagationSupport>false</HttpActivityPropagationSupport>-->
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<MetadataUpdaterSupport>false</MetadataUpdaterSupport>
+		<MetricsSupport>false</MetricsSupport>
+		<!--<StackTraceSupport>false</StackTraceSupport>-->
+		<!--<UseNativeHttpHandler>true</UseNativeHttpHandler>-->
+		<UseSystemResourceKeys>true</UseSystemResourceKeys>
+		<TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+		<!--<XmlResolverIsNetworkingEnabledByDefault>false</XmlResolverIsNetworkingEnabledByDefault>-->
+
+		<BuiltInComInteropSupport>false</BuiltInComInteropSupport>
+		<CustomResourceTypesSupport>false</CustomResourceTypesSupport>
+		<EnableUnsafeBinaryFormatterInDesigntimeLicenseContextSerialization>false</EnableUnsafeBinaryFormatterInDesigntimeLicenseContextSerialization>
+		<StartupHookSupport>false</StartupHookSupport>
+
+
+		<EnableConfigurationBindingGenerator>true</EnableConfigurationBindingGenerator>
+		<EnableRequestDelegateGenerator>true</EnableRequestDelegateGenerator>
+		<InterceptorsPreviewNamespaces>$(InterceptorsPreviewNamespaces);Microsoft.AspNetCore.Http.Generated</InterceptorsPreviewNamespaces>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Maple.MonoGameAssistant.DllProxy" Version="1.2.1-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.WebApi" Version="1.2.1-rc" />
+		<PackageReference Include="Maple.MonoGameAssistant.Windows" Version="1.2.2-rc" />
+
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Maple.BeastSaga.Metadata\Maple.BeastSaga.Metadata.csproj" />
+	</ItemGroup>
+
+
+	<Target Name="PostPublishActions" AfterTargets="Publish">
+		<PropertyGroup>
+			<Time>$([System.DateTime]::Now.ToString("yyyyMMddHHmmss"))</Time>
+			<TargetDir>C:\Program Files (x86)\Steam\steamapps\common\Beast Saga\</TargetDir>
+			<PublishDllPath>$(PublishDir)$(AssemblyName).dll</PublishDllPath>
+			<TargetFileName>$(AssemblyName).dll</TargetFileName>
+			<BackupFileName>$(AssemblyName).dll.bak_$(Time)</BackupFileName>
+		</PropertyGroup>
+
+		<Message Text="自动部署功能已经启动 $(PublishDir)" Importance="high" />
+
+		<Exec Command="if exist &quot;$(TargetDir)$(TargetFileName)&quot; move &quot;$(TargetDir)$(TargetFileName)&quot; &quot;$(TargetDir)$(BackupFileName)&quot;" />
+		<Exec Command="if exist &quot;$(TargetDir)&quot; copy &quot;$(PublishDllPath)&quot; &quot;$(TargetDir)$(TargetFileName)&quot;" />
+	</Target>
+
+
+
+
+
+
+
+</Project>
