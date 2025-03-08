@@ -1,5 +1,6 @@
 ﻿using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
+using Maple.MonoGameAssistant.MetadataExtensions.MetadataCollector;
 using Microsoft.Extensions.Logging;
 
 namespace Maple.BeastSaga.Metadata
@@ -11,11 +12,13 @@ namespace Maple.BeastSaga.Metadata
         public BeastSagaGameContext Context { get; }
         private ILogger Logger => Context.Logger;
         private LoadDataSet.Ptr_LoadDataSet Ptr_LoadDataSet { get; }
-        public GameInventoryDisplayDTO[] Items { get; }
+        public GameInventoryDisplayDTOEX[] Items { get; }
+        public OpenUIManager.Ptr_OpenUIManager Ptr_OpenUIManager { get; }
         public BeastSagaGameCache(BeastSagaGameContext gameContext)
         {
             this.Context = gameContext;
             this.Ptr_LoadDataSet = LoadDataSet.Ptr_LoadDataSet._INSTANCE;
+            this.Ptr_OpenUIManager = OpenUIManager.Ptr_OpenUIManager._INST;
             this.Items = [
                 .. GetEquipDataSet(),
                 .. GetItemDataSet(),
@@ -31,12 +34,20 @@ namespace Maple.BeastSaga.Metadata
               //  ..GetRandomBoxDataSet(),
                 ];
         }
-        private IEnumerable<GameInventoryDisplayDTO> GetEquipDataSet()
+
+        public void ShowMsg(string msg)
+        {
+            var pStr = this.Context.T(msg);
+            this.Ptr_OpenUIManager.SHOW_TIP(TipType.i1, pStr);
+        }
+
+        private IEnumerable<GameInventoryDisplayDTOEX> GetEquipDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._EQUIPS_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item._NAME.ToString()!,
                     DisplayName = item._NAME.ToString(),
                     DisplayDesc = item._DES.ToString(),
@@ -45,12 +56,13 @@ namespace Maple.BeastSaga.Metadata
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTO> GetItemDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetItemDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item._NAME.ToString()!,
                     DisplayName = $"{item._EQUIP_TYPE}:{item._NAME}",
                     DisplayDesc = item._ITEM_DES.ToString(),
@@ -60,12 +72,13 @@ namespace Maple.BeastSaga.Metadata
         }
 
 
-        private IEnumerable<GameInventoryDisplayDTO> GetKangFuDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetKangFuDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._KANG_FU_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.DESCRIBE.ToString(),
@@ -75,12 +88,13 @@ namespace Maple.BeastSaga.Metadata
         }
 
 
-        private IEnumerable<GameInventoryDisplayDTO> GetInKangFuDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetInKangFuDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._IN_KANG_FU_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.DESCRIBE.ToString(),
@@ -89,12 +103,13 @@ namespace Maple.BeastSaga.Metadata
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTO> GetUniqueSkillDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetUniqueSkillDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._UNIQUE_SKILL_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.DESCRIBE.ToString(),
@@ -103,40 +118,43 @@ namespace Maple.BeastSaga.Metadata
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTO> GetMakeDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetMakeDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._MAKE_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item._NAME.ToString()!,
                     DisplayName = item._NAME.ToString(),
-                    DisplayDesc = string.Empty ,//item.DESCRIBE.ToString(),
+                    DisplayDesc = string.Empty,//item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(MakeDataSet)
                 };
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTO> GetSkillDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetSkillDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._SKILL_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
-                    DisplayDesc =  item.DES_UI.ToString(),
+                    DisplayDesc = item.DES_UI.ToString(),
                     DisplayCategory = nameof(SkillDataSet)
                 };
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTO> GetChongDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetChongDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._CHONG_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item._NAME.ToString()!,
                     DisplayName = item._NAME.ToString(),
                     DisplayDesc = $"{item._TYPE}.{item._RANK}",
@@ -145,12 +163,13 @@ namespace Maple.BeastSaga.Metadata
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTO> GetChongPotDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetChongPotDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._CHONG_POT_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item._NAME.ToString()!,
                     DisplayName = item._NAME.ToString(),
                     DisplayDesc = item._EXPLAN.ToString(),
@@ -159,12 +178,13 @@ namespace Maple.BeastSaga.Metadata
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTO> GetShanHaiLuDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetShanHaiLuDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._SHAN_HAI_LU_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.EXPLAIN.ToString(),
@@ -173,26 +193,28 @@ namespace Maple.BeastSaga.Metadata
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTO> GetCharacterDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetCharacterDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._CHARACTER_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
-                    DisplayDesc =string.Empty,//; item.EXPLAIN.ToString(),
+                    DisplayDesc = string.Empty,//; item.EXPLAIN.ToString(),
                     DisplayCategory = nameof(CharacterDataSet)
                 };
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTO> GetRandomBoxDataSet()
+        private IEnumerable<GameInventoryDisplayDTOEX> GetRandomBoxDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._BOX_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTO()
+                yield return new GameInventoryDisplayDTOEX()
                 {
+                    Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = string.Empty,//; item.EXPLAIN.ToString(),
@@ -203,5 +225,8 @@ namespace Maple.BeastSaga.Metadata
 
     }
 
-
+    public sealed class GameInventoryDisplayDTOEX : GameInventoryDisplayDTO
+    {
+        public required nint Ptr { set; get; }
+    }
 }

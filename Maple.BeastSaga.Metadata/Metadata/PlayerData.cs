@@ -72,30 +72,30 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerItemData></returns>
-          
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("ItemHad", "System.Collections.Generic.Dictionary<System.String,PlayerItemData>")]
-           public partial PMonoDictionary_BeastSaga<int, PlayerItemData.Ptr_PlayerItemData> ITEM_HAD { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("ItemHad", "System.Collections.Generic.Dictionary<System.String,PlayerItemData>")]
+            public partial PMonoDictionary_BeastSaga<int, PlayerItemData.Ptr_PlayerItemData> ITEM_HAD { get; set; }
+
 
             /// <summary>
             /// 0x38 System.Collections.Generic.Dictionary<WeaponEquipUIIndex , PlayerEquipData> PlayerDressEquip
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<WeaponEquipUIIndex , PlayerEquipData></returns>
-           
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("PlayerDressEquip", "System.Collections.Generic.Dictionary<WeaponEquipUIIndex,PlayerEquipData>")]
-           public partial PMonoDictionary_BeastSaga<WeaponEquipUIIndex, PlayerEquipData.Ptr_PlayerEquipData> PLAYER_DRESS_EQUIP { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("PlayerDressEquip", "System.Collections.Generic.Dictionary<WeaponEquipUIIndex,PlayerEquipData>")]
+            public partial PMonoDictionary_BeastSaga<WeaponEquipUIIndex, PlayerEquipData.Ptr_PlayerEquipData> PLAYER_DRESS_EQUIP { get; set; }
+
 
             /// <summary>
             /// 0x40 System.Collections.Generic.Dictionary<System.String , System.Collections.Generic.List<PlayerEquipData>> EquipHad
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , System.Collections.Generic.List<PlayerEquipData>></returns>
-          
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("EquipHad", "System.Collections.Generic.Dictionary<System.String,System.Collections.Generic.List<PlayerEquipData>>")]
-           public partial PMonoDictionary_BeastSaga<PMonoString, PMonoList_D<PlayerEquipData.Ptr_PlayerEquipData>> EQUIP_HAD { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("EquipHad", "System.Collections.Generic.Dictionary<System.String,System.Collections.Generic.List<PlayerEquipData>>")]
+            public partial PMonoDictionary_BeastSaga<PMonoString, PMonoList_D<PlayerEquipData.Ptr_PlayerEquipData>> EQUIP_HAD { get; set; }
+
 
             /// <summary>
             /// 0x48 System.Collections.Generic.Dictionary<System.String , PlayerItemData> ItemHadTemp
@@ -132,30 +132,30 @@ namespace Maple.BeastSaga.Metadata
             /// class ["Model.Runtime".""."PlayerInKangFu"]
             /// </summary>
             /// <returns>class PlayerInKangFu</returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressInKangFu", "PlayerInKangFu")]
-           public partial nint DRESS_IN_KANG_FU { get; set; } 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressInKangFu", "PlayerInKangFu")]
+            public partial PlayerInKangFu.Ptr_PlayerInKangFu DRESS_IN_KANG_FU { get; set; }
+
 
             /// <summary>
             /// 0x68 System.Collections.Generic.Dictionary<System.String , PlayerInKangFu> InKangFuHad
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerInKangFu></returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("InKangFuHad", "System.Collections.Generic.Dictionary<System.String,PlayerInKangFu>")]
-           public partial nint IN_KANG_FU_HAD { get; set; } 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("InKangFuHad", "System.Collections.Generic.Dictionary<System.String,PlayerInKangFu>")]
+            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerInKangFu.Ptr_PlayerInKangFu> IN_KANG_FU_HAD { get; set; }
+
 
             /// <summary>
             /// 0x70 System.Collections.Generic.Dictionary<System.String , PlayerKangFu> KangFuHad
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFu></returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KangFuHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFu>")]
-           public partial nint KANG_FU_HAD { get; set; } 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KangFuHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFu>")]
+            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFu.Ptr_PlayerKangFu> KANG_FU_HAD { get; set; }
+
 
             /// <summary>
             /// 0x78 System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill> KangFuSkillHad
@@ -182,40 +182,40 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<PlayerChong></returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("ChongHad", "System.Collections.Generic.List<PlayerChong>")]
-           public partial nint CHONG_HAD { get; set; } 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("ChongHad", "System.Collections.Generic.List<PlayerChong>")]
+            public partial PMonoList_D<PlayerChong.Ptr_PlayerChong> CHONG_HAD { get; set; }
+
 
             /// <summary>
             /// 0x90 System.Collections.Generic.List<PlayerChongPot> ChongPotHad
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<PlayerChongPot></returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("ChongPotHad", "System.Collections.Generic.List<PlayerChongPot>")]
-           public partial nint CHONG_POT_HAD { get; set; } 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("ChongPotHad", "System.Collections.Generic.List<PlayerChongPot>")]
+            public partial PMonoList_D<PlayerChongPot.Ptr_PlayerChongPot> CHONG_POT_HAD { get; set; }
+
 
             /// <summary>
             /// 0x98 PlayerChong DressChong
             /// class ["Model.Runtime".""."PlayerChong"]
             /// </summary>
             /// <returns>class PlayerChong</returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressChong", "PlayerChong")]
-           public partial nint DRESS_CHONG { get; set; } 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressChong", "PlayerChong")]
+            public partial PlayerChong.Ptr_PlayerChong DRESS_CHONG { get; set; }
+
 
             /// <summary>
             /// 0xA0 System.Collections.Generic.Dictionary<System.String , PlayerKangFu> DressKangFu
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFu></returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressKangFu", "System.Collections.Generic.Dictionary<System.String,PlayerKangFu>")]
-           public partial nint DRESS_KANG_FU { get; set; } 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressKangFu", "System.Collections.Generic.Dictionary<System.String,PlayerKangFu>")]
+            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFu.Ptr_PlayerKangFu> DRESS_KANG_FU { get; set; }
+
 
             /// <summary>
             /// 0xA8 System.Collections.Generic.Dictionary<System.Int32 , System.String> DressQuickKangFu

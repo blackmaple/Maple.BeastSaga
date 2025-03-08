@@ -5,7 +5,7 @@ namespace Maple.BeastSaga.Metadata
     /// </summary>
     public enum WeaponEquipUIIndex : System.Int32
     {
-        nil = 0xFFFFFFFF,
+        nil = -1,
         头部 = 0x00000000,
         上装 = 0x00000001,
         下装 = 0x00000002,
