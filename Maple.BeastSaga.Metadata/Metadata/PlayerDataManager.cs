@@ -66,10 +66,10 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."IntPtr"]
             /// </summary>
             /// <returns>struct System.IntPtr</returns>
-             /*
+          
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("m_CachedPtr", "System.IntPtr")]
             public partial System.IntPtr M_CACHED_PTR { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x18 PlayerData _PlayerData
@@ -106,10 +106,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.CoreModule"."UnityEngine"."GameObject"]
             /// </summary>
             /// <returns>class UnityEngine.GameObject</returns>
-             /*
+   
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Player", "UnityEngine.GameObject")]
             public partial nint _PLAYER { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x38 System.Boolean _IsLoadOver

@@ -37,7 +37,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item._NAME.ToString()!,
                     DisplayName = item._NAME.ToString(),
                     DisplayDesc = item._DES.ToString(),
                     DisplayCategory = nameof(EquipDataSet)
@@ -51,7 +51,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item._NAME.ToString()!,
                     DisplayName = $"{item._EQUIP_TYPE}:{item._NAME}",
                     DisplayDesc = item._ITEM_DES.ToString(),
                     DisplayCategory = nameof(ItemDataSet)
@@ -66,7 +66,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(KangFuDataSet)
@@ -81,7 +81,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(InKangFuDataSet)
@@ -95,7 +95,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(UniqueSkillDataSet)
@@ -109,7 +109,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item._NAME.ToString()!,
                     DisplayName = item._NAME.ToString(),
                     DisplayDesc = string.Empty ,//item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(MakeDataSet)
@@ -123,7 +123,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc =  item.DES_UI.ToString(),
                     DisplayCategory = nameof(SkillDataSet)
@@ -137,7 +137,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item._NAME.ToString()!,
                     DisplayName = item._NAME.ToString(),
                     DisplayDesc = $"{item._TYPE}.{item._RANK}",
                     DisplayCategory = nameof(ChongDataSet)
@@ -151,7 +151,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item._NAME.ToString()!,
                     DisplayName = item._NAME.ToString(),
                     DisplayDesc = item._EXPLAN.ToString(),
                     DisplayCategory = nameof(ChongPotDataSet)
@@ -165,7 +165,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.EXPLAIN.ToString(),
                     DisplayCategory = nameof(ShanHaiLuDataSet)
@@ -179,7 +179,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc =string.Empty,//; item.EXPLAIN.ToString(),
                     DisplayCategory = nameof(CharacterDataSet)
@@ -193,7 +193,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameInventoryDisplayDTO()
                 {
-                    ObjectId = item.Ptr.ToString(),
+                    ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = string.Empty,//; item.EXPLAIN.ToString(),
                     DisplayCategory = nameof(RandomBoxDataSet)
