@@ -43,6 +43,9 @@ namespace Maple.BeastSaga.Metadata
     [ContextMemberMetadata<PlayerInKangFu>]
     [ContextMemberMetadata<PlayerItemData>]
     [ContextMemberMetadata<PlayerKangFu>]
+    [ContextMemberMetadata<PlayerKangFuSkill>]
+
+    
     //    [ContextMemberMetadata<PlayerProType>]
     [ContextMemberMetadata<ProNumDictionary>]
     [ContextMemberMetadata<RandomBoxDataSet>]

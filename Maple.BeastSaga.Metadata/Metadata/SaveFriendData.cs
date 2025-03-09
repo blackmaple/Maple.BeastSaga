@@ -1,3 +1,5 @@
+using Maple.MonoGameAssistant.Core;
+
 namespace Maple.BeastSaga.Metadata
 {
     /// <summary>
@@ -30,20 +32,20 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , FriendData></returns>
-             /*
+          
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("AddFriends", "System.Collections.Generic.Dictionary<System.String,FriendData>")]
-            public partial nint ADD_FRIENDS { get; set; } 
-*/
+            public partial  PMonoDictionary_BeastSaga<PMonoString,FriendData.Ptr_FriendData> ADD_FRIENDS { get; set; } 
+ 
 
             /// <summary>
             /// 0x18 System.Collections.Generic.Dictionary<System.String , FriendData> LeaveFriends
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , FriendData></returns>
-             /*
+            
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("LeaveFriends", "System.Collections.Generic.Dictionary<System.String,FriendData>")]
-            public partial nint LEAVE_FRIENDS { get; set; } 
-*/
+            public partial PMonoDictionary_BeastSaga<PMonoString, FriendData.Ptr_FriendData> LEAVE_FRIENDS { get; set; } 
+ 
 
             /// <summary>
             /// 0x20 System.Collections.Generic.List<System.String> LeaveAllFriends

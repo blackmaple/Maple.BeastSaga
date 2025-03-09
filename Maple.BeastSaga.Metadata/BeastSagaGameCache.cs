@@ -19,11 +19,11 @@ namespace Maple.BeastSaga.Metadata
         public GameCurrencyDisplayDTOEX[] Currencies { get; }
         public GameInventoryDisplayDTOEX[] Items { get; }
         public GameCharacterDisplayDTOEX[] Characters { get; }
-        public GameInventoryDisplayDTOEX[] KangFuDataSets { get; }
-        public GameInventoryDisplayDTOEX[] InKangFuDataSets { get; }
-        public GameInventoryDisplayDTOEX[] UniqueSkillDataSets { get; }
-        public GameInventoryDisplayDTOEX[] ShanHaiLuDataSets { get; }
         public GameInventoryDisplayDTOEX[] CharacterDataSets { get; }
+
+        public GameSkillDisplayDTOEX[] Skills { get; }
+ 
+
 
         public BeastSagaGameCache(BeastSagaGameContext gameContext)
         {
@@ -36,11 +36,13 @@ namespace Maple.BeastSaga.Metadata
             ];
 
 
-            this.KangFuDataSets = [.. GetKangFuDataSet(),];
-            this.InKangFuDataSets = [.. GetInKangFuDataSet(),];
-            this.UniqueSkillDataSets = [.. GetUniqueSkillDataSet(),];
-            this.ShanHaiLuDataSets = [.. GetShanHaiLuDataSet(),];
-
+    
+            this.Skills = [
+                .. GetKangFuDataSet(),
+                .. GetInKangFuDataSet(),
+                .. GetUniqueSkillDataSet(),
+                .. GetShanHaiLuDataSet(),
+                ];
 
             this.CharacterDataSets = [.. GetCharacterDataSet(),];
             this.Characters = [.. GetCharacter()];
@@ -49,11 +51,7 @@ namespace Maple.BeastSaga.Metadata
                 .. GetEquipDataSet(),
                 ..GetChongDataSet(),
                 ..GetChongPotDataSet(),
-
-               .. this.KangFuDataSets,
-               .. this.InKangFuDataSets,
-              ..  this.UniqueSkillDataSets,
-              ..   this.ShanHaiLuDataSets,
+ 
                 ];
         }
 
@@ -124,11 +122,11 @@ namespace Maple.BeastSaga.Metadata
         }
 
 
-        private IEnumerable<GameInventoryDisplayDTOEX> GetKangFuDataSet()
+        private IEnumerable<GameSkillDisplayDTOEX> GetKangFuDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._KANG_FU_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTOEX()
+                yield return new GameSkillDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
@@ -140,11 +138,11 @@ namespace Maple.BeastSaga.Metadata
         }
 
 
-        private IEnumerable<GameInventoryDisplayDTOEX> GetInKangFuDataSet()
+        private IEnumerable<GameSkillDisplayDTOEX> GetInKangFuDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._IN_KANG_FU_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTOEX()
+                yield return new GameSkillDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
@@ -155,11 +153,11 @@ namespace Maple.BeastSaga.Metadata
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTOEX> GetUniqueSkillDataSet()
+        private IEnumerable<GameSkillDisplayDTOEX> GetUniqueSkillDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._UNIQUE_SKILL_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTOEX()
+                yield return new GameSkillDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
@@ -230,11 +228,11 @@ namespace Maple.BeastSaga.Metadata
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTOEX> GetShanHaiLuDataSet()
+        private IEnumerable<GameSkillDisplayDTOEX> GetShanHaiLuDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._SHAN_HAI_LU_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTOEX()
+                yield return new GameSkillDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
                     ObjectId = item.NAME.ToString()!,
@@ -310,6 +308,11 @@ namespace Maple.BeastSaga.Metadata
 
     public sealed class GameCurrencyDisplayDTOEX : GameCurrencyDisplayDTO
     {
+        public required nint Ptr { set; get; }
+
+    }
+
+    public sealed class GameSkillDisplayDTOEX : GameSkillDisplayDTO {
         public required nint Ptr { set; get; }
 
     }

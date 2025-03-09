@@ -114,7 +114,25 @@ namespace Maple.DinoTopia.Win
         public sealed override async ValueTask<GameCharacterStatusDTO> UpdateCharacterStatusAsync(GameCharacterModifyDTO characterModifyDTO)
         {
             var gameEnv = await this.GetBeastSagaGameEnvThrowIfNotInGameAsync().ConfigureAwait(false);
-            return await this.MonoTaskAsync((p, args) => args.gameEnv.UpdateCharacterStatusDTO(args.characterModifyDTO), (gameEnv, characterModifyDTO)).ConfigureAwait(false);
+
+            if (characterModifyDTO.CharacterCategory == nameof(FriendData) && true == characterModifyDTO.ModifyObject?.StartsWith(nameof(EnumPlayerPropType.好友)))
+            {
+                if (characterModifyDTO.BoolValue == true)
+                {
+                    await this.UITaskAsync((p, args) => args.gameEnv.AddFriend(args.characterModifyDTO), (gameEnv, characterModifyDTO)).ConfigureAwait(false);
+
+                }
+                else
+                {
+                    await this.UITaskAsync((p, args) => args.gameEnv.LeaveFriend(args.characterModifyDTO), (gameEnv, characterModifyDTO)).ConfigureAwait(false);
+                }
+                return await this.MonoTaskAsync((p, args) => args.gameEnv.GetFriendStatusDTO(args.characterModifyDTO), (gameEnv, characterModifyDTO)).ConfigureAwait(false);
+
+            }
+            else
+            {
+                return await this.MonoTaskAsync((p, args) => args.gameEnv.UpdateCharacterStatusDTO(args.characterModifyDTO), (gameEnv, characterModifyDTO)).ConfigureAwait(false);
+            }
         }
 
 
@@ -140,6 +158,11 @@ namespace Maple.DinoTopia.Win
         //    return await this.MonoTaskAsync((p, args) => args.gameEnv.UpdateGameSwitchDisplayDTO(args.gameSwitchModify), (gameEnv, gameSwitchModify)).ConfigureAwait(false);
         //}
 
+
+        public sealed override ValueTask<GameSkillDisplayDTO[]> GetListSkillDisplayAsync()
+        {
+            return new ValueTask<GameSkillDisplayDTO[]>(this.GameCache.Skills);
+        }
     }
 
 

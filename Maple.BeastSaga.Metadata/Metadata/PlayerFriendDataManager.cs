@@ -76,10 +76,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["Model.Runtime".""."SaveFriendData"]
             /// </summary>
             /// <returns>class SaveFriendData</returns>
-             /*
+           
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_FriendData", "SaveFriendData")]
-            public partial nint _FRIEND_DATA { get; set; } 
-*/
+            public partial SaveFriendData.Ptr_SaveFriendData _FRIEND_DATA { get; set; } 
+ 
 
             /// <summary>
             /// 0x20 System.String _SaveName
@@ -288,11 +288,11 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <param name = "abName">class System.String</param>
             /// <returns>struct System.Void</returns>
-             /*
+      
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LeaveFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
             public partial void LEAVE_FRIEND(nint abName); 
-*/
+ 
             /// <summary>
             ///   System.Void LeaveFriendAll()
             /// </summary>

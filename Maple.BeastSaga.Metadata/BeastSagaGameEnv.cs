@@ -4,6 +4,7 @@ using Maple.MonoGameAssistant.MetadataExtensions.MetadataCollector;
 using Microsoft.Extensions.Logging;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
+using static Maple.BeastSaga.Metadata.FriendData;
 using static Maple.BeastSaga.Metadata.PlayerItemData;
 using static Maple.BeastSaga.Metadata.PlayerKangFu;
 
@@ -18,20 +19,10 @@ namespace Maple.BeastSaga.Metadata
         private PlayerDataManager.Ptr_PlayerDataManager Ptr_PlayerDataManager { get; } = PlayerDataManager.Ptr_PlayerDataManager._INSTANCE;
         private PlayerData.Ptr_PlayerData Ptr_PlayerData => Ptr_PlayerDataManager._PLAYER_DATA;
 
-        public void Test()
-        {
-            var p = LogicHelper.Ptr_LogicHelper._INSTANCE;
-
-            var data = ExcelDataManager.Ptr_ExcelDataManager.INSTANCE;
-            foreach (var table in data.P_FRIEND_LOVE_TABLE.DICT.AsRefArray())
-            {
-                var tableItem = table.Value;
-                this.Logger.LogInformation("name:{name},name2:{name2},id:{id}", tableItem.NAME.ToString(), tableItem.NAME2.ToString(), tableItem.ID);
-                p.FRIEND_ADD(tableItem.NAME2);
-            }
+        private PlayerFriendDataManager.Ptr_PlayerFriendDataManager Ptr_PlayerFriendDataManager { get; } = PlayerFriendDataManager.Ptr_PlayerFriendDataManager._INSTANCE;
+        //  private PlayerFriendDataManager.Ptr_PlayerFriendDataManager Ptr_PlayerFriendDataManager { get; } = PlayerFriendDataManager.Ptr_PlayerFriendDataManager._INSTANCE;
 
 
-        }
 
         public bool ThrowIfNotInGame()
         {
@@ -541,12 +532,10 @@ namespace Maple.BeastSaga.Metadata
             if (in_kf_dress)
             {
                 var skillInfo = in_kf_dress._IN_KANG_FU_DATA;
-                if (skillInfo)
-                {
-                    var skillName = skillInfo.NAME.ToString()!;
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                var skillName = skillInfo.NAME.ToString()!;
+                yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
 
-                }
+
             }
 
             foreach (var skill in playerData.IN_KANG_FU_HAD.AsRefArray())
@@ -555,11 +544,9 @@ namespace Maple.BeastSaga.Metadata
                 if (skillObj)
                 {
                     var skillInfo = skillObj._IN_KANG_FU_DATA;
-                    if (skillInfo)
-                    {
-                        var skillName = skillInfo.NAME.ToString()!;
-                        yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
-                    }
+                    var skillName = skillInfo.NAME.ToString()!;
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+
                 }
             }
 
@@ -570,21 +557,11 @@ namespace Maple.BeastSaga.Metadata
                 if (skillObj)
                 {
                     var skillInfo = skillObj._KANG_FU_DATA;
-                    if (skillInfo)
+                    var skillName = skillInfo.NAME.ToString()!;
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                    foreach (var shan in GetShanHaiLuDataSet(skillObj))
                     {
-                        var skillName = skillInfo.NAME.ToString()!;
-                        yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
-                        foreach (var shan in skillObj.HAVE_SHAN_HAI_LU)
-                        {
-                            foreach (var shanhailu in this.GameCache.ShanHaiLuDataSets)
-                            {
-                                if (shan.AsReadOnlySpan().SequenceEqual(shanhailu.ObjectId))
-                                {
-                                    yield return new GameSkillInfoDTO() { ObjectId = shanhailu.ObjectId, DisplayName = shanhailu.DisplayName, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = shanhailu.DisplayDesc, CanWrite = false };
-                                }
-                            }
-
-                        }
+                        yield return shan;
                     }
 
                 }
@@ -598,20 +575,11 @@ namespace Maple.BeastSaga.Metadata
                 if (skillObj)
                 {
                     var skillInfo = skillObj._KANG_FU_DATA;
-                    if (skillInfo)
+                    var skillName = skillInfo.NAME.ToString()!;
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                    foreach (var shan in GetShanHaiLuDataSet(skillObj))
                     {
-                        var skillName = skillInfo.NAME.ToString()!;
-                        yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
-                        foreach (var shan in skillObj.HAVE_SHAN_HAI_LU)
-                        {
-                            foreach (var shanhailu in this.GameCache.ShanHaiLuDataSets)
-                            {
-                                if (shan.AsReadOnlySpan().SequenceEqual(shanhailu.ObjectId))
-                                {
-                                    yield return new GameSkillInfoDTO() { ObjectId = shanhailu.ObjectId, DisplayName = shanhailu.DisplayName, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = shanhailu.DisplayDesc, CanWrite = false };
-                                }
-                            }
-                        }
+                        yield return shan;
                     }
 
                 }
@@ -625,12 +593,11 @@ namespace Maple.BeastSaga.Metadata
                 if (skillObj)
                 {
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
-                    if (skillInfo)
-                    {
+                    var skillName = skillInfo.NAME.ToString()!;
+                    var skillDesc = skillInfo.DESCRIBE.ToString();
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
 
-                        var skillName = skillObj._NAME.ToString()!;
-                        yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(UniqueSkillDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
-                    }
+
                 }
 
             }
@@ -642,11 +609,11 @@ namespace Maple.BeastSaga.Metadata
                 if (skillObj)
                 {
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
-                    if (skillInfo)
-                    {
-                        var skillName = skillObj._NAME.ToString()!;
-                        yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(UniqueSkillDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
-                    }
+                    var skillName = skillInfo.NAME.ToString()!;
+                    var skillDesc = skillInfo.DESCRIBE.ToString();
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+
+
                 }
             }
 
@@ -660,11 +627,11 @@ namespace Maple.BeastSaga.Metadata
                 if (skillObj)
                 {
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
-                    if (skillInfo)
-                    {
-                        var skillName = skillObj._NAME.ToString()!;
-                        yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(UniqueSkillDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
-                    }
+                    var skillName = skillInfo.NAME.ToString()!;
+                    var skillDesc = skillInfo.DESCRIBE.ToString();
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+
+
                 }
             }
 
@@ -675,14 +642,26 @@ namespace Maple.BeastSaga.Metadata
                 if (skillObj)
                 {
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
-                    if (skillInfo)
-                    {
-                        var skillName = skillObj._NAME.ToString()!;
-                        yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(UniqueSkillDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
-                    }
+                    var skillName = skillInfo.NAME.ToString()!;
+                    var skillDesc = skillInfo.DESCRIBE.ToString();
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+
                 }
             }
 
+            IEnumerable<GameSkillInfoDTO> GetShanHaiLuDataSet(PlayerKangFu.Ptr_PlayerKangFu skillObj)
+            {
+                foreach (var shan in skillObj.HAVE_SHAN_HAI_LU)
+                {
+                    foreach (var shanhailu in this.GameCache.Skills.Where(p => p.DisplayCategory == nameof(ShanHaiLuDataSet)))
+                    {
+                        if (shan.AsReadOnlySpan().EndsWith(shanhailu.ObjectId))
+                        {
+                            yield return new GameSkillInfoDTO() { ObjectId = shanhailu.ObjectId, DisplayName = shanhailu.DisplayName, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = shanhailu.DisplayDesc, CanWrite = false };
+                        }
+                    }
+                }
+            }
 
         }
         private void SetPlayerSkill(GameCharacterModifyDTO objectDTO)
@@ -699,50 +678,139 @@ namespace Maple.BeastSaga.Metadata
 
             if (string.IsNullOrEmpty(newSkill) == false)
             {
-
-                if (objectDTO.ModifyCategory == nameof(InKangFuDataSet))
+                var skill = this.GameCache.Skills.Where(p => p.ObjectId == newSkill && p.DisplayCategory == objectDTO.ModifyCategory).FirstOrDefault();
+                if (skill is not null)
                 {
-                    var skill = this.GameCache.InKangFuDataSets.Where(p => p.ObjectId == newSkill).FirstOrDefault();
-                    if (skill is not null)
+                    var ok = false;
+                    if (objectDTO.ModifyCategory == nameof(InKangFuDataSet))
                     {
-                        this.Ptr_PlayerDataManager.AWARD_IN_KONG_FU(skill.Ptr);
+                        ok = this.Ptr_PlayerDataManager.AWARD_IN_KONG_FU(skill.Ptr);
                     }
-                }
-                else if (objectDTO.ModifyCategory == nameof(KangFuDataSet))
-                {
-                    var skill = this.GameCache.KangFuDataSets.Where(p => p.ObjectId == newSkill).FirstOrDefault();
-                    if (skill is not null)
+                    else if (objectDTO.ModifyCategory == nameof(KangFuDataSet))
                     {
-                        this.Ptr_PlayerDataManager.AWARD_KONG_FU(skill.Ptr);
+                        ok = this.Ptr_PlayerDataManager.AWARD_KONG_FU(skill.Ptr);
                     }
-                }
-                else if (objectDTO.ModifyCategory == nameof(UniqueSkillDataSet))
-                {
-                    var skill = this.GameCache.UniqueSkillDataSets.Where(p => p.ObjectId == newSkill).FirstOrDefault();
-                    if (skill is not null)
+                    else if (objectDTO.ModifyCategory == nameof(UniqueSkillDataSet))
                     {
                         UniqueSkillDataSet.Ptr_UniqueSkillDataSet skillDataSet = skill.Ptr;
                         if (skillDataSet.KF_TYPE == KFType.轻)
                         {
-                            this.Ptr_PlayerDataManager.AWARD_KANG_FU_QING(skill.Ptr);
+                            ok = this.Ptr_PlayerDataManager.AWARD_KANG_FU_QING(skill.Ptr);
                         }
-                        this.Ptr_PlayerDataManager.AWARD_KONG_FU_SKILL(skill.Ptr);
+                        ok = this.Ptr_PlayerDataManager.AWARD_KONG_FU_SKILL(skill.Ptr);
                     }
-                }
-                else if (objectDTO.ModifyCategory == nameof(ShanHaiLuDataSet))
-                {
-                    var skill = this.GameCache.ShanHaiLuDataSets.Where(p => p.ObjectId == newSkill).FirstOrDefault();
-                    if (skill is not null)
+                    else if (objectDTO.ModifyCategory == nameof(ShanHaiLuDataSet))
                     {
-                        this.Ptr_PlayerDataManager.AWARD_SHAN_HAI_LU(skill.Ptr);
+                        ok = this.Ptr_PlayerDataManager.AWARD_SHAN_HAI_LU(skill.Ptr);
+                    }
+
+                    if (!ok)
+                    {
+                        GameException.Throw("Add Skill Error");
                     }
                 }
+
             }
 
 
         }
 
 
+
+        #endregion
+
+
+        #region FriendData
+        public void Test()
+        {
+            var p = LogicHelper.Ptr_LogicHelper._INSTANCE;
+
+            var data = ExcelDataManager.Ptr_ExcelDataManager.INSTANCE;
+            foreach (var table in data.P_FRIEND_LOVE_TABLE.DICT.AsRefArray())
+            {
+                var tableItem = table.Value;
+                this.Logger.LogInformation("name:{name},name2:{name2},id:{id}", tableItem.NAME.ToString(), tableItem.NAME2.ToString(), tableItem.ID);
+                p.FRIEND_ADD(tableItem.NAME2);
+            }
+
+
+        }
+
+        public void AddFriend(GameCharacterModifyDTO objectDTO)
+        {
+            _ = TryGetFriend(objectDTO.CharacterId, out var friendData, out var friendLocaltion);
+            if (friendLocaltion != EnumFriendLocaltion.队伍内)
+            {
+                var friend = this.GameCache.Characters.Where(p => p.ObjectId == objectDTO.CharacterId).FirstOrDefault();
+                if (friend is not null)
+                {
+                    FriendLoveTableItem.Ptr_FriendLoveTableItem tableItem = friend.Ptr;
+                    var helper = LogicHelper.Ptr_LogicHelper._INSTANCE;
+                    helper.FRIEND_ADD(tableItem.NAME2);
+                }
+            }
+
+
+
+        }
+        public void LeaveFriend(GameCharacterModifyDTO objectDTO)
+        {
+            if (TryGetFriend(objectDTO.CharacterId, out var friendData,out var friendLocaltion))
+            {
+                if (friendLocaltion == EnumFriendLocaltion.队伍内)
+                {
+                    this.Ptr_PlayerFriendDataManager.LEAVE_FRIEND(friendData._AB_NAME);
+                }
+            }
+        }
+        public GameCharacterStatusDTO GetFriendStatusDTO(GameCharacterObjectDTO objectDTO)
+        {
+            return new GameCharacterStatusDTO() { ObjectId = objectDTO.CharacterId, CharacterAttributes = [.. GetFriendData(objectDTO.CharacterId)] };
+        }
+
+        private bool TryGetFriend(ReadOnlySpan<char> name, out FriendData.Ptr_FriendData ptr_FriendData, out EnumFriendLocaltion enumFriendLocaltion)
+        {
+            Unsafe.SkipInit(out ptr_FriendData);
+
+
+            var frienddata = this.Ptr_PlayerFriendDataManager._FRIEND_DATA;
+
+            foreach (var friend in frienddata.ADD_FRIENDS.AsRefArray())
+            {
+                ptr_FriendData = friend.Value;
+                if (ptr_FriendData._AB_NAME.AsReadOnlySpan().SequenceEqual(name))
+                {
+                    enumFriendLocaltion = EnumFriendLocaltion.队伍内;
+                    return true;
+                }
+
+            }
+
+            foreach (var friend in frienddata.LEAVE_FRIENDS.AsRefArray())
+            {
+                ptr_FriendData = friend.Value;
+                if (ptr_FriendData._AB_NAME.AsReadOnlySpan().SequenceEqual(name))
+                {
+                    enumFriendLocaltion = EnumFriendLocaltion.已离队;
+                    return true;
+                }
+            }
+
+            enumFriendLocaltion = EnumFriendLocaltion.未创建;
+            return false;
+        }
+
+        private IEnumerable<GameSwitchDisplayDTO> GetFriendData(string name)
+        {
+            var add = TryGetFriend(name, out var playerData, out var friendLocaltion);
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.好友)}.{name}", DisplayName = "队伍.入队", SwitchValue = friendLocaltion == EnumFriendLocaltion.队伍内, UIType = (int)EnumGameSwitchUIType.Switches };
+            if (!add)
+            {
+                yield break;
+            }
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._LV)}", DisplayName = "属性.等级", ContentValue = playerData._LV.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+
+        }
 
         #endregion
 
@@ -827,7 +895,7 @@ namespace Maple.BeastSaga.Metadata
             }
             else if (objectDTO.CharacterCategory == nameof(FriendData))
             {
-                return new GameCharacterStatusDTO() { ObjectId = objectDTO.CharacterId, CharacterAttributes = [] };
+                return new GameCharacterStatusDTO() { ObjectId = objectDTO.CharacterId, CharacterAttributes = [.. GetFriendData(objectDTO.CharacterId)] };
 
             }
             return GameException.Throw<GameCharacterStatusDTO>($"NOUT FOUND:{objectDTO.CharacterCategory}");
@@ -842,7 +910,7 @@ namespace Maple.BeastSaga.Metadata
             }
             else if (objectDTO.CharacterCategory == nameof(FriendData))
             {
-                return new GameCharacterStatusDTO() { ObjectId = objectDTO.CharacterId, CharacterAttributes = [] };
+                return new GameCharacterStatusDTO() { ObjectId = objectDTO.CharacterId, CharacterAttributes = [.. GetFriendData(objectDTO.CharacterId)] };
 
             }
             return GameException.Throw<GameCharacterStatusDTO>($"NOUT FOUND:{objectDTO.CharacterCategory}");
@@ -886,7 +954,8 @@ namespace Maple.BeastSaga.Metadata
 
     public enum EnumPlayerPropType
     {
-        属性 = 0,
+        好友,
+        属性,
         武学,
         生活,
         当前生活,
@@ -902,5 +971,12 @@ namespace Maple.BeastSaga.Metadata
         内功,
         武艺,
         绝技
+    }
+
+    public enum EnumFriendLocaltion
+    {
+        未创建 = 0,
+        队伍内 = 1,
+        已离队 = 2,
     }
 }

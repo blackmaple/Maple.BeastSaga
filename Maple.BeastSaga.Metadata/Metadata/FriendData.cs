@@ -1,3 +1,5 @@
+using Maple.MonoGameAssistant.Core;
+
 namespace Maple.BeastSaga.Metadata
 {
     /// <summary>
@@ -30,10 +32,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-             /*
+        
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_AbName", "System.String")]
-            public partial nint _AB_NAME { get; set; } 
-*/
+            public partial PMonoString _AB_NAME { get; set; } 
+ 
 
             /// <summary>
             /// 0x18 System.String _Name
@@ -300,10 +302,10 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
+           
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Lv", "System.Int32")]
             public partial System.Int32 _LV { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0xEC System.Int32 _AddProSpot
