@@ -59,6 +59,7 @@ namespace Maple.BeastSaga.Metadata
     [ContextMemberMetadata<FriendLoveTable>]
     [ContextMemberMetadata<FriendLoveTableItem>]
     [ContextMemberMetadata<LogicHelper>]
+    [ContextMemberMetadata<KongfuExpItem>]
 
     public partial class BeastSagaGameContext
     { }

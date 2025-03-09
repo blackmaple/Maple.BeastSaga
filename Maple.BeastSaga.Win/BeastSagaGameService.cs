@@ -80,9 +80,55 @@ namespace Maple.DinoTopia.Win
         public sealed override async ValueTask<GameInventoryInfoDTO> UpdateInventoryInfoAsync(GameInventoryModifyDTO inventoryObjectDTO)
         {
             var gameEnv = await this.GetBeastSagaGameEnvThrowIfNotInGameAsync().ConfigureAwait(false);
-            return await this.MonoTaskAsync((p, args) => args.gameEnv.UpdateInventoryInfoDTO(args.inventoryObjectDTO), (gameEnv, inventoryObjectDTO)).ConfigureAwait(false);
+            return await this.UITaskAsync((p, args) => args.gameEnv.UpdateInventoryInfoDTO(args.inventoryObjectDTO), (gameEnv, inventoryObjectDTO)).ConfigureAwait(false);
+        }
+        public sealed override ValueTask<GameCurrencyDisplayDTO[]> GetListCurrencyDisplayAsync()
+        {
+            return new ValueTask<GameCurrencyDisplayDTO[]>(GameCache.Currencies);
         }
 
+        public sealed override async ValueTask<GameCurrencyInfoDTO> GetCurrencyInfoAsync(GameCurrencyObjectDTO currencyObjectDTO)
+        {
+            var gameEnv = await this.GetBeastSagaGameEnvThrowIfNotInGameAsync().ConfigureAwait(false);
+            return await this.MonoTaskAsync((p, args) => args.gameEnv.GetCurrencyInfoDTO(args.currencyObjectDTO), (gameEnv, currencyObjectDTO)).ConfigureAwait(false);
+        }
+
+        public sealed override async ValueTask<GameCurrencyInfoDTO> UpdateCurrencyInfoAsync(GameCurrencyModifyDTO currencyModifyDTO)
+        {
+            var gameEnv = await this.GetBeastSagaGameEnvThrowIfNotInGameAsync().ConfigureAwait(false);
+            return await this.MonoTaskAsync((p, args) => args.gameEnv.UpdateCurrencyInfoDTO(args.currencyModifyDTO), (gameEnv, currencyModifyDTO)).ConfigureAwait(false);
+        }
+
+
+        public sealed override ValueTask<GameCharacterDisplayDTO[]> GetListCharacterDisplayAsync()
+        {
+            return new ValueTask<GameCharacterDisplayDTO[]>(GameCache.Characters);
+        }
+
+        public sealed override async ValueTask<GameCharacterStatusDTO> GetCharacterStatusAsync(GameCharacterObjectDTO characterObjectDTO)
+        {
+            var gameEnv = await this.GetBeastSagaGameEnvThrowIfNotInGameAsync().ConfigureAwait(false);
+            return await this.MonoTaskAsync((p, args) => args.gameEnv.GetCharacterStatusDTO(args.characterObjectDTO), (gameEnv, characterObjectDTO)).ConfigureAwait(false);
+        }
+
+        public sealed override async ValueTask<GameCharacterStatusDTO> UpdateCharacterStatusAsync(GameCharacterModifyDTO characterModifyDTO)
+        {
+            var gameEnv = await this.GetBeastSagaGameEnvThrowIfNotInGameAsync().ConfigureAwait(false);
+            return await this.MonoTaskAsync((p, args) => args.gameEnv.UpdateCharacterStatusDTO(args.characterModifyDTO), (gameEnv, characterModifyDTO)).ConfigureAwait(false);
+        }
+
+
+        public sealed override async ValueTask<GameCharacterSkillDTO> GetCharacterSkillAsync(GameCharacterObjectDTO characterObjectDTO)
+        {
+            var gameEnv = await this.GetBeastSagaGameEnvThrowIfNotInGameAsync().ConfigureAwait(false);
+            return await this.MonoTaskAsync((p, args) => args.gameEnv.GetCharacterSkillDTO(args.characterObjectDTO), (gameEnv, characterObjectDTO)).ConfigureAwait(false);
+        }
+
+        public sealed override async ValueTask<GameCharacterSkillDTO> UpdateCharacterSkillAsync(GameCharacterModifyDTO characterModifyDTO)
+        {
+            var gameEnv = await this.GetBeastSagaGameEnvThrowIfNotInGameAsync().ConfigureAwait(false);
+            return await this.MonoTaskAsync((p, args) => args.gameEnv.UpdateCharacterSkillDTO(args.characterModifyDTO), (gameEnv, characterModifyDTO)).ConfigureAwait(false);
+        }
 
         //public sealed override ValueTask<GameSwitchDisplayDTO[]> GetListSwitchDisplayAsync()
         //{

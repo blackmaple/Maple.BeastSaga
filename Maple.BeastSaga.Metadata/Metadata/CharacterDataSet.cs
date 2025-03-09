@@ -19,7 +19,7 @@ namespace Maple.BeastSaga.Metadata
 
             public static implicit operator Ptr_CharacterDataSet(System.IntPtr ptr) => new Ptr_CharacterDataSet(ptr);
             public static implicit operator System.IntPtr(Ptr_CharacterDataSet ptr) => ptr.m_Pointer;
-            public static implicit operator bool (Ptr_CharacterDataSet ptr) => ptr.m_Pointer != System.IntPtr.Zero;
+            public static implicit operator bool(Ptr_CharacterDataSet ptr) => ptr.m_Pointer != System.IntPtr.Zero;
         }
 
         /// <summary>
@@ -32,25 +32,25 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-             /*
-            public const nint OBJECT_IS_NULL_MESSAGE = The Object you want to instantiate is null.; 
+            /*
+           public const nint OBJECT_IS_NULL_MESSAGE = The Object you want to instantiate is null.; 
 */
             /// <summary>
             /// 0x0 System.String cloneDestroyedMessage
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-             /*
-            public const nint CLONE_DESTROYED_MESSAGE = Instantiate failed because the clone was destroyed during creati; 
+            /*
+           public const nint CLONE_DESTROYED_MESSAGE = Instantiate failed because the clone was destroyed during creati; 
 */
             /// <summary>
             /// 0x0 System.Int32 OffsetOfInstanceIDInCPlusPlusObject
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("OffsetOfInstanceIDInCPlusPlusObject", "System.Int32")]
-            public static partial System.Int32 OFFSET_OF_INSTANCE_ID_IN_C_PLUS_PLUS_OBJECT { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("OffsetOfInstanceIDInCPlusPlusObject", "System.Int32")]
+           public static partial System.Int32 OFFSET_OF_INSTANCE_ID_IN_C_PLUS_PLUS_OBJECT { get; set; } 
 */
 
             /// <summary>
@@ -58,9 +58,9 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."IntPtr"]
             /// </summary>
             /// <returns>struct System.IntPtr</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("m_CachedPtr", "System.IntPtr")]
-            public partial System.IntPtr M_CACHED_PTR { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("m_CachedPtr", "System.IntPtr")]
+           public partial System.IntPtr M_CACHED_PTR { get; set; } 
 */
 
             /// <summary>
@@ -68,19 +68,19 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-              
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("Name", "System.String")]
-            public partial PMonoString NAME { get; set; } 
- 
+            public partial PMonoString NAME { get; set; }
+
 
             /// <summary>
             /// 0x20 KangFuSkillDictionary Skills
             /// class ["Model.Runtime".""."KangFuSkillDictionary"]
             /// </summary>
             /// <returns>class KangFuSkillDictionary</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("Skills", "KangFuSkillDictionary")]
-            public partial nint SKILLS { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("Skills", "KangFuSkillDictionary")]
+           public partial nint SKILLS { get; set; } 
 */
 
             /// <summary>
@@ -88,9 +88,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<CharacterDataSet></returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("PreCharacter", "System.Collections.Generic.List<CharacterDataSet>")]
-            public partial nint PRE_CHARACTER { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("PreCharacter", "System.Collections.Generic.List<CharacterDataSet>")]
+           public partial nint PRE_CHARACTER { get; set; } 
 */
 
             /// <summary>
@@ -98,9 +98,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<CharacterDataSet></returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("RepelCharacter", "System.Collections.Generic.List<CharacterDataSet>")]
-            public partial nint REPEL_CHARACTER { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("RepelCharacter", "System.Collections.Generic.List<CharacterDataSet>")]
+           public partial nint REPEL_CHARACTER { get; set; } 
 */
 
             /// <summary>
@@ -108,19 +108,18 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("CostPoint", "System.Int32")]
-            public partial System.Int32 COST_POINT { get; set; } 
-*/
+            public partial System.Int32 COST_POINT { get; set; }
 
             /// <summary>
             /// 0x3C System.Int32 LayerWhich
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("LayerWhich", "System.Int32")]
-            public partial System.Int32 LAYER_WHICH { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("LayerWhich", "System.Int32")]
+           public partial System.Int32 LAYER_WHICH { get; set; } 
 */
 
             /// <summary>
@@ -128,9 +127,9 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("NumWhich", "System.Int32")]
-            public partial System.Int32 NUM_WHICH { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("NumWhich", "System.Int32")]
+           public partial System.Int32 NUM_WHICH { get; set; } 
 */
         }
 

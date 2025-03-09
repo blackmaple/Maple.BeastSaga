@@ -242,11 +242,11 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <param name = "addExp">struct System.Int32</param>
             /// <returns>struct System.Void</returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddExp", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 0)]
-           public partial void ADD_EXP(System.Int32 addExp); 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddExp", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 0)]
+            public partial void ADD_EXP(System.Int32 addExp);
+
             /// <summary>
             ///   System.Void AddFriendLove(System.String friendName)
             /// </summary>
@@ -500,13 +500,13 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "num">struct System.Single</param>
             /// <param name = "defaultNum">struct System.Single</param>
             /// <returns>struct System.Void</returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ChangeFriendLove", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
-           public partial void CHANGE_FRIEND_LOVE(nint friendName, System.Single num, System.Single defaultNum); 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ChangeFriendLove", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial void CHANGE_FRIEND_LOVE(nint friendName, System.Single num, System.Single defaultNum);
+
             /// <summary>
             ///   System.Boolean ChangeInKangFu(System.String inKangFuName)
             /// </summary>
@@ -958,11 +958,11 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <param name = "kFType">enum KFType</param>
             /// <returns>struct System.Int32</returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetKangFuTypeMax", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KFType", 0)]
-           public partial System.Int32 GET_KANG_FU_TYPE_MAX(KFType kFType); 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetKangFuTypeMax", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KFType", 0)]
+            public partial System.Int32 GET_KANG_FU_TYPE_MAX(KFType kFType);
+
             /// <summary>
             ///   System.Int32 GetKongFuTypeBaseLv(KFType kFType)
             /// </summary>
@@ -978,11 +978,11 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <param name = "kFType">enum KFType</param>
             /// <returns>struct System.Int32</returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetKongFuTypeLv", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KFType", 0)]
-           public partial System.Int32 GET_KONG_FU_TYPE_LV(KFType kFType); 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetKongFuTypeLv", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KFType", 0)]
+            public partial System.Int32 GET_KONG_FU_TYPE_LV(KFType kFType);
+
             /// <summary>
             ///   System.Int32 GetLifeLV(LifeType lifeType)
             /// </summary>
@@ -1817,10 +1817,10 @@ namespace Maple.BeastSaga.Metadata
             ///   System.Void SaveProLifePoints()
             /// </summary>
             /// <returns>struct System.Void</returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SaveProLifePoints", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-           public partial void SAVE_PRO_LIFE_POINTS(); 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SaveProLifePoints", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            public partial void SAVE_PRO_LIFE_POINTS();
+
             /// <summary>
             ///   System.Void SetBattleSpeed(System.Int32 speed)
             /// </summary>

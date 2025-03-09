@@ -2,6 +2,7 @@
 using Maple.MonoGameAssistant.GameDTO;
 using Maple.MonoGameAssistant.MetadataExtensions.MetadataCollector;
 using Microsoft.Extensions.Logging;
+using System.Xml.Linq;
 
 namespace Maple.BeastSaga.Metadata
 {
@@ -13,8 +14,9 @@ namespace Maple.BeastSaga.Metadata
         private ILogger Logger => Context.Logger;
         private LoadDataSet.Ptr_LoadDataSet Ptr_LoadDataSet { get; }
         private OpenUIManager.Ptr_OpenUIManager Ptr_OpenUIManager { get; }
-        private ExcelDataManager.Ptr_ExcelDataManager Ptr_ExcelDataManager { get; }
+        public ExcelDataManager.Ptr_ExcelDataManager Ptr_ExcelDataManager { get; }
 
+        public GameCurrencyDisplayDTOEX[] Currencies { get; }
         public GameInventoryDisplayDTOEX[] Items { get; }
         public GameCharacterDisplayDTOEX[] Characters { get; }
         public GameInventoryDisplayDTOEX[] KangFuDataSet { get; }
@@ -29,13 +31,15 @@ namespace Maple.BeastSaga.Metadata
             this.Ptr_LoadDataSet = LoadDataSet.Ptr_LoadDataSet._INSTANCE;
             this.Ptr_OpenUIManager = OpenUIManager.Ptr_OpenUIManager._INST;
             this.Ptr_ExcelDataManager = ExcelDataManager.Ptr_ExcelDataManager.INSTANCE;
+            this.Currencies = [
+                .. GetItemDataSet(),
+            ];
             this.Items = [
                 .. GetEquipDataSet(),
-                .. GetItemDataSet(),
                 ..GetChongDataSet(),
                 ..GetChongPotDataSet(),
                 ];
-            this.KangFuDataSet = [..GetKangFuDataSet(), ];
+            this.KangFuDataSet = [.. GetKangFuDataSet(),];
             this.InKangFuDataSet = [.. GetInKangFuDataSet(),];
             this.UniqueSkillDataSet = [.. GetUniqueSkillDataSet(),];
             this.ShanHaiLuDataSet = [.. GetShanHaiLuDataSet(),];
@@ -47,7 +51,17 @@ namespace Maple.BeastSaga.Metadata
         #region GameCharacterDisplayDTOEX
         public IEnumerable<GameCharacterDisplayDTOEX> GetCharacter()
         {
-      
+
+            yield return new GameCharacterDisplayDTOEX()
+            {
+                ObjectId = "九思",
+                DisplayCategory = nameof(PlayerData),
+                DisplayName = "九思",
+                DisplayDesc = "九思",
+
+            };
+
+
             foreach (var table in this.Ptr_ExcelDataManager.P_FRIEND_LOVE_TABLE.DICT.AsRefArray())
             {
                 var tableItem = table.Value;
@@ -56,7 +70,7 @@ namespace Maple.BeastSaga.Metadata
                 var name2 = tableItem.NAME2;
                 yield return new GameCharacterDisplayDTOEX()
                 {
-                    Ptr = name2,
+                    Ptr = tableItem,
                     ObjectId = name2.ToString()!,
                     DisplayCategory = nameof(FriendData),
                     DisplayName = name,
@@ -83,17 +97,18 @@ namespace Maple.BeastSaga.Metadata
             }
         }
 
-        private IEnumerable<GameInventoryDisplayDTOEX> GetItemDataSet()
+        private IEnumerable<GameCurrencyDisplayDTOEX> GetItemDataSet()
         {
             foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER)
             {
-                yield return new GameInventoryDisplayDTOEX()
+                var name = item._NAME.ToString()!;
+                yield return new GameCurrencyDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
-                    ObjectId = item._NAME.ToString()!,
-                    DisplayName = $"{item._EQUIP_TYPE}:{item._NAME}",
+                    ObjectId = name,
+                    DisplayName = $"{item._EQUIP_TYPE}.{name}",
                     DisplayDesc = item._ITEM_DES.ToString(),
-                    DisplayCategory = nameof(ItemDataSet)
+                    DisplayCategory = item._EQUIP_TYPE.ToString(),
                 };
             }
         }
@@ -230,7 +245,9 @@ namespace Maple.BeastSaga.Metadata
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = string.Empty,//; item.EXPLAIN.ToString(),
-                    DisplayCategory = nameof(CharacterDataSet)
+                    DisplayCategory = nameof(CharacterDataSet),
+
+
                 };
             }
         }
@@ -266,10 +283,19 @@ namespace Maple.BeastSaga.Metadata
     public sealed class GameInventoryDisplayDTOEX : GameInventoryDisplayDTO
     {
         public required nint Ptr { set; get; }
+
+
     }
 
     public sealed class GameCharacterDisplayDTOEX : GameCharacterDisplayDTO
-    { 
+    {
         public nint Ptr { set; get; }
+    }
+
+
+    public sealed class GameCurrencyDisplayDTOEX : GameCurrencyDisplayDTO
+    {
+        public required nint Ptr { set; get; }
+
     }
 }
