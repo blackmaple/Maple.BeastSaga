@@ -53,6 +53,13 @@ namespace Maple.BeastSaga.Metadata
     [ContextMemberMetadata<UniqueSkillDataSet>]
     //    [ContextMemberMetadata<WeaponEquipUIIndex>]
 
+
+
+    [ContextMemberMetadata<ExcelDataManager>]
+    [ContextMemberMetadata<FriendLoveTable>]
+    [ContextMemberMetadata<FriendLoveTableItem>]
+    [ContextMemberMetadata<LogicHelper>]
+
     public partial class BeastSagaGameContext
     { }
 }

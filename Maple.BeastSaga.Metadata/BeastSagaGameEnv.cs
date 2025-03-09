@@ -1,4 +1,5 @@
-﻿using Maple.MonoGameAssistant.GameDTO;
+﻿using Maple.MonoGameAssistant.Core;
+using Maple.MonoGameAssistant.GameDTO;
 using Microsoft.Extensions.Logging;
 using System.Runtime.CompilerServices;
 using static Maple.BeastSaga.Metadata.PlayerItemData;
@@ -14,7 +15,21 @@ namespace Maple.BeastSaga.Metadata
 
         private PlayerDataManager.Ptr_PlayerDataManager Ptr_PlayerDataManager { get; } = PlayerDataManager.Ptr_PlayerDataManager._INSTANCE;
         private PlayerData.Ptr_PlayerData Ptr_PlayerData => Ptr_PlayerDataManager._PLAYER_DATA;
+      
+        public void Test()
+        {
+            var p = LogicHelper.Ptr_LogicHelper._INSTANCE;
 
+            var data = ExcelDataManager.Ptr_ExcelDataManager.INSTANCE;
+            foreach (var table in data.P_FRIEND_LOVE_TABLE.DICT.AsRefArray())
+            {
+                var tableItem = table.Value;
+                this.Logger.LogInformation("name:{name},name2:{name2},id:{id}", tableItem.NAME.ToString(), tableItem.NAME2.ToString(), tableItem.ID);
+                p.FRIEND_ADD(tableItem.NAME2);
+            }
+
+      
+        }
 
         public bool ThrowIfNotInGame()
         {

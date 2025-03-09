@@ -1,29 +1,29 @@
 namespace Maple.BeastSaga.Metadata
 {
     /// <summary>
-    /// class ["Model.Runtime".""."PlayerFriendDataManager"]
+    /// class ["Model.Runtime".""."LogicHelper"]
     /// [LJG.Framework.LJGBehaviour]=>[UnityEngine.MonoBehaviour]=>[UnityEngine.Behaviour]=>[UnityEngine.Component]=>[UnityEngine.Object]=>[System.Object]
     /// </summary>
-    [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassParentMetadataAttribute<Maple.MonoGameAssistant.MetadataExtensions.MetadataCollector.ClassMetadataCollector<Ptr_PlayerFriendDataManager>, Ptr_PlayerFriendDataManager>]
-    [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassModelMetadataAttribute("Model.Runtime", "", "PlayerFriendDataManager", "PlayerFriendDataManager")]
-    public partial class PlayerFriendDataManager
+    [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassParentMetadataAttribute<Maple.MonoGameAssistant.MetadataExtensions.MetadataCollector.ClassMetadataCollector<Ptr_LogicHelper>, Ptr_LogicHelper>]
+    [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassModelMetadataAttribute("Model.Runtime", "", "LogicHelper", "LogicHelper")]
+    public partial class LogicHelper
     {
         [System.Runtime.InteropServices.StructLayoutAttribute(System.Runtime.InteropServices.LayoutKind.Sequential)]
-        public unsafe readonly partial struct Ptr_PlayerFriendDataManager(System.IntPtr ptr) : Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.IPtrMetadata
+        public unsafe readonly partial struct Ptr_LogicHelper(System.IntPtr ptr) : Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.IPtrMetadata
         {
             [System.Runtime.InteropServices.MarshalAsAttribute(System.Runtime.InteropServices.UnmanagedType.SysInt)]
             readonly System.IntPtr m_Pointer = ptr;
             public System.IntPtr Ptr => m_Pointer;
 
-            public static implicit operator Ptr_PlayerFriendDataManager(System.IntPtr ptr) => new Ptr_PlayerFriendDataManager(ptr);
-            public static implicit operator System.IntPtr(Ptr_PlayerFriendDataManager ptr) => ptr.m_Pointer;
-            public static implicit operator bool (Ptr_PlayerFriendDataManager ptr) => ptr.m_Pointer != System.IntPtr.Zero;
+            public static implicit operator Ptr_LogicHelper(System.IntPtr ptr) => new Ptr_LogicHelper(ptr);
+            public static implicit operator System.IntPtr(Ptr_LogicHelper ptr) => ptr.m_Pointer;
+            public static implicit operator bool (Ptr_LogicHelper ptr) => ptr.m_Pointer != System.IntPtr.Zero;
         }
 
         /// <summary>
-        /// class ["Model.Runtime".""."PlayerFriendDataManager"]
+        /// class ["Model.Runtime".""."LogicHelper"]
         /// </summary>
-        partial struct Ptr_PlayerFriendDataManager
+        partial struct Ptr_LogicHelper
         {
             /// <summary>
             /// 0x0 System.String objectIsNullMessage
@@ -42,13 +42,13 @@ namespace Maple.BeastSaga.Metadata
             public const nint CLONE_DESTROYED_MESSAGE = Instantiate failed because the clone was destroyed during creati; 
 */
             /// <summary>
-            /// 0x0 PlayerFriendDataManager _Instance
-            /// class ["Model.Runtime".""."PlayerFriendDataManager"]
+            /// 0x0 LogicHelper _Instance
+            /// class ["Model.Runtime".""."LogicHelper"]
             /// </summary>
-            /// <returns>class PlayerFriendDataManager</returns>
+            /// <returns>class LogicHelper</returns>
         
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Instance", "PlayerFriendDataManager")]
-            public static partial PlayerFriendDataManager.Ptr_PlayerFriendDataManager _INSTANCE { get; set; } 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Instance", "LogicHelper")]
+            public static partial LogicHelper.Ptr_LogicHelper _INSTANCE { get; set; } 
  
 
             /// <summary>
@@ -70,53 +70,25 @@ namespace Maple.BeastSaga.Metadata
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("m_CachedPtr", "System.IntPtr")]
             public partial System.IntPtr M_CACHED_PTR { get; set; } 
 */
-
-            /// <summary>
-            /// 0x18 SaveFriendData _FriendData
-            /// class ["Model.Runtime".""."SaveFriendData"]
-            /// </summary>
-            /// <returns>class SaveFriendData</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_FriendData", "SaveFriendData")]
-            public partial nint _FRIEND_DATA { get; set; } 
-*/
-
-            /// <summary>
-            /// 0x20 System.String _SaveName
-            /// class ["mscorlib"."System"."String"]
-            /// </summary>
-            /// <returns>class System.String</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_SaveName", "System.String")]
-            public partial nint _SAVE_NAME { get; set; } 
-*/
-
-            /// <summary>
-            /// 0x28 UnityEngine.GameObject _FriendManager
-            /// class ["UnityEngine.CoreModule"."UnityEngine"."GameObject"]
-            /// </summary>
-            /// <returns>class UnityEngine.GameObject</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_FriendManager", "UnityEngine.GameObject")]
-            public partial nint _FRIEND_MANAGER { get; set; } 
-*/
-
-            /// <summary>
-            /// 0x30 System.Boolean _IsLoadOver
-            /// struct ["mscorlib"."System"."Boolean"]
-            /// </summary>
-            /// <returns>struct System.Boolean</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_IsLoadOver", "System.Boolean")]
-            public partial System.Boolean _IS_LOAD_OVER { get; set; } 
-*/
         }
 
         /// <summary>
-        /// class ["Model.Runtime".""."PlayerFriendDataManager"]
+        /// class ["Model.Runtime".""."LogicHelper"]
         /// </summary>
-        partial struct Ptr_PlayerFriendDataManager
+        partial struct Ptr_LogicHelper
         {
+            /// <summary>
+            /// static  System.Int32 GetIntNum(System.Int32 min, System.Int32 max)
+            /// </summary>
+            /// <param name = "min">struct System.Int32</param>
+            /// <param name = "max">struct System.Int32</param>
+            /// <returns>struct System.Int32</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetIntNum", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            public static partial System.Int32 GET_INT_NUM(System.Int32 min, System.Int32 max); 
+*/
             /// <summary>
             ///   System.Void .ctor()
             /// </summary>
@@ -126,25 +98,15 @@ namespace Maple.BeastSaga.Metadata
             public partial void CTOR(); 
 */
             /// <summary>
-            ///   System.Void AddFriend(FriendDefaultData friendDefault, System.String abName)
+            ///   System.Void <CrateFriend>b__63_0(UnityEngine.GameObject friend)
             /// </summary>
-            /// <param name = "friendDefault">class FriendDefaultData</param>
-            /// <param name = "abName">class System.String</param>
+            /// <param name = "friend">class UnityEngine.GameObject</param>
             /// <returns>struct System.Void</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("FriendDefaultData", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
-            public partial void ADD_FRIEND(nint friendDefault, nint abName); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("<CrateFriend>b__63_0", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+            public partial void CRATE_FRIENDB__63_0(nint friend); 
 */
-            /// <summary>
-            ///   System.Void AddFriendAll()
-            /// </summary>
-            /// <returns>struct System.Void</returns>
-       
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddFriendAll", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void ADD_FRIEND_ALL(); 
- 
             /// <summary>
             ///   System.Void Awake()
             /// </summary>
@@ -154,42 +116,400 @@ namespace Maple.BeastSaga.Metadata
             public partial void AWAKE(); 
 */
             /// <summary>
-            ///   System.Void CheckDataLoad()
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> BattleCircleCanAllPoint(UnityEngine.GameObject battleUtil, System.Single distance, System.Single scale)
             /// </summary>
-            /// <returns>struct System.Void</returns>
+            /// <param name = "battleUtil">class UnityEngine.GameObject</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <param name = "scale">struct System.Single</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CheckDataLoad", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void CHECK_DATA_LOAD(); 
-*/
-            /// <summary>
-            ///   System.Void DestroyTempFriend(UnityEngine.GameObject obj)
-            /// </summary>
-            /// <param name = "obj">class UnityEngine.GameObject</param>
-            /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("DestroyTempFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("BattleCircleCanAllPoint", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
-            public partial void DESTROY_TEMP_FRIEND(nint obj); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial nint BATTLE_CIRCLE_CAN_ALL_POINT(nint battleUtil, System.Single distance, System.Single scale); 
 */
             /// <summary>
-            ///   System.Void FriendDialogue(System.String friendName)
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> BattleCircleCanAllPoint1(UnityEngine.GameObject battleUtil, System.Single distance)
+            /// </summary>
+            /// <param name = "battleUtil">class UnityEngine.GameObject</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("BattleCircleCanAllPoint1", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            public partial nint BATTLE_CIRCLE_CAN_ALL_POINT1(nint battleUtil, System.Single distance); 
+*/
+            /// <summary>
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> BattleCircleCanPoint(UnityEngine.GameObject battleUtil, System.Single distance, System.Single scale)
+            /// </summary>
+            /// <param name = "battleUtil">class UnityEngine.GameObject</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <param name = "scale">struct System.Single</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("BattleCircleCanPoint", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial nint BATTLE_CIRCLE_CAN_POINT(nint battleUtil, System.Single distance, System.Single scale); 
+*/
+            /// <summary>
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> BattleCircleCanPoint(UnityEngine.GameObject circleUtil, System.Single distance, UnityEngine.GameObject battleMoveUtil)
+            /// </summary>
+            /// <param name = "circleUtil">class UnityEngine.GameObject</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <param name = "battleMoveUtil">class UnityEngine.GameObject</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("BattleCircleCanPoint", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 2)]
+            public partial nint BATTLE_CIRCLE_CAN_POINT(nint circleUtil, System.Single distance, nint battleMoveUtil); 
+*/
+            /// <summary>
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> BattleCircleCanPointAndInCircle(UnityEngine.GameObject circleUtil, System.Single distance, UnityEngine.GameObject battleMoveUtil)
+            /// </summary>
+            /// <param name = "circleUtil">class UnityEngine.GameObject</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <param name = "battleMoveUtil">class UnityEngine.GameObject</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("BattleCircleCanPointAndInCircle", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 2)]
+            public partial nint BATTLE_CIRCLE_CAN_POINT_AND_IN_CIRCLE(nint circleUtil, System.Single distance, nint battleMoveUtil); 
+*/
+            /// <summary>
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> BattleCircleCanPointCreate(UnityEngine.Vector2 positionutil, System.Single distance, UnityEngine.GameObject battleUtil, System.Single scale)
+            /// </summary>
+            /// <param name = "positionutil">struct UnityEngine.Vector2</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <param name = "battleUtil">class UnityEngine.GameObject</param>
+            /// <param name = "scale">struct System.Single</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("BattleCircleCanPointCreate", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 2)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 3)]
+            public partial nint BATTLE_CIRCLE_CAN_POINT_CREATE(UnityEngine.Vector2 positionutil, System.Single distance, nint battleUtil, System.Single scale); 
+*/
+            /// <summary>
+            ///   UnityEngine.Vector2 BattleUnitPosition(UnityEngine.GameObject battleUtile, System.Single colliderRadius)
+            /// </summary>
+            /// <param name = "battleUtile">class UnityEngine.GameObject</param>
+            /// <param name = "colliderRadius">struct System.Single</param>
+            /// <returns>struct UnityEngine.Vector2</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("BattleUnitPosition", "UnityEngine.Vector2", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            public partial UnityEngine.Vector2 BATTLE_UNIT_POSITION(nint battleUtile, System.Single colliderRadius); 
+*/
+            /// <summary>
+            ///   System.Single CalculateMarginalBenefit(System.Int32 points, System.Single procoe)
+            /// </summary>
+            /// <param name = "points">struct System.Int32</param>
+            /// <param name = "procoe">struct System.Single</param>
+            /// <returns>struct System.Single</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CalculateMarginalBenefit", "System.Single", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            public partial System.Single CALCULATE_MARGINAL_BENEFIT(System.Int32 points, System.Single procoe); 
+*/
+            /// <summary>
+            ///   UnityEngine.Vector3 CalculateTargetPotint(UnityEngine.Vector3 post1, UnityEngine.Vector3 post2, System.Single distanceFromPost2)
+            /// </summary>
+            /// <param name = "post1">struct UnityEngine.Vector3</param>
+            /// <param name = "post2">struct UnityEngine.Vector3</param>
+            /// <param name = "distanceFromPost2">struct System.Single</param>
+            /// <returns>struct UnityEngine.Vector3</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CalculateTargetPotint", "UnityEngine.Vector3", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial UnityEngine.Vector3 CALCULATE_TARGET_POTINT(UnityEngine.Vector3 post1, UnityEngine.Vector3 post2, System.Single distanceFromPost2); 
+*/
+            /// <summary>
+            ///   System.Void ChangeSkin(System.String newSkinName, Spine.Unity.SkeletonAnimation skeletonAnimation)
+            /// </summary>
+            /// <param name = "newSkinName">class System.String</param>
+            /// <param name = "skeletonAnimation">class Spine.Unity.SkeletonAnimation</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ChangeSkin", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("Spine.Unity.SkeletonAnimation", 1)]
+            public partial void CHANGE_SKIN(nint newSkinName, nint skeletonAnimation); 
+*/
+            /// <summary>
+            ///   System.Boolean CheckMen(UnityEngine.Vector3 self, UnityEngine.Vector3 target, System.Single distance)
+            /// </summary>
+            /// <param name = "self">struct UnityEngine.Vector3</param>
+            /// <param name = "target">struct UnityEngine.Vector3</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CheckMen", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial System.Boolean CHECK_MEN(UnityEngine.Vector3 self, UnityEngine.Vector3 target, System.Single distance); 
+*/
+            /// <summary>
+            ///   UnityEngine.GameObject CheckObstacle(UnityEngine.Transform selfObj, UnityEngine.Vector3 target, System.Single distance)
+            /// </summary>
+            /// <param name = "selfObj">class UnityEngine.Transform</param>
+            /// <param name = "target">struct UnityEngine.Vector3</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <returns>class UnityEngine.GameObject</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CheckObstacle", "UnityEngine.GameObject", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Transform", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial nint CHECK_OBSTACLE(nint selfObj, UnityEngine.Vector3 target, System.Single distance); 
+*/
+            /// <summary>
+            ///   System.Boolean CheckObstacle(UnityEngine.Vector3 self, UnityEngine.Vector3 target, System.Single distance)
+            /// </summary>
+            /// <param name = "self">struct UnityEngine.Vector3</param>
+            /// <param name = "target">struct UnityEngine.Vector3</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CheckObstacle", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial System.Boolean CHECK_OBSTACLE(UnityEngine.Vector3 self, UnityEngine.Vector3 target, System.Single distance); 
+*/
+            /// <summary>
+            ///   System.Boolean CircleCheck(UnityEngine.Vector3 selfPosition, UnityEngine.Vector3 targetPosition, System.Single distance)
+            /// </summary>
+            /// <param name = "selfPosition">struct UnityEngine.Vector3</param>
+            /// <param name = "targetPosition">struct UnityEngine.Vector3</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CircleCheck", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial System.Boolean CIRCLE_CHECK(UnityEngine.Vector3 selfPosition, UnityEngine.Vector3 targetPosition, System.Single distance); 
+*/
+            /// <summary>
+            ///   System.Boolean CircleSamePoint(UnityEngine.Vector3 onePosition, UnityEngine.Vector3 towPosition, System.Single oneRadius, System.Single twoRadius)
+            /// </summary>
+            /// <param name = "onePosition">struct UnityEngine.Vector3</param>
+            /// <param name = "towPosition">struct UnityEngine.Vector3</param>
+            /// <param name = "oneRadius">struct System.Single</param>
+            /// <param name = "twoRadius">struct System.Single</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CircleSamePoint", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 3)]
+            public partial System.Boolean CIRCLE_SAME_POINT(UnityEngine.Vector3 onePosition, UnityEngine.Vector3 towPosition, System.Single oneRadius, System.Single twoRadius); 
+*/
+            /// <summary>
+            ///   System.Void ConditionObserverCheck()
+            /// </summary>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ConditionObserverCheck", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            public partial void CONDITION_OBSERVER_CHECK(); 
+*/
+            /// <summary>
+            ///   System.Int32 CountDecimalPlaces(System.Single number)
+            /// </summary>
+            /// <param name = "number">struct System.Single</param>
+            /// <returns>struct System.Int32</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CountDecimalPlaces", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 0)]
+            public partial System.Int32 COUNT_DECIMAL_PLACES(System.Single number); 
+*/
+            /// <summary>
+            ///   System.Void CrateFriend(System.String friendName)
             /// </summary>
             /// <param name = "friendName">class System.String</param>
             /// <returns>struct System.Void</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("FriendDialogue", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CrateFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial void FRIEND_DIALOGUE(nint friendName); 
+            public partial void CRATE_FRIEND(nint friendName); 
 */
             /// <summary>
-            ///   System.Void FriendDie(System.String name)
+            ///   System.Void CreateFriendPositionFor(UnityEngine.GameObject friend)
             /// </summary>
-            /// <param name = "name">class System.String</param>
+            /// <param name = "friend">class UnityEngine.GameObject</param>
             /// <returns>struct System.Void</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("FriendDie", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CreateFriendPositionFor", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+            public partial void CREATE_FRIEND_POSITION_FOR(nint friend); 
+*/
+            /// <summary>
+            ///   System.Void CreateFriendUtil()
+            /// </summary>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CreateFriendUtil", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            public partial void CREATE_FRIEND_UTIL(); 
+*/
+            /// <summary>
+            ///   System.Void DialogueContinue(System.String conversationId, System.Int32 entryID)
+            /// </summary>
+            /// <param name = "conversationId">class System.String</param>
+            /// <param name = "entryID">struct System.Int32</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("DialogueContinue", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial void FRIEND_DIE(nint name); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            public partial void DIALOGUE_CONTINUE(nint conversationId, System.Int32 entryID); 
+*/
+            /// <summary>
+            ///   System.Collections.Generic.List<System.Int32> DistributeBalls(System.Int32 redCount, System.Int32 greenCount)
+            /// </summary>
+            /// <param name = "redCount">struct System.Int32</param>
+            /// <param name = "greenCount">struct System.Int32</param>
+            /// <returns>class System.Collections.Generic.List<System.Int32></returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("DistributeBalls", "System.Collections.Generic.List<System.Int32>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            public partial nint DISTRIBUTE_BALLS(System.Int32 redCount, System.Int32 greenCount); 
+*/
+            /// <summary>
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> DrawCircle(UnityEngine.Transform self, System.Single distance, System.Single scale, System.Single targetDistance)
+            /// </summary>
+            /// <param name = "self">class UnityEngine.Transform</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <param name = "scale">struct System.Single</param>
+            /// <param name = "targetDistance">struct System.Single</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("DrawCircle", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Transform", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 3)]
+            public partial nint DRAW_CIRCLE(nint self, System.Single distance, System.Single scale, System.Single targetDistance); 
+*/
+            /// <summary>
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> DrawCircle(UnityEngine.Vector3 selfPosition, System.Single distance)
+            /// </summary>
+            /// <param name = "selfPosition">struct UnityEngine.Vector3</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("DrawCircle", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            public partial nint DRAW_CIRCLE(UnityEngine.Vector3 selfPosition, System.Single distance); 
+*/
+            /// <summary>
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> DrawCircleCreate(UnityEngine.Vector3 selfPosition, System.Single distance, System.Single scale, System.Single targetDistance)
+            /// </summary>
+            /// <param name = "selfPosition">struct UnityEngine.Vector3</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <param name = "scale">struct System.Single</param>
+            /// <param name = "targetDistance">struct System.Single</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("DrawCircleCreate", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 3)]
+            public partial nint DRAW_CIRCLE_CREATE(UnityEngine.Vector3 selfPosition, System.Single distance, System.Single scale, System.Single targetDistance); 
+*/
+            /// <summary>
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> DrawCircleSkill(UnityEngine.Transform self, System.Single distance, System.Single scal, System.Single targetDistance)
+            /// </summary>
+            /// <param name = "self">class UnityEngine.Transform</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <param name = "scal">struct System.Single</param>
+            /// <param name = "targetDistance">struct System.Single</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("DrawCircleSkill", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Transform", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 3)]
+            public partial nint DRAW_CIRCLE_SKILL(nint self, System.Single distance, System.Single scal, System.Single targetDistance); 
+*/
+            /// <summary>
+            ///   System.Boolean EnemyIsWallLine(UnityEngine.Vector3 self, UnityEngine.Vector3 target, UnityEngine.GameObject _SelfGameObj)
+            /// </summary>
+            /// <param name = "self">struct UnityEngine.Vector3</param>
+            /// <param name = "target">struct UnityEngine.Vector3</param>
+            /// <param name = "_SelfGameObj">class UnityEngine.GameObject</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("EnemyIsWallLine", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 2)]
+            public partial System.Boolean ENEMY_IS_WALL_LINE(UnityEngine.Vector3 self, UnityEngine.Vector3 target, nint _SelfGameObj); 
+*/
+            /// <summary>
+            ///   System.Single FloatOne(System.Single value)
+            /// </summary>
+            /// <param name = "value">struct System.Single</param>
+            /// <returns>struct System.Single</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("FloatOne", "System.Single", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 0)]
+            public partial System.Single FLOAT_ONE(System.Single value); 
+*/
+            /// <summary>
+            ///   System.Void Forging(System.Collections.Generic.List<PlayerEquipData> costEquip, MakeDataSet makeData)
+            /// </summary>
+            /// <param name = "costEquip">class System.Collections.Generic.List<PlayerEquipData></param>
+            /// <param name = "makeData">class MakeDataSet</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("Forging", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.List<PlayerEquipData>", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("MakeDataSet", 1)]
+            public partial void FORGING(nint costEquip, nint makeData); 
+*/
+            /// <summary>
+            ///   System.Void FriendAdd(System.String friendName)
+            /// </summary>
+            /// <param name = "friendName">class System.String</param>
+            /// <returns>struct System.Void</returns>
+         
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("FriendAdd", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            public partial void FRIEND_ADD(nint friendName); 
+ 
+            /// <summary>
+            ///   UnityEngine.Vector2 FriendGetRandomPositionAroundPlayer(UnityEngine.Vector2 playerPosition, System.Single spawnRadius, System.Single colliderRadius)
+            /// </summary>
+            /// <param name = "playerPosition">struct UnityEngine.Vector2</param>
+            /// <param name = "spawnRadius">struct System.Single</param>
+            /// <param name = "colliderRadius">struct System.Single</param>
+            /// <returns>struct UnityEngine.Vector2</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("FriendGetRandomPositionAroundPlayer", "UnityEngine.Vector2", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial UnityEngine.Vector2 FRIEND_GET_RANDOM_POSITION_AROUND_PLAYER(UnityEngine.Vector2 playerPosition, System.Single spawnRadius, System.Single colliderRadius); 
 */
             /// <summary>
             ///   System.Boolean get_IsAutomate()
@@ -200,193 +520,555 @@ namespace Maple.BeastSaga.Metadata
             public partial System.Boolean GET_IS_AUTOMATE(); 
 */
             /// <summary>
-            ///   System.Collections.Generic.List<System.String> GetBattleFriends()
+            ///   System.String GetAllFilesAndDertorys(System.String _path, System.String name)
             /// </summary>
-            /// <returns>class System.Collections.Generic.List<System.String></returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetBattleFriends", "System.Collections.Generic.List<System.String>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial nint GET_BATTLE_FRIENDS(); 
-*/
-            /// <summary>
-            ///   FriendData GetFriend(System.String name)
-            /// </summary>
+            /// <param name = "_path">class System.String</param>
             /// <param name = "name">class System.String</param>
-            /// <returns>class FriendData</returns>
+            /// <returns>class System.String</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetFriend", "FriendData", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetAllFilesAndDertorys", "System.String", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial nint GET_FRIEND(nint name); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
+            public partial nint GET_ALL_FILES_AND_DERTORYS(nint _path, nint name); 
 */
             /// <summary>
-            ///   System.Collections.Generic.Dictionary<System.String , FriendData> GetFriends()
+            ///   System.Single GetCross(UnityEngine.Vector2 point1, UnityEngine.Vector2 point2, UnityEngine.Vector2 point)
             /// </summary>
-            /// <returns>class System.Collections.Generic.Dictionary<System.String , FriendData></returns>
+            /// <param name = "point1">struct UnityEngine.Vector2</param>
+            /// <param name = "point2">struct UnityEngine.Vector2</param>
+            /// <param name = "point">struct UnityEngine.Vector2</param>
+            /// <returns>struct System.Single</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetFriends", "System.Collections.Generic.Dictionary<System.String,FriendData>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial nint GET_FRIENDS(); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetCross", "System.Single", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 2)]
+            public partial System.Single GET_CROSS(UnityEngine.Vector2 point1, UnityEngine.Vector2 point2, UnityEngine.Vector2 point); 
 */
             /// <summary>
-            ///   System.Void HpFull()
+            ///   System.String GetGameObjectPath(UnityEngine.GameObject ShowRoom, System.String StopSureParent)
             /// </summary>
-            /// <returns>struct System.Void</returns>
+            /// <param name = "ShowRoom">class UnityEngine.GameObject</param>
+            /// <param name = "StopSureParent">class System.String</param>
+            /// <returns>class System.String</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("HpFull", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void HP_FULL(); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetGameObjectPath", "System.String", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
+            public partial nint GET_GAME_OBJECT_PATH(nint ShowRoom, nint StopSureParent); 
 */
             /// <summary>
-            ///   System.Void InitFriend(System.String itemName, FriendData friendData)
+            ///   System.String GetGameObjectPathInRoom(UnityEngine.GameObject ShowRoom, System.String StopSureParent, System.Collections.Generic.List<System.String>& loadObjNames)
             /// </summary>
-            /// <param name = "itemName">class System.String</param>
-            /// <param name = "friendData">class FriendData</param>
-            /// <returns>struct System.Void</returns>
+            /// <param name = "ShowRoom">class UnityEngine.GameObject</param>
+            /// <param name = "StopSureParent">class System.String</param>
+            /// <param name = "loadObjNames">class System.Collections.Generic.List<System.String>&</param>
+            /// <returns>class System.String</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("InitFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("FriendData", 1)]
-            public partial void INIT_FRIEND(nint itemName, nint friendData); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetGameObjectPathInRoom", "System.String", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.List<System.String>&", 2)]
+            public partial nint GET_GAME_OBJECT_PATH_IN_ROOM(nint ShowRoom, nint StopSureParent, nint loadObjNames); 
 */
             /// <summary>
-            ///   System.Collections.IEnumerator InitFriendData()
+            ///   System.Collections.Generic.List<UnityEngine.Vector3> GetLinePointMax(UnityEngine.Vector3 post1, UnityEngine.Vector3 post2)
             /// </summary>
-            /// <returns>interface System.Collections.IEnumerator</returns>
+            /// <param name = "post1">struct UnityEngine.Vector3</param>
+            /// <param name = "post2">struct UnityEngine.Vector3</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Vector3></returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("InitFriendData", "System.Collections.IEnumerator", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial nint INIT_FRIEND_DATA(); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetLinePointMax", "System.Collections.Generic.List<UnityEngine.Vector3>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            public partial nint GET_LINE_POINT_MAX(UnityEngine.Vector3 post1, UnityEngine.Vector3 post2); 
 */
             /// <summary>
-            ///   System.Boolean IsHaveFriend(System.String name)
+            ///   UnityEngine.Vector3 GetLinePointToPost1(UnityEngine.Vector3 currentPost1, UnityEngine.Vector3 targetPost2, System.Single distance)
             /// </summary>
-            /// <param name = "name">class System.String</param>
-            /// <returns>struct System.Boolean</returns>
+            /// <param name = "currentPost1">struct UnityEngine.Vector3</param>
+            /// <param name = "targetPost2">struct UnityEngine.Vector3</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <returns>struct UnityEngine.Vector3</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsHaveFriend", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial System.Boolean IS_HAVE_FRIEND(nint name); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetLinePointToPost1", "UnityEngine.Vector3", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial UnityEngine.Vector3 GET_LINE_POINT_TO_POST1(UnityEngine.Vector3 currentPost1, UnityEngine.Vector3 targetPost2, System.Single distance); 
 */
             /// <summary>
-            ///   System.Boolean IsIncludeFriend(System.String name)
+            ///   UnityEngine.Vector3 GetLinePointToPost2(UnityEngine.Vector3 currentPost1, UnityEngine.Vector3 targetPost2, System.Single distance)
             /// </summary>
-            /// <param name = "name">class System.String</param>
-            /// <returns>struct System.Boolean</returns>
+            /// <param name = "currentPost1">struct UnityEngine.Vector3</param>
+            /// <param name = "targetPost2">struct UnityEngine.Vector3</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <returns>struct UnityEngine.Vector3</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsIncludeFriend", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial System.Boolean IS_INCLUDE_FRIEND(nint name); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetLinePointToPost2", "UnityEngine.Vector3", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial UnityEngine.Vector3 GET_LINE_POINT_TO_POST2(UnityEngine.Vector3 currentPost1, UnityEngine.Vector3 targetPost2, System.Single distance); 
 */
             /// <summary>
-            ///   System.Collections.IEnumerator IStartConversation(System.String title)
+            ///   UnityEngine.Vector3 GetLinePointToPost2Far(UnityEngine.Vector3 currentPost1, UnityEngine.Vector3 targetPost2, System.Single distance)
             /// </summary>
-            /// <param name = "title">class System.String</param>
-            /// <returns>interface System.Collections.IEnumerator</returns>
+            /// <param name = "currentPost1">struct UnityEngine.Vector3</param>
+            /// <param name = "targetPost2">struct UnityEngine.Vector3</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <returns>struct UnityEngine.Vector3</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IStartConversation", "System.Collections.IEnumerator", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial nint I_START_CONVERSATION(nint title); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetLinePointToPost2Far", "UnityEngine.Vector3", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            public partial UnityEngine.Vector3 GET_LINE_POINT_TO_POST2_FAR(UnityEngine.Vector3 currentPost1, UnityEngine.Vector3 targetPost2, System.Single distance); 
 */
             /// <summary>
-            ///   System.Void LeaveFriend(System.String abName)
+            ///   System.String GetMapNamePath(UnityEngine.GameObject ShowRoom, System.String StopSureParent)
             /// </summary>
-            /// <param name = "abName">class System.String</param>
-            /// <returns>struct System.Void</returns>
+            /// <param name = "ShowRoom">class UnityEngine.GameObject</param>
+            /// <param name = "StopSureParent">class System.String</param>
+            /// <returns>class System.String</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LeaveFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial void LEAVE_FRIEND(nint abName); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetMapNamePath", "System.String", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
+            public partial nint GET_MAP_NAME_PATH(nint ShowRoom, nint StopSureParent); 
 */
             /// <summary>
-            ///   System.Void LeaveFriendAll()
+            ///   System.Collections.Generic.List<UnityEngine.Material> GetMaterialsFromSkin(Spine.Skin skin)
             /// </summary>
-            /// <returns>struct System.Void</returns>
+            /// <param name = "skin">class Spine.Skin</param>
+            /// <returns>class System.Collections.Generic.List<UnityEngine.Material></returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LeaveFriendAll", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void LEAVE_FRIEND_ALL(); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetMaterialsFromSkin", "System.Collections.Generic.List<UnityEngine.Material>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("Spine.Skin", 0)]
+            public partial nint GET_MATERIALS_FROM_SKIN(nint skin); 
 */
             /// <summary>
-            ///   System.Void OnDayTime(System.Object sender, LJG.Framework.EventHandlerBase hander)
+            ///   UnityEngine.Vector2 GetRandomPositionAroundPlayer(System.Single spawnRadius)
             /// </summary>
-            /// <param name = "sender">class System.Object</param>
-            /// <param name = "hander">abstract class LJG.Framework.EventHandlerBase</param>
-            /// <returns>struct System.Void</returns>
+            /// <param name = "spawnRadius">struct System.Single</param>
+            /// <returns>struct UnityEngine.Vector2</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("OnDayTime", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Object", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("LJG.Framework.EventHandlerBase", 1)]
-            public partial void ON_DAY_TIME(nint sender, nint hander); 
-*/
-            /// <summary>
-            ///   System.Void OnDestroy()
-            /// </summary>
-            /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("OnDestroy", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void ON_DESTROY(); 
-*/
-            /// <summary>
-            ///   System.Void ReduceFriendsHp(System.Single reduceHp)
-            /// </summary>
-            /// <param name = "reduceHp">struct System.Single</param>
-            /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ReduceFriendsHp", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetRandomPositionAroundPlayer", "UnityEngine.Vector2", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 0)]
-            public partial void REDUCE_FRIENDS_HP(System.Single reduceHp); 
+            public partial UnityEngine.Vector2 GET_RANDOM_POSITION_AROUND_PLAYER(System.Single spawnRadius); 
 */
             /// <summary>
-            ///   System.Void SaveFriendData(System.String path, ES3File es3File)
+            ///   UnityEngine.Vector2 GetRandomPositionAroundUnit(UnityEngine.Vector2 centerPosition, System.Single spawnRadius)
             /// </summary>
-            /// <param name = "path">class System.String</param>
-            /// <param name = "es3File">class ES3File</param>
+            /// <param name = "centerPosition">struct UnityEngine.Vector2</param>
+            /// <param name = "spawnRadius">struct System.Single</param>
+            /// <returns>struct UnityEngine.Vector2</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetRandomPositionAroundUnit", "UnityEngine.Vector2", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            public partial UnityEngine.Vector2 GET_RANDOM_POSITION_AROUND_UNIT(UnityEngine.Vector2 centerPosition, System.Single spawnRadius); 
+*/
+            /// <summary>
+            ///   UnityEngine.Vector2 GetRandomPositionAroundUnit(UnityEngine.Vector2 playerPosition, System.Single spawnRadius, System.Single colliderRadius, UnityEngine.Vector2 offset, UnityEngine.Vector2 boxSize)
+            /// </summary>
+            /// <param name = "playerPosition">struct UnityEngine.Vector2</param>
+            /// <param name = "spawnRadius">struct System.Single</param>
+            /// <param name = "colliderRadius">struct System.Single</param>
+            /// <param name = "offset">struct UnityEngine.Vector2</param>
+            /// <param name = "boxSize">struct UnityEngine.Vector2</param>
+            /// <returns>struct UnityEngine.Vector2</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetRandomPositionAroundUnit", "UnityEngine.Vector2", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 3)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 4)]
+            public partial UnityEngine.Vector2 GET_RANDOM_POSITION_AROUND_UNIT(UnityEngine.Vector2 playerPosition, System.Single spawnRadius, System.Single colliderRadius, UnityEngine.Vector2 offset, UnityEngine.Vector2 boxSize); 
+*/
+            /// <summary>
+            ///   System.Void InitShopEquip(EquipDataSet equipData, System.Int32 num)
+            /// </summary>
+            /// <param name = "equipData">class EquipDataSet</param>
+            /// <param name = "num">struct System.Int32</param>
             /// <returns>struct System.Void</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SaveFriendData", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("ES3File", 1)]
-            public partial void SAVE_FRIEND_DATA(nint path, nint es3File); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("InitShopEquip", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("EquipDataSet", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            public partial void INIT_SHOP_EQUIP(nint equipData, System.Int32 num); 
 */
             /// <summary>
-            ///   System.Void SetBattleFriend(System.Collections.Generic.List<System.String> battleFriends)
+            ///   System.Boolean IsClickSkill()
             /// </summary>
-            /// <param name = "battleFriends">class System.Collections.Generic.List<System.String></param>
-            /// <returns>struct System.Void</returns>
+            /// <returns>struct System.Boolean</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SetBattleFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.List<System.String>", 0)]
-            public partial void SET_BATTLE_FRIEND(nint battleFriends); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsClickSkill", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            public partial System.Boolean IS_CLICK_SKILL(); 
 */
             /// <summary>
-            ///   System.Void Start()
+            ///   System.Boolean IsPointInRectangle(UnityEngine.Vector2 point1, UnityEngine.Vector2 point2, UnityEngine.Vector2 point3, UnityEngine.Vector2 point4, UnityEngine.Vector2 point)
             /// </summary>
-            /// <returns>struct System.Void</returns>
+            /// <param name = "point1">struct UnityEngine.Vector2</param>
+            /// <param name = "point2">struct UnityEngine.Vector2</param>
+            /// <param name = "point3">struct UnityEngine.Vector2</param>
+            /// <param name = "point4">struct UnityEngine.Vector2</param>
+            /// <param name = "point">struct UnityEngine.Vector2</param>
+            /// <returns>struct System.Boolean</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("Start", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void START(); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsPointInRectangle", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 2)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 3)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 4)]
+            public partial System.Boolean IS_POINT_IN_RECTANGLE(UnityEngine.Vector2 point1, UnityEngine.Vector2 point2, UnityEngine.Vector2 point3, UnityEngine.Vector2 point4, UnityEngine.Vector2 point); 
 */
             /// <summary>
-            ///   System.Void UpdatCurrentUp(System.String name, System.Single hp)
+            ///   System.Boolean IsPositionValid(UnityEngine.Vector2 position)
+            /// </summary>
+            /// <param name = "position">struct UnityEngine.Vector2</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsPositionValid", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 0)]
+            public partial System.Boolean IS_POSITION_VALID(UnityEngine.Vector2 position); 
+*/
+            /// <summary>
+            ///   System.Boolean IsPositionValid(UnityEngine.Vector2 position, System.Single num)
+            /// </summary>
+            /// <param name = "position">struct UnityEngine.Vector2</param>
+            /// <param name = "num">struct System.Single</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsPositionValid", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            public partial System.Boolean IS_POSITION_VALID(UnityEngine.Vector2 position, System.Single num); 
+*/
+            /// <summary>
+            ///   System.Boolean IsWallCollider(UnityEngine.Vector3 position, System.Single radius)
+            /// </summary>
+            /// <param name = "position">struct UnityEngine.Vector3</param>
+            /// <param name = "radius">struct System.Single</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsWallCollider", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            public partial System.Boolean IS_WALL_COLLIDER(UnityEngine.Vector3 position, System.Single radius); 
+*/
+            /// <summary>
+            ///   UnityEngine.Vector2 KeepUtilInsideCircle(UnityEngine.Vector2 position)
+            /// </summary>
+            /// <param name = "position">struct UnityEngine.Vector2</param>
+            /// <returns>struct UnityEngine.Vector2</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("KeepUtilInsideCircle", "UnityEngine.Vector2", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector2", 0)]
+            public partial UnityEngine.Vector2 KEEP_UTIL_INSIDE_CIRCLE(UnityEngine.Vector2 position); 
+*/
+            /// <summary>
+            ///   System.Void LoadAwardBox(System.String name)
             /// </summary>
             /// <param name = "name">class System.String</param>
-            /// <param name = "hp">struct System.Single</param>
             /// <returns>struct System.Void</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("UpdatCurrentUp", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardBox", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            public partial void LOAD_AWARD_BOX(nint name); 
+*/
+            /// <summary>
+            ///   System.Void LoadAwardChong(System.String name)
+            /// </summary>
+            /// <param name = "name">class System.String</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardChong", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            public partial void LOAD_AWARD_CHONG(nint name); 
+*/
+            /// <summary>
+            ///   System.Void LoadAwardChong(System.String name, System.Int32 num)
+            /// </summary>
+            /// <param name = "name">class System.String</param>
+            /// <param name = "num">struct System.Int32</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardChong", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            public partial void LOAD_AWARD_CHONG(nint name, System.Int32 num); 
+*/
+            /// <summary>
+            ///   System.Void LoadAwardChongPot(System.String name)
+            /// </summary>
+            /// <param name = "name">class System.String</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardChongPot", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            public partial void LOAD_AWARD_CHONG_POT(nint name); 
+*/
+            /// <summary>
+            ///   System.Void LoadAwardChongPot(System.String name, System.Int32 num)
+            /// </summary>
+            /// <param name = "name">class System.String</param>
+            /// <param name = "num">struct System.Int32</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardChongPot", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            public partial void LOAD_AWARD_CHONG_POT(nint name, System.Int32 num); 
+*/
+            /// <summary>
+            ///   System.Void LoadAwardEquip(System.String name, System.Single num)
+            /// </summary>
+            /// <param name = "name">class System.String</param>
+            /// <param name = "num">struct System.Single</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardEquip", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
-            public partial void UPDAT_CURRENT_UP(nint name, System.Single hp); 
+            public partial void LOAD_AWARD_EQUIP(nint name, System.Single num); 
 */
             /// <summary>
-            ///   System.Void UpLv()
+            ///   System.Void LoadAwardInKongFu(System.String name)
+            /// </summary>
+            /// <param name = "name">class System.String</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardInKongFu", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            public partial void LOAD_AWARD_IN_KONG_FU(nint name); 
+*/
+            /// <summary>
+            ///   System.Void LoadAwardInKongFuFriend(System.String friendName, System.String kfName)
+            /// </summary>
+            /// <param name = "friendName">class System.String</param>
+            /// <param name = "kfName">class System.String</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardInKongFuFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
+            public partial void LOAD_AWARD_IN_KONG_FU_FRIEND(nint friendName, nint kfName); 
+*/
+            /// <summary>
+            ///   System.Void LoadAwardItem(System.String name, System.Single num)
+            /// </summary>
+            /// <param name = "name">class System.String</param>
+            /// <param name = "num">struct System.Single</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardItem", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+            public partial void LOAD_AWARD_ITEM(nint name, System.Single num); 
+*/
+            /// <summary>
+            ///   System.Void LoadAwardKongFu(System.String name)
+            /// </summary>
+            /// <param name = "name">class System.String</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardKongFu", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            public partial void LOAD_AWARD_KONG_FU(nint name); 
+*/
+            /// <summary>
+            ///   System.Void LoadAwardKongFuSkill(System.String name)
+            /// </summary>
+            /// <param name = "name">class System.String</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LoadAwardKongFuSkill", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            public partial void LOAD_AWARD_KONG_FU_SKILL(nint name); 
+*/
+            /// <summary>
+            ///   System.Void MakeOpenForging(System.String type)
+            /// </summary>
+            /// <param name = "type">class System.String</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("MakeOpenForging", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            public partial void MAKE_OPEN_FORGING(nint type); 
+*/
+            /// <summary>
+            ///   System.Void MoveCamera(UnityEngine.Vector3 position, System.Int32 height)
+            /// </summary>
+            /// <param name = "position">struct UnityEngine.Vector3</param>
+            /// <param name = "height">struct System.Int32</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("MoveCamera", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            public partial void MOVE_CAMERA(UnityEngine.Vector3 position, System.Int32 height); 
+*/
+            /// <summary>
+            ///   System.Void MoveCameraKeep(UnityEngine.Transform targetTransform, System.Int32 height)
+            /// </summary>
+            /// <param name = "targetTransform">class UnityEngine.Transform</param>
+            /// <param name = "height">struct System.Int32</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("MoveCameraKeep", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Transform", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            public partial void MOVE_CAMERA_KEEP(nint targetTransform, System.Int32 height); 
+*/
+            /// <summary>
+            ///   System.Void OpenShop(System.String name)
+            /// </summary>
+            /// <param name = "name">class System.String</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("OpenShop", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+            public partial void OPEN_SHOP(nint name); 
+*/
+            /// <summary>
+            ///   System.Boolean Prob(System.Int32 proNum)
+            /// </summary>
+            /// <param name = "proNum">struct System.Int32</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("Prob", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 0)]
+            public partial System.Boolean PROB(System.Int32 proNum); 
+*/
+            /// <summary>
+            ///   System.Boolean ProbFloat(System.Single getTrueNum)
+            /// </summary>
+            /// <param name = "getTrueNum">struct System.Single</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ProbFloat", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 0)]
+            public partial System.Boolean PROB_FLOAT(System.Single getTrueNum); 
+*/
+            /// <summary>
+            ///   System.Int32 ProbPool(System.Collections.Generic.Dictionary<System.Int32 , System.Int32> data)
+            /// </summary>
+            /// <param name = "data">class System.Collections.Generic.Dictionary<System.Int32 , System.Int32></param>
+            /// <returns>struct System.Int32</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ProbPool", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.Dictionary<System.Int32,System.Int32>", 0)]
+            public partial System.Int32 PROB_POOL(nint data); 
+*/
+            /// <summary>
+            ///   System.Void ProbPool(System.Collections.Generic.Dictionary<System.Int32 , System.Int32> data, System.Collections.Generic.Dictionary<System.Int32 , System.Int32>& CardPool)
+            /// </summary>
+            /// <param name = "data">class System.Collections.Generic.Dictionary<System.Int32 , System.Int32></param>
+            /// <param name = "CardPool">class System.Collections.Generic.Dictionary<System.Int32 , System.Int32>&</param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ProbPool", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.Dictionary<System.Int32,System.Int32>", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.Dictionary<System.Int32,System.Int32>&", 1)]
+            public partial void PROB_POOL(nint data, nint CardPool); 
+*/
+            /// <summary>
+            ///   System.Boolean ProNumAndNum(System.Int32 blueNum, System.Int32 redNum)
+            /// </summary>
+            /// <param name = "blueNum">struct System.Int32</param>
+            /// <param name = "redNum">struct System.Int32</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ProNumAndNum", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            public partial System.Boolean PRO_NUM_AND_NUM(System.Int32 blueNum, System.Int32 redNum); 
+*/
+            /// <summary>
+            ///   System.Void RemoveOldMaterials(System.Collections.Generic.List<UnityEngine.Material> materials)
+            /// </summary>
+            /// <param name = "materials">class System.Collections.Generic.List<UnityEngine.Material></param>
+            /// <returns>struct System.Void</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("RemoveOldMaterials", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.List<UnityEngine.Material>", 0)]
+            public partial void REMOVE_OLD_MATERIALS(nint materials); 
+*/
+            /// <summary>
+            ///   ShopData ShopConfirm(ShopData shopData, System.Collections.Generic.Dictionary<PlayerItemData , System.Int32> shopSellItem, System.Collections.Generic.List<PlayerEquipData> shopSellEquip, System.Collections.Generic.List<PlayerChongPot> shopSellChongPot, System.Collections.Generic.Dictionary<PlayerItemData , System.Int32> playerSellItem, System.Collections.Generic.List<PlayerEquipData> playerSellEquip, System.Collections.Generic.List<PlayerChongPot> playerSellChongPot)
+            /// </summary>
+            /// <param name = "shopData">class ShopData</param>
+            /// <param name = "shopSellItem">class System.Collections.Generic.Dictionary<PlayerItemData , System.Int32></param>
+            /// <param name = "shopSellEquip">class System.Collections.Generic.List<PlayerEquipData></param>
+            /// <param name = "shopSellChongPot">class System.Collections.Generic.List<PlayerChongPot></param>
+            /// <param name = "playerSellItem">class System.Collections.Generic.Dictionary<PlayerItemData , System.Int32></param>
+            /// <param name = "playerSellEquip">class System.Collections.Generic.List<PlayerEquipData></param>
+            /// <param name = "playerSellChongPot">class System.Collections.Generic.List<PlayerChongPot></param>
+            /// <returns>class ShopData</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ShopConfirm", "ShopData", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("ShopData", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.Dictionary<PlayerItemData,System.Int32>", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.List<PlayerEquipData>", 2)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.List<PlayerChongPot>", 3)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.Dictionary<PlayerItemData,System.Int32>", 4)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.List<PlayerEquipData>", 5)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.List<PlayerChongPot>", 6)]
+            public partial nint SHOP_CONFIRM(nint shopData, nint shopSellItem, nint shopSellEquip, nint shopSellChongPot, nint playerSellItem, nint playerSellEquip, nint playerSellChongPot); 
+*/
+            /// <summary>
+            ///   System.Boolean SimulateRectangleCheck(UnityEngine.Transform self, UnityEngine.Transform target, System.Single halfWidth, System.Single distance, System.Int32 forward)
+            /// </summary>
+            /// <param name = "self">class UnityEngine.Transform</param>
+            /// <param name = "target">class UnityEngine.Transform</param>
+            /// <param name = "halfWidth">struct System.Single</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <param name = "forward">struct System.Int32</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SimulateRectangleCheck", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Transform", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Transform", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 3)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 4)]
+            public partial System.Boolean SIMULATE_RECTANGLE_CHECK(nint self, nint target, System.Single halfWidth, System.Single distance, System.Int32 forward); 
+*/
+            /// <summary>
+            ///   System.Boolean SimulateRectangleCheck(UnityEngine.Vector3 selfPosition, UnityEngine.Vector3 targetPosition, System.Single halfWidth, System.Single distance, System.Int32 forward)
+            /// </summary>
+            /// <param name = "selfPosition">struct UnityEngine.Vector3</param>
+            /// <param name = "targetPosition">struct UnityEngine.Vector3</param>
+            /// <param name = "halfWidth">struct System.Single</param>
+            /// <param name = "distance">struct System.Single</param>
+            /// <param name = "forward">struct System.Int32</param>
+            /// <returns>struct System.Boolean</returns>
+             /*
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SimulateRectangleCheck", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.Vector3", 1)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 2)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 3)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 4)]
+            public partial System.Boolean SIMULATE_RECTANGLE_CHECK(UnityEngine.Vector3 selfPosition, UnityEngine.Vector3 targetPosition, System.Single halfWidth, System.Single distance, System.Int32 forward); 
+*/
+            /// <summary>
+            ///   System.Void Update()
             /// </summary>
             /// <returns>struct System.Void</returns>
              /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("UpLv", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void UP_LV(); 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("Update", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            public partial void UPDATE(); 
 */
         }
 
         /// <summary>
         /// abstract class ["LJGFramework.RunTime"."LJG.Framework"."LJGBehaviour"]
         /// </summary>
-        partial struct Ptr_PlayerFriendDataManager
+        partial struct Ptr_LogicHelper
         {
             /// <summary>
             ///   System.Void .ctor()
@@ -433,7 +1115,7 @@ namespace Maple.BeastSaga.Metadata
         /// <summary>
         /// class ["UnityEngine.CoreModule"."UnityEngine"."MonoBehaviour"]
         /// </summary>
-        partial struct Ptr_PlayerFriendDataManager
+        partial struct Ptr_LogicHelper
         {
             /// <summary>
             /// static  System.Void CancelInvoke(UnityEngine.MonoBehaviour self, System.String methodName)
@@ -738,7 +1420,7 @@ namespace Maple.BeastSaga.Metadata
         /// <summary>
         /// class ["UnityEngine.CoreModule"."UnityEngine"."Object"]
         /// </summary>
-        partial struct Ptr_PlayerFriendDataManager
+        partial struct Ptr_LogicHelper
         {
             /// <summary>
             /// static  System.Void .cctor()
@@ -1405,7 +2087,7 @@ namespace Maple.BeastSaga.Metadata
         /// <summary>
         /// class ["UnityEngine.CoreModule"."UnityEngine"."Component"]
         /// </summary>
-        partial struct Ptr_PlayerFriendDataManager
+        partial struct Ptr_LogicHelper
         {
             /// <summary>
             ///   System.Void .ctor()
@@ -1916,7 +2598,7 @@ namespace Maple.BeastSaga.Metadata
         /// <summary>
         /// class ["UnityEngine.CoreModule"."UnityEngine"."Behaviour"]
         /// </summary>
-        partial struct Ptr_PlayerFriendDataManager
+        partial struct Ptr_LogicHelper
         {
             /// <summary>
             ///   System.Void .ctor()

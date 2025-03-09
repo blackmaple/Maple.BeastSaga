@@ -25,7 +25,16 @@ namespace Maple.DinoTopia.Win
             return new BeastSagaGameContext(Logger, searchService, RuntimeContext);
         }
 
+
+        protected override async ValueTask F9_KeyDown()
+        {
+            var gameEnv = await GetBeastSagaGameEnvAsync().ConfigureAwait(false);
+            await this.UITaskAsync((p, args) => args.Test(), gameEnv).ConfigureAwait(false);
+        }
+
         public required BeastSagaGameCache GameCache { set; get; }
+
+
 
         protected sealed override async ValueTask LoadGameDataAsync()
         {

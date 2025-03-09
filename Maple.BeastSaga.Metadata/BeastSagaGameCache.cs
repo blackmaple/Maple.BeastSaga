@@ -12,34 +12,61 @@ namespace Maple.BeastSaga.Metadata
         public BeastSagaGameContext Context { get; }
         private ILogger Logger => Context.Logger;
         private LoadDataSet.Ptr_LoadDataSet Ptr_LoadDataSet { get; }
+        private OpenUIManager.Ptr_OpenUIManager Ptr_OpenUIManager { get; }
+        private ExcelDataManager.Ptr_ExcelDataManager Ptr_ExcelDataManager { get; }
+
         public GameInventoryDisplayDTOEX[] Items { get; }
-        public OpenUIManager.Ptr_OpenUIManager Ptr_OpenUIManager { get; }
+        public GameCharacterDisplayDTOEX[] Characters { get; }
+        public GameInventoryDisplayDTOEX[] KangFuDataSet { get; }
+        public GameInventoryDisplayDTOEX[] InKangFuDataSet { get; }
+        public GameInventoryDisplayDTOEX[] UniqueSkillDataSet { get; }
+        public GameInventoryDisplayDTOEX[] ShanHaiLuDataSet { get; }
+        public GameInventoryDisplayDTOEX[] CharacterDataSet { get; }
+
         public BeastSagaGameCache(BeastSagaGameContext gameContext)
         {
             this.Context = gameContext;
             this.Ptr_LoadDataSet = LoadDataSet.Ptr_LoadDataSet._INSTANCE;
             this.Ptr_OpenUIManager = OpenUIManager.Ptr_OpenUIManager._INST;
+            this.Ptr_ExcelDataManager = ExcelDataManager.Ptr_ExcelDataManager.INSTANCE;
             this.Items = [
                 .. GetEquipDataSet(),
                 .. GetItemDataSet(),
-                ..GetKangFuDataSet(),
-                ..GetInKangFuDataSet(),
-                ..GetUniqueSkillDataSet(),
-              //  ..GetMakeDataSet(),
-                ..GetSkillDataSet(),
                 ..GetChongDataSet(),
                 ..GetChongPotDataSet(),
-                ..GetShanHaiLuDataSet(),
-                ..GetCharacterDataSet(),
-              //  ..GetRandomBoxDataSet(),
                 ];
+            this.KangFuDataSet = [..GetKangFuDataSet(), ];
+            this.InKangFuDataSet = [.. GetInKangFuDataSet(),];
+            this.UniqueSkillDataSet = [.. GetUniqueSkillDataSet(),];
+            this.ShanHaiLuDataSet = [.. GetShanHaiLuDataSet(),];
+            this.CharacterDataSet = [.. GetCharacterDataSet(),];
+            this.Characters = [.. GetCharacter()];
         }
 
-        public void ShowMsg(string msg)
+
+        #region GameCharacterDisplayDTOEX
+        public IEnumerable<GameCharacterDisplayDTOEX> GetCharacter()
         {
-            var pStr = this.Context.T(msg);
-            this.Ptr_OpenUIManager.SHOW_TIP(TipType.i1, pStr);
+      
+            foreach (var table in this.Ptr_ExcelDataManager.P_FRIEND_LOVE_TABLE.DICT.AsRefArray())
+            {
+                var tableItem = table.Value;
+                //   this.Logger.LogInformation("name:{name},name2:{name2},id:{id}", tableItem.NAME.ToString(), tableItem.NAME2.ToString(), tableItem.ID);
+                var name = tableItem.NAME.ToString();
+                var name2 = tableItem.NAME2;
+                yield return new GameCharacterDisplayDTOEX()
+                {
+                    Ptr = name2,
+                    ObjectId = name2.ToString()!,
+                    DisplayCategory = nameof(FriendData),
+                    DisplayName = name,
+                    DisplayDesc = name
+                };
+            }
         }
+        #endregion
+
+        #region GameInventoryDisplayDTOEX
 
         private IEnumerable<GameInventoryDisplayDTOEX> GetEquipDataSet()
         {
@@ -222,11 +249,27 @@ namespace Maple.BeastSaga.Metadata
                 };
             }
         }
+        #endregion
+
+        #region UI
+
+        public void ShowMsg(string msg)
+        {
+            var pStr = this.Context.T(msg);
+            this.Ptr_OpenUIManager.SHOW_TIP(TipType.i1, pStr);
+        }
+        #endregion
+
 
     }
 
     public sealed class GameInventoryDisplayDTOEX : GameInventoryDisplayDTO
     {
         public required nint Ptr { set; get; }
+    }
+
+    public sealed class GameCharacterDisplayDTOEX : GameCharacterDisplayDTO
+    { 
+        public nint Ptr { set; get; }
     }
 }
