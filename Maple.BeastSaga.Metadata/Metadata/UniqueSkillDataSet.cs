@@ -197,10 +197,10 @@ namespace Maple.BeastSaga.Metadata
             /// enum ["Model.Runtime".""."KFType"]
             /// </summary>
             /// <returns>enum KFType</returns>
-             /*
+          
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KfType", "KFType")]
             public partial KFType KF_TYPE { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x80 System.Int32 Rank

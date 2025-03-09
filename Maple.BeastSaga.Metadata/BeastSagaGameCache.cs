@@ -19,11 +19,11 @@ namespace Maple.BeastSaga.Metadata
         public GameCurrencyDisplayDTOEX[] Currencies { get; }
         public GameInventoryDisplayDTOEX[] Items { get; }
         public GameCharacterDisplayDTOEX[] Characters { get; }
-        public GameInventoryDisplayDTOEX[] KangFuDataSet { get; }
-        public GameInventoryDisplayDTOEX[] InKangFuDataSet { get; }
-        public GameInventoryDisplayDTOEX[] UniqueSkillDataSet { get; }
-        public GameInventoryDisplayDTOEX[] ShanHaiLuDataSet { get; }
-        public GameInventoryDisplayDTOEX[] CharacterDataSet { get; }
+        public GameInventoryDisplayDTOEX[] KangFuDataSets { get; }
+        public GameInventoryDisplayDTOEX[] InKangFuDataSets { get; }
+        public GameInventoryDisplayDTOEX[] UniqueSkillDataSets { get; }
+        public GameInventoryDisplayDTOEX[] ShanHaiLuDataSets { get; }
+        public GameInventoryDisplayDTOEX[] CharacterDataSets { get; }
 
         public BeastSagaGameCache(BeastSagaGameContext gameContext)
         {
@@ -34,17 +34,27 @@ namespace Maple.BeastSaga.Metadata
             this.Currencies = [
                 .. GetItemDataSet(),
             ];
+
+
+            this.KangFuDataSets = [.. GetKangFuDataSet(),];
+            this.InKangFuDataSets = [.. GetInKangFuDataSet(),];
+            this.UniqueSkillDataSets = [.. GetUniqueSkillDataSet(),];
+            this.ShanHaiLuDataSets = [.. GetShanHaiLuDataSet(),];
+
+
+            this.CharacterDataSets = [.. GetCharacterDataSet(),];
+            this.Characters = [.. GetCharacter()];
+
             this.Items = [
                 .. GetEquipDataSet(),
                 ..GetChongDataSet(),
                 ..GetChongPotDataSet(),
+
+               .. this.KangFuDataSets,
+               .. this.InKangFuDataSets,
+              ..  this.UniqueSkillDataSets,
+              ..   this.ShanHaiLuDataSets,
                 ];
-            this.KangFuDataSet = [.. GetKangFuDataSet(),];
-            this.InKangFuDataSet = [.. GetInKangFuDataSet(),];
-            this.UniqueSkillDataSet = [.. GetUniqueSkillDataSet(),];
-            this.ShanHaiLuDataSet = [.. GetShanHaiLuDataSet(),];
-            this.CharacterDataSet = [.. GetCharacterDataSet(),];
-            this.Characters = [.. GetCharacter()];
         }
 
 
@@ -277,7 +287,12 @@ namespace Maple.BeastSaga.Metadata
         }
         #endregion
 
+        //public IEnumerable<GameSkillInfoDTO> GetGameSkillInfoDTO(GameSkillInfoDTO[] gameSkillInfoDTOs)
+        //{
+        //    var count = KangFuDataSets.Length;
+        //    gameSkillInfoDTOs.Select(p => p.DisplayCategory == nameof(KangFuDataSet)).ToArray();
 
+        //}
     }
 
     public sealed class GameInventoryDisplayDTOEX : GameInventoryDisplayDTO

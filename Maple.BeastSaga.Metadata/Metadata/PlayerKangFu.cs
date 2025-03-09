@@ -1,3 +1,5 @@
+using Maple.MonoGameAssistant.Core;
+
 namespace Maple.BeastSaga.Metadata
 {
     /// <summary>
@@ -50,10 +52,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<System.String></returns>
-            /*
+        
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("HaveShanHaiLu", "System.Collections.Generic.List<System.String>")]
-           public partial nint HAVE_SHAN_HAI_LU { get; set; } 
-*/
+           public partial PMonoList_D<PMonoString> HAVE_SHAN_HAI_LU { get; set; } 
+ 
 
             /// <summary>
             /// 0x28 System.Int32 _Lv

@@ -162,20 +162,20 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
-            /*
+      
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KangFuSkillHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-           public partial nint KANG_FU_SKILL_HAD { get; set; } 
-*/
+           public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> KANG_FU_SKILL_HAD { get; set; } 
+ 
 
             /// <summary>
             /// 0x80 System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill> KangFuQingHad
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
-            /*
+      
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KangFuQingHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-           public partial nint KANG_FU_QING_HAD { get; set; } 
-*/
+           public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> KANG_FU_QING_HAD { get; set; } 
+ 
 
             /// <summary>
             /// 0x88 System.Collections.Generic.List<PlayerChong> ChongHad
@@ -232,20 +232,20 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
-            /*
+         
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressBigLoop", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-           public partial nint DRESS_BIG_LOOP { get; set; } 
-*/
+           public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> DRESS_BIG_LOOP { get; set; } 
+ 
 
             /// <summary>
             /// 0xB8 System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill> DressSmallLoop
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
-            /*
+      
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressSmallLoop", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-           public partial nint DRESS_SMALL_LOOP { get; set; } 
-*/
+           public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> DRESS_SMALL_LOOP { get; set; } 
+ 
 
             /// <summary>
             /// 0xC0 System.Collections.Generic.Dictionary<System.Int32 , System.Int32> SkinHad
