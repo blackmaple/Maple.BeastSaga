@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."EquipDressName"]
     /// </summary>
-    public enum EquipDressName : System.Int32
+    public enum EquipDressName : int
     {
         都可以 = 0x00000000,
         兔千千 = 0x00000001,

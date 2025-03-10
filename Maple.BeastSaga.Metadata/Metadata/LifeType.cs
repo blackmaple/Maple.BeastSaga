@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."LifeType"]
     /// </summary>
-    public enum LifeType : System.Int32
+    public enum LifeType : int
     {
         铁匠 = 0x00000000,
         巧艺 = 0x00000001,

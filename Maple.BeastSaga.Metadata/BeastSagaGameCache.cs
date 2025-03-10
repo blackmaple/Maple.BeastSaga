@@ -1,4 +1,5 @@
-﻿using Maple.MonoGameAssistant.Core;
+﻿using Maple.BeastSaga.Metadata.Metadata;
+using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Maple.MonoGameAssistant.MetadataExtensions.MetadataCollector;
 using Microsoft.Extensions.Logging;
@@ -15,15 +16,30 @@ namespace Maple.BeastSaga.Metadata
         private LoadDataSet.Ptr_LoadDataSet Ptr_LoadDataSet { get; }
         private OpenUIManager.Ptr_OpenUIManager Ptr_OpenUIManager { get; }
         public ExcelDataManager.Ptr_ExcelDataManager Ptr_ExcelDataManager { get; }
-
+        public LogicHelper.Ptr_LogicHelper Ptr_LogicHelper { get; }
         public GameCurrencyDisplayDTOEX[] Currencies { get; }
         public GameInventoryDisplayDTOEX[] Items { get; }
         public GameCharacterDisplayDTOEX[] Characters { get; }
         public GameInventoryDisplayDTOEX[] CharacterDataSets { get; }
 
         public GameSkillDisplayDTOEX[] Skills { get; }
- 
 
+        public KFSchool[] KFSchools { get; } = [KFSchool.五子, KFSchool.昆仑, KFSchool.必报, KFSchool.破道, KFSchool.穹空, KFSchool.百灵, KFSchool.皇羽, KFSchool.江湖];
+        public KFType[] KFTypes  { get; } = [ 
+         KFType.内            ,
+         KFType.轻            ,
+         KFType.绝            ,
+         KFType.刀            ,
+         KFType.剑            ,
+         KFType.拳            ,
+         KFType.棍            ,
+         KFType.腿            ,
+         KFType.鞭            ,
+         KFType.掌            ,
+         KFType.指            ,
+         KFType.音            ,
+         KFType.破            ,
+        ];
 
         public BeastSagaGameCache(BeastSagaGameContext gameContext)
         {
@@ -31,12 +47,13 @@ namespace Maple.BeastSaga.Metadata
             this.Ptr_LoadDataSet = LoadDataSet.Ptr_LoadDataSet._INSTANCE;
             this.Ptr_OpenUIManager = OpenUIManager.Ptr_OpenUIManager._INST;
             this.Ptr_ExcelDataManager = ExcelDataManager.Ptr_ExcelDataManager.INSTANCE;
+            this.Ptr_LogicHelper = LogicHelper.Ptr_LogicHelper._INSTANCE;
             this.Currencies = [
                 .. GetItemDataSet(),
             ];
 
 
-    
+
             this.Skills = [
                 .. GetKangFuDataSet(),
                 .. GetInKangFuDataSet(),
@@ -51,7 +68,7 @@ namespace Maple.BeastSaga.Metadata
                 .. GetEquipDataSet(),
                 ..GetChongDataSet(),
                 ..GetChongPotDataSet(),
- 
+
                 ];
         }
 
@@ -312,7 +329,8 @@ namespace Maple.BeastSaga.Metadata
 
     }
 
-    public sealed class GameSkillDisplayDTOEX : GameSkillDisplayDTO {
+    public sealed class GameSkillDisplayDTOEX : GameSkillDisplayDTO
+    {
         public required nint Ptr { set; get; }
 
     }

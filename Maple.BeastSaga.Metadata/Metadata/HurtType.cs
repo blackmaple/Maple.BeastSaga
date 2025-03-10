@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."HurtType"]
     /// </summary>
-    public enum HurtType : System.Int32
+    public enum HurtType : int
     {
         群体外伤 = 0x00000001,
         群体内伤 = 0x00000002,

@@ -3,7 +3,7 @@ using Maple.MonoGameAssistant.Windows.Service;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace Maple.DinoTopia.Win
+namespace Maple.BeastSaga.Win
 {
     internal static class BeastSagaGameExtensions
     {

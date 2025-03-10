@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."FriendName"]
     /// </summary>
-    public enum FriendName : System.Int32
+    public enum FriendName : int
     {
         兔千千 = 0x00000000,
         狼渊 = 0x00000001,

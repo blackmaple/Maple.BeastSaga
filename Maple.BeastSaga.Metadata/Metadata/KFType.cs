@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."KFType"]
     /// </summary>
-    public enum KFType : System.Int32
+    public enum KFType : int
     {
         nil = 0x00000000,
         内 = 0x00000001,

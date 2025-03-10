@@ -1,3 +1,4 @@
+using Maple.BeastSaga.Metadata.Metadata;
 using Maple.MonoGameAssistant.Core;
 
 namespace Maple.BeastSaga.Metadata

@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."PlayerProType"]
     /// </summary>
-    public enum PlayerProType : System.Int32
+    public enum PlayerProType : int
     {
         力道 = 0x00000001,
         感知 = 0x00000002,

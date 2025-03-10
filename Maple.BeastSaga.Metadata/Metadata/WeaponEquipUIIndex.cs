@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."WeaponEquipUIIndex"]
     /// </summary>
-    public enum WeaponEquipUIIndex : System.Int32
+    public enum WeaponEquipUIIndex : int
     {
         nil = -1,
         头部 = 0x00000000,

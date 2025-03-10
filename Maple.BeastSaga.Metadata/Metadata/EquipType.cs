@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."EquipType"]
     /// </summary>
-    public enum EquipType : System.Int32
+    public enum EquipType : int
     {
         道具 = 0x00000001,
         材料 = 0x00000002,

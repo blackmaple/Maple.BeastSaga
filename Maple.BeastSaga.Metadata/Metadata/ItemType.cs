@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."ItemType"]
     /// </summary>
-    public enum ItemType : System.Int32
+    public enum ItemType : int
     {
         无 = 0x00000000,
         钓竿 = 0x00000001,

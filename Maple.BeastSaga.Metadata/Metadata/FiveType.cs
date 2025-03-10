@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."FiveType"]
     /// </summary>
-    public enum FiveType : System.Int32
+    public enum FiveType : int
     {
         nil = 0x00000000,
         金 = 0x00000001,

@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."KFSchool"]
     /// </summary>
-    public enum KFSchool : System.Int32
+    public enum KFSchool : int
     {
         五子 = 0x00000001,
         昆仑 = 0x00000002,

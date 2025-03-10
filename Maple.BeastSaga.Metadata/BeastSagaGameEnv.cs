@@ -1,7 +1,9 @@
-﻿using Maple.MonoGameAssistant.Core;
+﻿using Maple.BeastSaga.Metadata.Metadata;
+using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Maple.MonoGameAssistant.MetadataExtensions.MetadataCollector;
 using Microsoft.Extensions.Logging;
+using System.Collections.Immutable;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 using static Maple.BeastSaga.Metadata.FriendData;
@@ -221,6 +223,7 @@ namespace Maple.BeastSaga.Metadata
 
             return false;
         }
+
         private IEnumerable<GameSwitchDisplayDTO> GetPlayerData()
         {
             PlayerData.Ptr_PlayerData playerData = this.Ptr_PlayerData;
@@ -313,11 +316,7 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, ContentValue = love.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
             }
 
-            //内功
 
-            //武艺
-
-            //绝技
         }
         private void SetPlayerData(GameCharacterModifyDTO objectDTO)
         {
@@ -512,9 +511,6 @@ namespace Maple.BeastSaga.Metadata
             }
 
         }
-        //
-
-
 
         private IEnumerable<GameSkillInfoDTO> GetPlayerSkill()
         {
@@ -736,38 +732,39 @@ namespace Maple.BeastSaga.Metadata
 
         }
 
-        public void AddFriend(GameCharacterModifyDTO objectDTO)
+        public bool TryCreateFriend(string characterId)
         {
-            _ = TryGetFriend(objectDTO.CharacterId, out var friendData, out var friendLocaltion);
-            if (friendLocaltion != EnumFriendLocaltion.队伍内)
+
+            var friend = this.GameCache.Characters.Where(p => p.ObjectId == characterId).FirstOrDefault();
+            if (friend is not null)
             {
-                var friend = this.GameCache.Characters.Where(p => p.ObjectId == objectDTO.CharacterId).FirstOrDefault();
-                if (friend is not null)
-                {
-                    FriendLoveTableItem.Ptr_FriendLoveTableItem tableItem = friend.Ptr;
-                    var helper = LogicHelper.Ptr_LogicHelper._INSTANCE;
-                    helper.FRIEND_ADD(tableItem.NAME2);
-                }
+                FriendLoveTableItem.Ptr_FriendLoveTableItem tableItem = friend.Ptr;
+                this.GameCache.Ptr_LogicHelper.FRIEND_ADD(tableItem.NAME2);
+                return true;
             }
-
-
+            return false;
 
         }
-        public void LeaveFriend(GameCharacterModifyDTO objectDTO)
+        public bool ExistsFriendObject(string characterId)
         {
-            if (TryGetFriend(objectDTO.CharacterId, out var friendData,out var friendLocaltion))
+            return TryGetFriend(characterId, out _, out var _);
+        }
+        public bool WaitExistsFriendObject(string characterId, int waitTime = 3000)
+        {
+            return SpinWait.SpinUntil(() => TryGetFriendEx(), waitTime);
+            bool TryGetFriendEx()
             {
-                if (friendLocaltion == EnumFriendLocaltion.队伍内)
+                if (TryGetFriend(characterId, out var friendData, out var friendLocaltion))
                 {
-                    this.Ptr_PlayerFriendDataManager.LEAVE_FRIEND(friendData._AB_NAME);
+                    if (friendLocaltion == EnumFriendLocaltion.队伍内)
+                    {
+                        this.Ptr_PlayerFriendDataManager.LEAVE_FRIEND(friendData._AB_NAME);
+                    }
+                    return true;
                 }
+                return false;
             }
         }
-        public GameCharacterStatusDTO GetFriendStatusDTO(GameCharacterObjectDTO objectDTO)
-        {
-            return new GameCharacterStatusDTO() { ObjectId = objectDTO.CharacterId, CharacterAttributes = [.. GetFriendData(objectDTO.CharacterId)] };
-        }
-
         private bool TryGetFriend(ReadOnlySpan<char> name, out FriendData.Ptr_FriendData ptr_FriendData, out EnumFriendLocaltion enumFriendLocaltion)
         {
             Unsafe.SkipInit(out ptr_FriendData);
@@ -802,13 +799,437 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameSwitchDisplayDTO> GetFriendData(string name)
         {
-            var add = TryGetFriend(name, out var playerData, out var friendLocaltion);
-            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.好友)}.{name}", DisplayName = "队伍.入队", SwitchValue = friendLocaltion == EnumFriendLocaltion.队伍内, UIType = (int)EnumGameSwitchUIType.Switches };
-            if (!add)
+            if (false == TryGetFriend(name, out var playerData, out var friendLocaltion))
             {
                 yield break;
             }
-            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._LV)}", DisplayName = "属性.等级", ContentValue = playerData._LV.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.好友)}.{name}", DisplayName = "队伍.入队", SwitchValue = friendLocaltion == EnumFriendLocaltion.队伍内, UIType = (int)EnumGameSwitchUIType.Switches };
+            //yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._LV)}", DisplayName = "属性.等级", ContentValue = playerData._LV.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._ADD_PRO_SPOT)}", DisplayName = "属性.六维加点", ContentValue = playerData._ADD_PRO_SPOT.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._BASE_HP)}", DisplayName = "属性.基础气血", ContentValue = playerData._BASE_HP.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._HP)}", DisplayName = "属性.当前气血", ContentValue = playerData._HP.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._MAX_HP)}", DisplayName = "属性.最大气血", ContentValue = playerData._MAX_HP.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._POWER)}", DisplayName = "六维.力道", ContentValue = playerData._POWER.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._PERCEPTION)}", DisplayName = "六维.感知", ContentValue = playerData._PERCEPTION.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._AGILITY)}", DisplayName = "六维.灵巧", ContentValue = playerData._AGILITY.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._PHYSICAL_POWER)}", DisplayName = "六维.体魄", ContentValue = playerData._PHYSICAL_POWER.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._CHANNEL)}", DisplayName = "六维.经脉", ContentValue = playerData._CHANNEL.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._BERATH_SKILL)}", DisplayName = "六维.速度", ContentValue = playerData._BERATH_SKILL.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._WU_XING)}", DisplayName = "六维.悟性", ContentValue = playerData._WU_XING.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._SPEED)}", DisplayName = "六维.脚程", ContentValue = playerData._SPEED.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            yield return new GameSwitchDisplayDTO() { ObjectId = $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._TALENT_ADD)}", DisplayName = "属性.特性加点", ContentValue = playerData._TALENT_ADD.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+
+
+
+            foreach (var item in playerData._KONG_FU_TYPE_LV.AsRefArray())
+            {
+                var key = item.Key;
+                var lv = this.Ptr_PlayerDataManager.GET_KONG_FU_TYPE_LV(key);
+
+                var id = $"{nameof(EnumPlayerPropType.武学)}.{key}";
+
+                yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, ContentValue = lv.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            }
+
+
+
+
+
+            var characterHad = playerData.CHARACTER_HAD.AsRefArray();
+            foreach (var item in this.GameCache.CharacterDataSets)
+            {
+                var had = characterHad.Where(p => p.Key.AsReadOnlySpan().SequenceEqual(item.ObjectId.AsSpan())).Any();
+
+                var id = $"{nameof(EnumPlayerPropType.特性)}.{item.DisplayName}";
+                yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, SwitchValue = had, UIType = (int)EnumGameSwitchUIType.Switches };
+
+            }
+
+            var add_school = playerData.ADD_SCHOOL.AsReadOnlySpan().ToImmutableArray();
+            foreach (var item in this.GameCache.KFSchools)
+            {
+                var had = add_school.Contains(item);
+                var id = $"{nameof(EnumPlayerPropType.门派)}.{item}";
+                yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, SwitchValue = had, UIType = (int)EnumGameSwitchUIType.Switches };
+
+            }
+
+            var equip_type = playerData.EQUIP_TYPE_CAN.AsReadOnlySpan().ToImmutableArray();
+            foreach (var item in this.GameCache.KFTypes)
+            {
+                var had = equip_type.Contains(item);
+                var id = $"{nameof(EnumPlayerPropType.装备适应)}.{item}";
+                yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, SwitchValue = had, UIType = (int)EnumGameSwitchUIType.Switches };
+
+            }
+        }
+
+        private void SetFriendData(GameCharacterModifyDTO objectDTO)
+        {
+            var propName = objectDTO.ModifyObject;
+            if (string.IsNullOrEmpty(propName))
+            {
+                return;
+            }
+            if (false == TryGetFriend(objectDTO.CharacterId, out var playerData, out var friendLocaltion))
+            {
+                return;
+            }
+
+
+            if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.ADD_PRO_SPOT)}")
+            {
+                var add = objectDTO.IntValue;
+                var use = playerData._USE_PRO_SPOT;
+                if (add < use)
+                {
+                    add += use;
+                }
+                playerData._ADD_PRO_SPOT = add;
+            }
+
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData._BASE_HP)}")
+            {
+                playerData._BASE_HP = objectDTO.FloatValue;
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData._HP)}")
+            {
+                playerData._HP = objectDTO.FloatValue;
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData._MAX_HP)}")
+            {
+                playerData._MAX_HP = objectDTO.FloatValue;
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.POWER)}")
+            {
+                playerData._POWER = objectDTO.FloatValue;
+                playerData.SAVE_PRO_LIFE_POINTS();
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.PERCEPTION)}")
+            {
+                playerData._PERCEPTION = objectDTO.FloatValue;
+                playerData.SAVE_PRO_LIFE_POINTS();
+
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.AGILITY)}")
+            {
+                playerData._AGILITY = objectDTO.FloatValue;
+                playerData.SAVE_PRO_LIFE_POINTS();
+
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.PHYSICAL_POWER)}")
+            {
+                playerData._PHYSICAL_POWER = objectDTO.FloatValue;
+                playerData.SAVE_PRO_LIFE_POINTS();
+
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.CHANNEL)}")
+            {
+                playerData._CHANNEL = objectDTO.FloatValue;
+                playerData.SAVE_PRO_LIFE_POINTS();
+
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.BERATH_SKILL)}")
+            {
+                playerData._BERATH_SKILL = objectDTO.FloatValue;
+                playerData.SAVE_PRO_LIFE_POINTS();
+
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.WU_XING)}")
+            {
+                playerData._WU_XING = objectDTO.IntValue;
+                //       this.Ptr_PlayerDataManager.SAVE_PRO_LIFE_POINTS();
+
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.SPEED)}")
+            {
+                playerData._SPEED = objectDTO.FloatValue;
+            }
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.TALENT_ADD)}")
+            {
+                var add = objectDTO.IntValue;
+                var use = playerData._USE_TALENT;
+                if (add < use)
+                {
+                    add += use;
+                }
+                playerData._TALENT_ADD = add;
+            }
+
+            else if (propName.StartsWith(nameof(EnumPlayerPropType.武学)))
+            {
+                foreach (var item in playerData._KONG_FU_TYPE_LV.AsRefArray())
+                {
+                    var key = item.Key;
+                    var id = $"{nameof(EnumPlayerPropType.武学)}.{key}";
+
+                    if (propName == id)
+                    {
+                        var lv = objectDTO.IntValue;
+                        var expItem = this.GameCache.Ptr_ExcelDataManager.GET_KONGFU_EXP_ITEM_BY_ID(lv);
+                        if (expItem.IsNull())
+                        {
+                            lv = this.Ptr_PlayerDataManager.GET_KONG_FU_TYPE_LV(key);
+                            expItem = this.GameCache.Ptr_ExcelDataManager.GET_KONGFU_EXP_ITEM_BY_ID(lv);
+                        }
+                        if (expItem)
+                        {
+                            ref int ref_value = ref Unsafe.AsRef(in item.Value);
+                            ref_value = expItem.TOTALEXP;
+                        }
+
+
+                    }
+
+                }
+
+
+
+            }
+
+            else if (propName.StartsWith(nameof(EnumPlayerPropType.特性)))
+            {
+                //  var characterHad = playerData.CHARACTER_HAD.AsRefArray();
+                foreach (var item in this.GameCache.CharacterDataSets)
+                {
+
+                    var id = $"{nameof(EnumPlayerPropType.特性)}.{item.DisplayName}";
+                    if (propName == id)
+                    {
+                        // var had = characterHad.Where(p => p.Key.AsReadOnlySpan().SequenceEqual(item.ObjectId.AsSpan())).Any();
+                        //if (objectDTO.BoolValue != had)
+                        //{
+                        CharacterDataSet.Ptr_CharacterDataSet ptr_characterset = item.Ptr;
+
+                        playerData._TALENT_ADD += (ptr_characterset.COST_POINT + playerData._USE_TALENT);
+                        if (!playerData.BUY_TE_XING(ptr_characterset))
+                        {
+                            //playerData.TALENT_ADD -= add;
+                        }
+                        //   this.Ptr_PlayerDataManager.char
+                        //}
+                    }
+
+                }
+            }
+            else if (propName.StartsWith(nameof(EnumPlayerPropType.门派)))
+            {
+
+            }
+            else if (propName.StartsWith(nameof(EnumPlayerPropType.装备适应)))
+            {
+
+            }
+
+        }
+
+
+
+        private IEnumerable<GameSkillInfoDTO> GetFriendSkill(string name)
+        {
+            if (false == TryGetFriend(name, out var playerData, out var friendLocaltion))
+            {
+                yield break;
+            }
+
+
+            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(UniqueSkillDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = string.Empty, CanWrite = true };
+
+
+
+
+            var in_kf_dress = playerData._DRESS_IN_KANG_FU;
+            if (in_kf_dress)
+            {
+                var skillInfo = in_kf_dress._IN_KANG_FU_DATA;
+                var skillName = skillInfo.NAME.ToString()!;
+                yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+
+
+            }
+
+            foreach (var skill in playerData._IN_KANG_FU_HAD.AsRefArray())
+            {
+                var skillObj = skill.Value;
+                if (skillObj)
+                {
+                    var skillInfo = skillObj._IN_KANG_FU_DATA;
+                    var skillName = skillInfo.NAME.ToString()!;
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+
+                }
+            }
+
+
+            foreach (var skill in playerData._DRESS_KANG_FU.AsRefArray())
+            {
+                var skillObj = skill.Value;
+                if (skillObj)
+                {
+                    var skillInfo = skillObj._KANG_FU_DATA;
+                    var skillName = skillInfo.NAME.ToString()!;
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                    foreach (var shan in GetShanHaiLuDataSet(skillObj))
+                    {
+                        yield return shan;
+                    }
+
+                }
+
+            }
+
+
+            foreach (var skill in playerData._KANG_FU_HAD.AsRefArray())
+            {
+                var skillObj = skill.Value;
+                if (skillObj)
+                {
+                    var skillInfo = skillObj._KANG_FU_DATA;
+                    var skillName = skillInfo.NAME.ToString()!;
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                    foreach (var shan in GetShanHaiLuDataSet(skillObj))
+                    {
+                        yield return shan;
+                    }
+
+                }
+
+            }
+
+
+            foreach (var skill in playerData._KANG_FU_SKILL_HAD.AsRefArray())
+            {
+                var skillObj = skill.Value;
+                if (skillObj)
+                {
+                    var skillInfo = skillObj._UNIQUE_SKILL_DATA;
+                    var skillName = skillInfo.NAME.ToString()!;
+                    var skillDesc = skillInfo.DESCRIBE.ToString();
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+
+
+                }
+
+            }
+
+
+            foreach (var skill in playerData._KANG_FU_QING_HAD.AsRefArray())
+            {
+                var skillObj = skill.Value;
+                if (skillObj)
+                {
+                    var skillInfo = skillObj._UNIQUE_SKILL_DATA;
+                    var skillName = skillInfo.NAME.ToString()!;
+                    var skillDesc = skillInfo.DESCRIBE.ToString();
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+
+
+                }
+            }
+
+
+
+
+
+            foreach (var skill in playerData._DRESS_SMALL_LOOP.AsRefArray())
+            {
+                var skillObj = skill.Value;
+                if (skillObj)
+                {
+                    var skillInfo = skillObj._UNIQUE_SKILL_DATA;
+                    var skillName = skillInfo.NAME.ToString()!;
+                    var skillDesc = skillInfo.DESCRIBE.ToString();
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+
+
+                }
+            }
+
+
+            foreach (var skill in playerData._DRESS_BIG_LOOP.AsRefArray())
+            {
+                var skillObj = skill.Value;
+                if (skillObj)
+                {
+                    var skillInfo = skillObj._UNIQUE_SKILL_DATA;
+                    var skillName = skillInfo.NAME.ToString()!;
+                    var skillDesc = skillInfo.DESCRIBE.ToString();
+                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+
+                }
+            }
+
+            IEnumerable<GameSkillInfoDTO> GetShanHaiLuDataSet(PlayerKangFu.Ptr_PlayerKangFu skillObj)
+            {
+                foreach (var shan in skillObj.HAVE_SHAN_HAI_LU)
+                {
+                    foreach (var shanhailu in this.GameCache.Skills.Where(p => p.DisplayCategory == nameof(ShanHaiLuDataSet)))
+                    {
+                        if (shan.AsReadOnlySpan().EndsWith(shanhailu.ObjectId))
+                        {
+                            yield return new GameSkillInfoDTO() { ObjectId = shanhailu.ObjectId, DisplayName = shanhailu.DisplayName, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = shanhailu.DisplayDesc, CanWrite = false };
+                        }
+                    }
+                }
+            }
+
+        }
+        private void SetFriendSkill(GameCharacterModifyDTO objectDTO)
+        {
+
+            if (false == TryGetFriend(objectDTO.CharacterId, out var playerData, out var friendLocaltion))
+            {
+                return;
+            }
+
+            var oldSkill = objectDTO.ModifyObject;
+            var newSkill = objectDTO.NewValue;
+
+            if (string.IsNullOrEmpty(oldSkill) == false)
+            {
+                //remove..
+
+            }
+
+            if (string.IsNullOrEmpty(newSkill) == false)
+            {
+                var skill = this.GameCache.Skills.Where(p => p.ObjectId == newSkill && p.DisplayCategory == objectDTO.ModifyCategory).FirstOrDefault();
+                if (skill is not null)
+                {
+                    var ok = false;
+                    if (objectDTO.ModifyCategory == nameof(InKangFuDataSet))
+                    {
+                        ok = playerData.AWARD_IN_KONG_FU(skill.Ptr);
+                    }
+                    else if (objectDTO.ModifyCategory == nameof(KangFuDataSet))
+                    {
+                        ok = playerData.AWARD_KONG_FU(skill.Ptr);
+                    }
+                    else if (objectDTO.ModifyCategory == nameof(UniqueSkillDataSet))
+                    {
+                        UniqueSkillDataSet.Ptr_UniqueSkillDataSet skillDataSet = skill.Ptr;
+                        if (skillDataSet.KF_TYPE == KFType.轻)
+                        {
+                            ok = playerData.AWARD_KANG_FU_QING(skill.Ptr);
+                        }
+                        ok = playerData.AWARD_KONG_FU_SKILL(skill.Ptr);
+                    }
+                    else if (objectDTO.ModifyCategory == nameof(ShanHaiLuDataSet))
+                    {
+                        ok = playerData.AWARD_SHAN_HAI_LU(skill.Ptr);
+                    }
+
+                    if (!ok)
+                    {
+                        GameException.Throw("Add Skill Error");
+                    }
+                }
+
+            }
+
 
         }
 
@@ -910,6 +1331,8 @@ namespace Maple.BeastSaga.Metadata
             }
             else if (objectDTO.CharacterCategory == nameof(FriendData))
             {
+
+                SetFriendData(objectDTO);
                 return new GameCharacterStatusDTO() { ObjectId = objectDTO.CharacterId, CharacterAttributes = [.. GetFriendData(objectDTO.CharacterId)] };
 
             }
@@ -928,7 +1351,7 @@ namespace Maple.BeastSaga.Metadata
             }
             else if (objectDTO.CharacterCategory == nameof(FriendData))
             {
-                return new GameCharacterSkillDTO() { ObjectId = objectDTO.CharacterId, SkillInfos = [] };
+                return new GameCharacterSkillDTO() { ObjectId = objectDTO.CharacterId, SkillInfos = [.. GetFriendSkill(objectDTO.CharacterId)] };
 
             }
             return GameException.Throw<GameCharacterSkillDTO>($"NOUT FOUND:{objectDTO.CharacterCategory}");
@@ -942,7 +1365,8 @@ namespace Maple.BeastSaga.Metadata
             }
             else if (objectDTO.CharacterCategory == nameof(FriendData))
             {
-                return new GameCharacterSkillDTO() { ObjectId = objectDTO.CharacterId, SkillInfos = [] };
+                SetFriendSkill(objectDTO);
+                return new GameCharacterSkillDTO() { ObjectId = objectDTO.CharacterId, SkillInfos = [.. GetFriendSkill(objectDTO.CharacterId)] };
 
             }
             return GameException.Throw<GameCharacterSkillDTO>($"NOUT FOUND:{objectDTO.CharacterCategory}");
@@ -963,7 +1387,8 @@ namespace Maple.BeastSaga.Metadata
         赌博,
         特性,
         好感度,
-
+        门派,
+        装备适应,
     }
 
     public enum EnumPlayerSkillType

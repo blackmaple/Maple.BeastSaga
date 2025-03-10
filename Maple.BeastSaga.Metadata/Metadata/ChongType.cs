@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."ChongType"]
     /// </summary>
-    public enum ChongType : System.Int32
+    public enum ChongType : int
     {
         飞虫 = 0x00000000,
         爬虫 = 0x00000001,

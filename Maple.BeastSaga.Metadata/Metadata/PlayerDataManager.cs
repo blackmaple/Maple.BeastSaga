@@ -1,3 +1,5 @@
+using Maple.BeastSaga.Metadata.Metadata;
+
 namespace Maple.BeastSaga.Metadata
 {
     /// <summary>

@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata
+namespace Maple.BeastSaga.Metadata.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."TipType"]
     /// </summary>
-    public enum TipType : System.Int32
+    public enum TipType : int
     {
         nil = -1,
         i1 = 0x00000000,
