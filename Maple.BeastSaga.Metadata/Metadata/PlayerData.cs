@@ -95,7 +95,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , System.Collections.Generic.List<PlayerEquipData>></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("EquipHad", "System.Collections.Generic.Dictionary<System.String,System.Collections.Generic.List<PlayerEquipData>>")]
-            public partial PMonoDictionary_BeastSaga<PMonoString, PMonoList_D<PlayerEquipData.Ptr_PlayerEquipData>> EQUIP_HAD { get; set; }
+            public partial PMonoDictionary_BeastSaga<PMonoString, PMonoList_BeastSaga<PlayerEquipData.Ptr_PlayerEquipData>> EQUIP_HAD { get; set; }
 
 
             /// <summary>
@@ -185,7 +185,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<PlayerChong></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("ChongHad", "System.Collections.Generic.List<PlayerChong>")]
-            public partial PMonoList_D<PlayerChong.Ptr_PlayerChong> CHONG_HAD { get; set; }
+            public partial PMonoList_BeastSaga<PlayerChong.Ptr_PlayerChong> CHONG_HAD { get; set; }
 
 
             /// <summary>
@@ -195,7 +195,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<PlayerChongPot></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("ChongPotHad", "System.Collections.Generic.List<PlayerChongPot>")]
-            public partial PMonoList_D<PlayerChongPot.Ptr_PlayerChongPot> CHONG_POT_HAD { get; set; }
+            public partial PMonoList_BeastSaga<PlayerChongPot.Ptr_PlayerChongPot> CHONG_POT_HAD { get; set; }
 
 
             /// <summary>
@@ -694,8 +694,8 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <returns>struct System.Single</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_TiLiNum", "System.Single")]
-            public partial System.Single _TI_LI_NUM { get; set; }
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_TiLiNum", "System.Single")]
+            //public partial System.Single _TI_LI_NUM { get; set; }
 
 
             /// <summary>
@@ -704,8 +704,8 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <returns>struct System.Boolean</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_TiLiCan", "System.Boolean")]
-            public partial System.Boolean _TI_LI_CAN { get; set; }
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_TiLiCan", "System.Boolean")]
+            //public partial System.Boolean _TI_LI_CAN { get; set; }
 
         }
 

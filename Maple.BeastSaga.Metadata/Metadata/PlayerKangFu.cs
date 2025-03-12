@@ -54,7 +54,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<System.String></returns>
         
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("HaveShanHaiLu", "System.Collections.Generic.List<System.String>")]
-           public partial PMonoList_D<PMonoString> HAVE_SHAN_HAI_LU { get; set; } 
+           public partial PMonoList_BeastSaga<PMonoString> HAVE_SHAN_HAI_LU { get; set; } 
  
 
             /// <summary>

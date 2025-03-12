@@ -188,10 +188,10 @@ namespace Maple.BeastSaga.Metadata
             /// enum ["Model.Runtime".""."EquipPosition"]
             /// </summary>
             /// <returns>enum EquipPosition</returns>
-             /*
+           
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_EquipPosition", "EquipPosition")]
             public partial EquipPosition _EQUIP_POSITION { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x7C System.Single _HutPower

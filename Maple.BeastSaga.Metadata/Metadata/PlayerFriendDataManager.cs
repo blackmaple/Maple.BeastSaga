@@ -297,10 +297,10 @@ namespace Maple.BeastSaga.Metadata
             ///   System.Void LeaveFriendAll()
             /// </summary>
             /// <returns>struct System.Void</returns>
-            /*
+         
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LeaveFriendAll", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
            public partial void LEAVE_FRIEND_ALL(); 
-*/
+ 
             /// <summary>
             ///   System.Void OnDayTime(System.Object sender, LJG.Framework.EventHandlerBase hander)
             /// </summary>

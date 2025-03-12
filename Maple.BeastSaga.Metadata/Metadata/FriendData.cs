@@ -53,10 +53,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.CoreModule"."UnityEngine"."Sprite"]
             /// </summary>
             /// <returns>class UnityEngine.Sprite</returns>
-            /*
+          
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Head", "UnityEngine.Sprite")]
            public partial nint _HEAD { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x28 UnityEngine.Sprite _BigHead
@@ -275,7 +275,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<KFSchool></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("AddSchool", "System.Collections.Generic.List<KFSchool>")]
-            public partial PMonoList_D<KFSchool> ADD_SCHOOL { get; set; }
+            public partial PMonoList_BeastSaga<KFSchool> ADD_SCHOOL { get; set; }
 
 
             /// <summary>
@@ -285,7 +285,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<KFType></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("EquipTypeCan", "System.Collections.Generic.List<KFType>")]
-            public partial PMonoList_D<KFType> EQUIP_TYPE_CAN { get; set; }
+            public partial PMonoList_BeastSaga<KFType> EQUIP_TYPE_CAN { get; set; }
 
 
             /// <summary>

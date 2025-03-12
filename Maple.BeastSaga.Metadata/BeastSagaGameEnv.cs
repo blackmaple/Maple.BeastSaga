@@ -21,8 +21,14 @@ namespace Maple.BeastSaga.Metadata
         private PlayerDataManager.Ptr_PlayerDataManager Ptr_PlayerDataManager { get; } = PlayerDataManager.Ptr_PlayerDataManager._INSTANCE;
         private PlayerData.Ptr_PlayerData Ptr_PlayerData => Ptr_PlayerDataManager._PLAYER_DATA;
 
-        private PlayerFriendDataManager.Ptr_PlayerFriendDataManager Ptr_PlayerFriendDataManager { get; } = PlayerFriendDataManager.Ptr_PlayerFriendDataManager._INSTANCE;
+        public PlayerFriendDataManager.Ptr_PlayerFriendDataManager Ptr_PlayerFriendDataManager { get; } = PlayerFriendDataManager.Ptr_PlayerFriendDataManager._INSTANCE;
         //  private PlayerFriendDataManager.Ptr_PlayerFriendDataManager Ptr_PlayerFriendDataManager { get; } = PlayerFriendDataManager.Ptr_PlayerFriendDataManager._INSTANCE;
+
+        public bool InGame()
+        {
+            var mgr = this.Ptr_PlayerDataManager;
+            return mgr.M_CACHED_PTR != nint.Zero && mgr._PLAYER != nint.Zero;
+        }
 
 
 
@@ -68,6 +74,9 @@ namespace Maple.BeastSaga.Metadata
             return new GameCurrencyInfoDTO() { ObjectId = objectDTO.CurrencyObject, DisplayValue = count.ToString() };
 
         }
+
+        #region PlayerRes
+        #endregion
 
 
         #region PlayerData
@@ -716,8 +725,10 @@ namespace Maple.BeastSaga.Metadata
         #endregion
 
 
+
+
         #region FriendData
-        public void Test()
+        public void CreateAllFriend()
         {
             var p = LogicHelper.Ptr_LogicHelper._INSTANCE;
 
@@ -725,11 +736,10 @@ namespace Maple.BeastSaga.Metadata
             foreach (var table in data.P_FRIEND_LOVE_TABLE.DICT.AsRefArray())
             {
                 var tableItem = table.Value;
-                this.Logger.LogInformation("name:{name},name2:{name2},id:{id}", tableItem.NAME.ToString(), tableItem.NAME2.ToString(), tableItem.ID);
+       //         this.Logger.LogInformation("name:{name},name2:{name2},id:{id}", tableItem.NAME.ToString(), tableItem.NAME2.ToString(), tableItem.ID);
                 p.FRIEND_ADD(tableItem.NAME2);
             }
-
-
+            this.Ptr_PlayerFriendDataManager.LEAVE_FRIEND_ALL();
         }
 
         public bool TryCreateFriend(string characterId)
@@ -745,6 +755,9 @@ namespace Maple.BeastSaga.Metadata
             return false;
 
         }
+
+
+
         public bool ExistsFriendObject(string characterId)
         {
             return TryGetFriend(characterId, out _, out var _);
@@ -894,7 +907,7 @@ namespace Maple.BeastSaga.Metadata
                 }
             }
 
-            if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.ADD_PRO_SPOT)}")
+            if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._ADD_PRO_SPOT)}")
             {
                 var add = objectDTO.IntValue;
                 var use = playerData._USE_PRO_SPOT;
@@ -905,64 +918,64 @@ namespace Maple.BeastSaga.Metadata
                 playerData._ADD_PRO_SPOT = add;
             }
 
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData._BASE_HP)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._BASE_HP)}")
             {
                 playerData._BASE_HP = objectDTO.FloatValue;
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData._HP)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._HP)}")
             {
                 playerData._HP = objectDTO.FloatValue;
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData._MAX_HP)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._MAX_HP)}")
             {
                 playerData._MAX_HP = objectDTO.FloatValue;
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.POWER)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._POWER)}")
             {
                 playerData._POWER = objectDTO.FloatValue;
                 playerData.SAVE_PRO_LIFE_POINTS();
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.PERCEPTION)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._PERCEPTION)}")
             {
                 playerData._PERCEPTION = objectDTO.FloatValue;
                 playerData.SAVE_PRO_LIFE_POINTS();
 
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.AGILITY)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._AGILITY)}")
             {
                 playerData._AGILITY = objectDTO.FloatValue;
                 playerData.SAVE_PRO_LIFE_POINTS();
 
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.PHYSICAL_POWER)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._PHYSICAL_POWER)}")
             {
                 playerData._PHYSICAL_POWER = objectDTO.FloatValue;
                 playerData.SAVE_PRO_LIFE_POINTS();
 
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.CHANNEL)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._CHANNEL)}")
             {
                 playerData._CHANNEL = objectDTO.FloatValue;
                 playerData.SAVE_PRO_LIFE_POINTS();
 
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.BERATH_SKILL)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._BERATH_SKILL)}")
             {
                 playerData._BERATH_SKILL = objectDTO.FloatValue;
                 playerData.SAVE_PRO_LIFE_POINTS();
 
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.WU_XING)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._WU_XING)}")
             {
                 playerData._WU_XING = objectDTO.IntValue;
                 //       this.Ptr_PlayerDataManager.SAVE_PRO_LIFE_POINTS();
 
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.SPEED)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._SPEED)}")
             {
                 playerData._SPEED = objectDTO.FloatValue;
             }
-            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.TALENT_ADD)}")
+            else if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(FriendData.Ptr_FriendData._TALENT_ADD)}")
             {
                 var add = objectDTO.IntValue;
                 var use = playerData._USE_TALENT;

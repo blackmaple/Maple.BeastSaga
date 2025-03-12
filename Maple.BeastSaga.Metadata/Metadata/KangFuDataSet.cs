@@ -1,3 +1,4 @@
+using Maple.BeastSaga.Metadata.Metadata;
 using Maple.MonoGameAssistant.Core;
 
 namespace Maple.BeastSaga.Metadata
@@ -78,10 +79,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.CoreModule"."UnityEngine"."Sprite"]
             /// </summary>
             /// <returns>class UnityEngine.Sprite</returns>
-             /*
+          
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("Icon", "UnityEngine.Sprite")]
             public partial nint ICON { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x28 UnityEngine.AudioClip _HurtAudio
@@ -318,10 +319,10 @@ namespace Maple.BeastSaga.Metadata
             /// enum ["Model.Runtime".""."KFType"]
             /// </summary>
             /// <returns>enum KFType</returns>
-             /*
+          
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KfType", "KFType")]
             public partial KFType KF_TYPE { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0xCC HurtType HurtType

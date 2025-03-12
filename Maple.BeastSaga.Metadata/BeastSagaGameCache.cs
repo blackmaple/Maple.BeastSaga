@@ -24,8 +24,11 @@ namespace Maple.BeastSaga.Metadata
 
         public GameSkillDisplayDTOEX[] Skills { get; }
 
+
+
+
         public KFSchool[] KFSchools { get; } = [KFSchool.五子, KFSchool.昆仑, KFSchool.必报, KFSchool.破道, KFSchool.穹空, KFSchool.百灵, KFSchool.皇羽, KFSchool.江湖];
-        public KFType[] KFTypes  { get; } = [ 
+        public KFType[] KFTypes { get; } = [
          KFType.内            ,
          KFType.轻            ,
          KFType.绝            ,
@@ -48,6 +51,8 @@ namespace Maple.BeastSaga.Metadata
             this.Ptr_OpenUIManager = OpenUIManager.Ptr_OpenUIManager._INST;
             this.Ptr_ExcelDataManager = ExcelDataManager.Ptr_ExcelDataManager.INSTANCE;
             this.Ptr_LogicHelper = LogicHelper.Ptr_LogicHelper._INSTANCE;
+ 
+
             this.Currencies = [
                 .. GetItemDataSet(),
             ];
@@ -114,8 +119,9 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameInventoryDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = item._ICON,
                     ObjectId = item._NAME.ToString()!,
-                    DisplayName = item._NAME.ToString(),
+                    DisplayName = $"{item._EQUIP_POSITION}.{item._NAME}",
                     DisplayDesc = item._DES.ToString(),
                     DisplayCategory = nameof(EquipDataSet)
                 };
@@ -127,14 +133,17 @@ namespace Maple.BeastSaga.Metadata
             foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER)
             {
                 var name = item._NAME.ToString()!;
+                this.Logger.LogInformation("name:{name}", name);
                 yield return new GameCurrencyDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = item._ICON,
                     ObjectId = name,
                     DisplayName = $"{item._EQUIP_TYPE}.{name}",
                     DisplayDesc = item._ITEM_DES.ToString(),
                     DisplayCategory = item._EQUIP_TYPE.ToString(),
                 };
+
             }
         }
 
@@ -146,8 +155,9 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameSkillDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = item.ICON,
                     ObjectId = item.NAME.ToString()!,
-                    DisplayName = item.NAME.ToString(),
+                    DisplayName = $"{item.KF_TYPE}.{item.NAME}",
                     DisplayDesc = item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(KangFuDataSet)
                 };
@@ -162,6 +172,7 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameSkillDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = item.ICON,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.DESCRIBE.ToString(),
@@ -177,8 +188,9 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameSkillDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = item.ICON,
                     ObjectId = item.NAME.ToString()!,
-                    DisplayName = item.NAME.ToString(),
+                    DisplayName = $"{item.KF_TYPE}.{item.NAME}",
                     DisplayDesc = item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(UniqueSkillDataSet)
                 };
@@ -192,6 +204,7 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameInventoryDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = nint.Zero,
                     ObjectId = item._NAME.ToString()!,
                     DisplayName = item._NAME.ToString(),
                     DisplayDesc = string.Empty,//item.DESCRIBE.ToString(),
@@ -207,6 +220,7 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameInventoryDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = item.ICON,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.DES_UI.ToString(),
@@ -222,9 +236,10 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameInventoryDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = item._ICON,
                     ObjectId = item._NAME.ToString()!,
-                    DisplayName = item._NAME.ToString(),
-                    DisplayDesc = $"{item._TYPE}.{item._RANK}",
+                    DisplayName = $"Lv{item._RANK}.{item._NAME}",
+                    DisplayDesc = item._TYPE.ToString(),
                     DisplayCategory = nameof(ChongDataSet)
                 };
             }
@@ -237,8 +252,9 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameInventoryDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = item._ICON,
                     ObjectId = item._NAME.ToString()!,
-                    DisplayName = item._NAME.ToString(),
+                    DisplayName = $"Lv{item._RANK}.{item._NAME}",
                     DisplayDesc = item._EXPLAN.ToString(),
                     DisplayCategory = nameof(ChongPotDataSet)
                 };
@@ -252,6 +268,8 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameSkillDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = nint.Zero,
+
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = item.EXPLAIN.ToString(),
@@ -267,6 +285,7 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameInventoryDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = nint.Zero,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = string.Empty,//; item.EXPLAIN.ToString(),
@@ -284,6 +303,7 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameInventoryDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
+                    SpriteData = nint.Zero,
                     ObjectId = item.NAME.ToString()!,
                     DisplayName = item.NAME.ToString(),
                     DisplayDesc = string.Empty,//; item.EXPLAIN.ToString(),
@@ -300,38 +320,39 @@ namespace Maple.BeastSaga.Metadata
             var pStr = this.Context.T(msg);
             this.Ptr_OpenUIManager.SHOW_TIP(TipType.i1, pStr);
         }
+
+
+
         #endregion
 
-        //public IEnumerable<GameSkillInfoDTO> GetGameSkillInfoDTO(GameSkillInfoDTO[] gameSkillInfoDTOs)
-        //{
-        //    var count = KangFuDataSets.Length;
-        //    gameSkillInfoDTOs.Select(p => p.DisplayCategory == nameof(KangFuDataSet)).ToArray();
 
-        //}
     }
 
     public sealed class GameInventoryDisplayDTOEX : GameInventoryDisplayDTO
     {
         public required nint Ptr { set; get; }
-
+        public nint SpriteData { set; get; }
 
     }
 
     public sealed class GameCharacterDisplayDTOEX : GameCharacterDisplayDTO
     {
         public nint Ptr { set; get; }
+        //    public nint SpriteData { set; get; }
     }
 
 
     public sealed class GameCurrencyDisplayDTOEX : GameCurrencyDisplayDTO
     {
         public required nint Ptr { set; get; }
+        public nint SpriteData { set; get; }
 
     }
 
     public sealed class GameSkillDisplayDTOEX : GameSkillDisplayDTO
     {
         public required nint Ptr { set; get; }
+        public nint SpriteData { set; get; }
 
     }
 }

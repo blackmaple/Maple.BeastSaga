@@ -44,7 +44,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<ItemDataSet></returns>
           
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_QiItemDatas", "System.Collections.Generic.List<ItemDataSet>")]
-            public partial PMonoList_D<ItemDataSet.Ptr_ItemDataSet> _QI_ITEM_DATAS { get; set; } 
+            public partial PMonoList_BeastSaga<ItemDataSet.Ptr_ItemDataSet> _QI_ITEM_DATAS { get; set; } 
  
 
             /// <summary>
@@ -54,7 +54,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<System.String></returns>
        
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_QiItemNames", "System.Collections.Generic.List<System.String>")]
-            public partial PMonoList_D<PMonoString> _QI_ITEM_NAMES { get; set; } 
+            public partial PMonoList_BeastSaga<PMonoString> _QI_ITEM_NAMES { get; set; } 
  
 
             /// <summary>

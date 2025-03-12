@@ -2,6 +2,7 @@
 using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Maple.MonoGameAssistant.Model;
+using Maple.MonoGameAssistant.UnityCore.UnityEngine;
 using Maple.MonoGameAssistant.Windows.HotKey.HookWindowMessage;
 using Maple.MonoGameAssistant.Windows.Service;
 using Maple.MonoGameAssistant.Windows.UITask;
@@ -25,12 +26,42 @@ namespace Maple.BeastSaga.Win
             return new BeastSagaGameContext(Logger, searchService, RuntimeContext);
         }
 
-
-        protected override async ValueTask F9_KeyDown()
+        protected sealed override UnityEngineContext? LoadUnityEngineContext()
         {
-            var gameEnv = await GetBeastSagaGameEnvAsync().ConfigureAwait(false);
-            await this.UITaskAsync((p, args) => args.Test(), gameEnv).ConfigureAwait(false);
+            //UnityEngine.Graphics:Blit2+7f - 48 B8 D0FA4423FC7F0000 - mov rax,UnityPlayer.dll+9FAD0 { (610044232) }
+            //UnityEngine.Graphics:Blit2+4b - E8 D0B2922B           - call UnityPlayer.dll+75F20
+
+            UnityEngineContext_MONO.Func_BLIT2 = 0x9FAD0;
+            UnityEngineContext_MONO.Func_BLIT2 = 0x75F20;
+
+            //UnityEngine.ImageConversion:EncodeToPNG+77 - 48 B8 B0385723FC7F0000 - mov rax,UnityPlayer.dll+1C38B0 { ("@USWH??H??") }
+            //UnityEngine.ImageConversion:EncodeToPNG+43 - E8 28B4A02B           - call UnityPlayer.dll+156110
+
+            UnityEngineContext_MONO.Func_ENCODE_TO_PNG = 0x1C38B0;
+            UnityEngineContext_MONO.Func_ENCODE_TO_PNG = 0x156110;
+
+            //UnityEngine.Sprite:GetTextureRect_Injected+86 - 48 B8 700B4D23FC7F0000 - mov rax,UnityPlayer.dll+120B70 { (610044232) }
+            //UnityEngine.Sprite:GetTextureRect_Injected+57 - E8 6444992B           - call UnityPlayer.dll+DCD70
+
+            UnityEngineContext_MONO.Func_GET_TEXTURE_RECT_INJECTED = 0x120B70;
+            UnityEngineContext_MONO.Func_GET_TEXTURE_RECT_INJECTED = 0xDCD70;
+
+            //UnityEngine.Texture2D:ReadPixelsImpl_Injected+8e - 48 B8 30584723FC7F0000 - mov rax,UnityPlayer.dll+C5830 { (610044232) }
+            //UnityEngine.Texture2D:ReadPixelsImpl_Injected+6b - E8 00B6942B           - call UnityPlayer.dll+93FE0
+
+            UnityEngineContext_MONO.Func_READ_PIXELS_IMPL_INJECTED = 0xC5830;
+            UnityEngineContext_MONO.Func_READ_PIXELS_IMPL_INJECTED = 0x93FE0;
+
+
+
+            return base.LoadUnityEngineContext();
         }
+
+        //protected override async ValueTask F9_KeyDown()
+        //{
+        //    var gameEnv = await GetBeastSagaGameEnvAsync().ConfigureAwait(false);
+        //    await this.UITaskAsync((p, args) => args.Test(), gameEnv).ConfigureAwait(false);
+        //}
 
         public required BeastSagaGameCache GameCache { set; get; }
 
@@ -39,6 +70,40 @@ namespace Maple.BeastSaga.Win
         protected sealed override async ValueTask LoadGameDataAsync()
         {
             GameCache = await this.MonoTaskAsync(p => new BeastSagaGameCache(p)).ConfigureAwait(false);
+            LoadGameSpriteData();
+            void LoadGameSpriteData()
+            {
+
+                foreach (var item in this.GameCache.Currencies)
+                {
+                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ObjectId}.png", out var url))
+                    {
+                        item.DisplayImage = url;
+                    }
+                }
+                foreach (var item in this.GameCache.Items)
+                {
+                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ObjectId}.png", out var url))
+                    {
+                        item.DisplayImage = url;
+                    }
+                }
+                foreach (var item in this.GameCache.Skills)
+                {
+                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ObjectId}.png", out var url))
+                    {
+                        item.DisplayImage = url;
+                    }
+                }
+                foreach (var item in this.GameCache.Characters)
+                {
+                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ObjectId}.png", out var url))
+                    {
+                        item.DisplayImage = url;
+                    }
+                }
+            }
+
         }
 
         Task<BeastSagaGameEnv> GetBeastSagaGameEnvAsync()
@@ -52,6 +117,113 @@ namespace Maple.BeastSaga.Win
             return gameEnv;
         }
 
+
+        public override async ValueTask<GameSessionInfoDTO> LoadResourceAsync()
+        {
+            var datas = await this.UITaskAsync(p => LoadGameSpriteData().ToArray()).ConfigureAwait(false);
+            foreach (var data in datas)
+            {
+                this.GameSettings.WriteImageFile(data.SpriteData2.Span, data.DisplayCategory, $"{data.ObjectId}.png", false);
+            }
+
+            var gameEnv = await this.GetBeastSagaGameEnvAsync().ConfigureAwait(false);
+            if (gameEnv.InGame())
+            {
+                await this.UITaskAsync((p, args) => args.CreateAllFriend(), gameEnv).ConfigureAwait(false);
+                var datas2 = await this.UITaskAsync((p, args) => LoadPlayerImage(args).ToArray(), gameEnv).ConfigureAwait(false);
+                foreach (var data in datas2)
+                {
+                    this.GameSettings.WriteImageFile(data.SpriteData2.Span, data.DisplayCategory, $"{data.ObjectId}.png", false);
+                }
+            }
+            return await base.LoadResourceAsync().ConfigureAwait(false);
+
+            IEnumerable<GameSpriteData> LoadGameSpriteData()
+            {
+                if (this.UnityEngineContext is null)
+                {
+                    yield break;
+                }
+                foreach (var item in this.GameCache.Currencies)
+                {
+                    var spriteData = item.SpriteData;
+                    if (spriteData != nint.Zero)
+                    {
+                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, 2);
+                        if (arrayData != nint.Zero)
+                        {
+                            yield return new GameSpriteData() { ObjectId = item.ObjectId, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
+                        }
+                    }
+                }
+                foreach (var item in this.GameCache.Items)
+                {
+                    var spriteData = item.SpriteData;
+                    if (spriteData != nint.Zero)
+                    {
+                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, 2);
+                        if (arrayData != nint.Zero)
+                        {
+                            yield return new GameSpriteData() { ObjectId = item.ObjectId, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
+                        }
+                    }
+                }
+                foreach (var item in this.GameCache.Skills)
+                {
+                    var spriteData = item.SpriteData;
+                    if (spriteData != nint.Zero)
+                    {
+                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, 2);
+                        if (arrayData != nint.Zero)
+                        {
+                            yield return new GameSpriteData() { ObjectId = item.ObjectId, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
+                        }
+                    }
+                }
+            }
+            IEnumerable<GameSpriteData> LoadPlayerImage(BeastSagaGameEnv @this)
+            {
+                if (this.UnityEngineContext is null)
+                {
+                    yield break;
+                }
+                var frienddata = @this.Ptr_PlayerFriendDataManager._FRIEND_DATA;
+
+                foreach (var friend in frienddata.ADD_FRIENDS.AsRefArray())
+                {
+
+                    var friendObj = friend.Value;
+                    var spriteData = friendObj._HEAD;
+                    if (spriteData != nint.Zero)
+                    {
+
+                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, 2);
+                        if (arrayData != nint.Zero)
+                        {
+                            yield return new GameSpriteData() { ObjectId = friendObj._AB_NAME.ToString()!, DisplayCategory = nameof(FriendData), SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
+                        }
+                    }
+
+                }
+
+                foreach (var friend in frienddata.LEAVE_FRIENDS.AsRefArray())
+                {
+                    var friendObj = friend.Value;
+                    var spriteData = friendObj._HEAD;
+                    if (spriteData != nint.Zero)
+                    {
+
+                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, 2);
+                        if (arrayData != nint.Zero)
+                        {
+                            yield return new GameSpriteData() { ObjectId = friendObj._AB_NAME.ToString()!, DisplayCategory = nameof(FriendData), SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
+                        }
+                    }
+
+                }
+            }
+
+        }
 
         //public sealed override ValueTask<GameCurrencyDisplayDTO[]> GetListCurrencyDisplayAsync()
         //{
@@ -167,6 +339,8 @@ namespace Maple.BeastSaga.Win
             return new ValueTask<GameSkillDisplayDTO[]>(GameCache.Skills);
         }
     }
+
+
 
 
 }

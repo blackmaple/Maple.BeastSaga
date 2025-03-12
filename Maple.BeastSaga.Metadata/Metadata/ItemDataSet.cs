@@ -79,10 +79,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.CoreModule"."UnityEngine"."Sprite"]
             /// </summary>
             /// <returns>class UnityEngine.Sprite</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Icon", "UnityEngine.Sprite")]
+             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Icon", "UnityEngine.Sprite")]
             public partial nint _ICON { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x28 UnityEngine.Sprite _SceneImg
@@ -169,10 +168,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-             /*
+          
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_OutPutDes", "System.String")]
-            public partial nint _OUT_PUT_DES { get; set; } 
-*/
+            public partial PMonoString _OUT_PUT_DES { get; set; } 
+ 
 
             /// <summary>
             /// 0x70 KangFuDataSet _KangFu
@@ -309,10 +308,10 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Rank", "System.Int32")]
-            public partial System.Int32 _RANK { get; set; } 
-*/
+     
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Rank", "System.Int32")]
+            //public partial System.Int32 _RANK { get; set; } 
+ 
 
             /// <summary>
             /// 0xDC EquipType _EquipType
@@ -330,8 +329,8 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <returns>enum ItemType</returns>
         
-        //    [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemType", "ItemType")]
-       //     public partial ItemType _ITEM_TYPE { get; set; } 
+      //    [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemType", "ItemType")]
+      //     public partial ItemType _ITEM_TYPE { get; set; } 
  
 
             /// <summary>
@@ -339,30 +338,30 @@ namespace Maple.BeastSaga.Metadata
             /// enum ["Model.Runtime".""."ItemUseType"]
             /// </summary>
             /// <returns>enum ItemUseType</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemUseType", "ItemUseType")]
-            public partial ItemUseType _ITEM_USE_TYPE { get; set; } 
-*/
+          
+    //        [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemUseType", "ItemUseType")]
+   //         public partial ItemUseType _ITEM_USE_TYPE { get; set; } 
+ 
 
             /// <summary>
             /// 0xE8 ItemPortBattle _ItemPortBattle
             /// enum ["Model.Runtime".""."ItemPortBattle"]
             /// </summary>
             /// <returns>enum ItemPortBattle</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemPortBattle", "ItemPortBattle")]
-            public partial ItemPortBattle _ITEM_PORT_BATTLE { get; set; } 
-*/
+           
+    //        [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemPortBattle", "ItemPortBattle")]
+   //         public partial ItemPortBattle _ITEM_PORT_BATTLE { get; set; } 
+ 
 
             /// <summary>
             /// 0xEC ItemUseTagget _ItemUseTagget
             /// enum ["Model.Runtime".""."ItemUseTagget"]
             /// </summary>
             /// <returns>enum ItemUseTagget</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemUseTagget", "ItemUseTagget")]
-            public partial ItemUseTagget _ITEM_USE_TAGGET { get; set; } 
-*/
+           
+     //       [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemUseTagget", "ItemUseTagget")]
+     //       public partial ItemUseTagget _ITEM_USE_TAGGET { get; set; } 
+ 
 
             /// <summary>
             /// 0xF0 System.Int32 _UseRange

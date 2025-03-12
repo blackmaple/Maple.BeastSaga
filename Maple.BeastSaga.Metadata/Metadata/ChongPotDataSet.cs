@@ -78,10 +78,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.CoreModule"."UnityEngine"."Sprite"]
             /// </summary>
             /// <returns>class UnityEngine.Sprite</returns>
-             /*
+            
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Icon", "UnityEngine.Sprite")]
             public partial nint _ICON { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x28 UnityEngine.Sprite _SkillIcon
@@ -118,10 +118,10 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
+           
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Rank", "System.Int32")]
             public partial System.Int32 _RANK { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x44 System.Single _Ability

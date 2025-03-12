@@ -1,9 +1,9 @@
-namespace Maple.BeastSaga.Metadata.Metadata
+namespace Maple.BeastSaga.Metadata
 {
     /// <summary>
     /// ["Model.Runtime".""."EquipPosition"]
     /// </summary>
-    public enum EquipPosition : int
+    public enum EquipPosition : System.Int32
     {
         头部 = 0x00000001,
         上装 = 0x00000002,

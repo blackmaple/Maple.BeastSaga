@@ -1,3 +1,4 @@
+using Maple.BeastSaga.Metadata.Metadata;
 using Maple.MonoGameAssistant.Core;
 
 namespace Maple.BeastSaga.Metadata
@@ -78,10 +79,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.CoreModule"."UnityEngine"."Sprite"]
             /// </summary>
             /// <returns>class UnityEngine.Sprite</returns>
-             /*
+        
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("Icon", "UnityEngine.Sprite")]
             public partial nint ICON { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x28 System.Collections.Generic.List<InKangFuDataSet> PreconditionOne
@@ -158,10 +159,10 @@ namespace Maple.BeastSaga.Metadata
             /// enum ["Model.Runtime".""."KFSchool"]
             /// </summary>
             /// <returns>enum KFSchool</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("School", "KFSchool")]
-            public partial KFSchool SCHOOL { get; set; } 
-*/
+          
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("School", "KFSchool")]
+            //public partial KFSchool SCHOOL { get; set; } 
+ 
 
             /// <summary>
             /// 0x64 System.Int32 Rank
@@ -208,20 +209,20 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("BigLoop", "System.Int32")]
-            public partial System.Int32 BIG_LOOP { get; set; } 
-*/
+         
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("BigLoop", "System.Int32")]
+            //public partial System.Int32 BIG_LOOP { get; set; } 
+ 
 
             /// <summary>
             /// 0x78 System.Int32 SmallLoop
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("SmallLoop", "System.Int32")]
-            public partial System.Int32 SMALL_LOOP { get; set; } 
-*/
+           
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("SmallLoop", "System.Int32")]
+            //public partial System.Int32 SMALL_LOOP { get; set; } 
+ 
         }
 
         /// <summary>

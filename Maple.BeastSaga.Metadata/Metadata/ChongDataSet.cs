@@ -79,10 +79,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.CoreModule"."UnityEngine"."Sprite"]
             /// </summary>
             /// <returns>class UnityEngine.Sprite</returns>
-             /*
+            
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Icon", "UnityEngine.Sprite")]
             public partial nint _ICON { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x28 KangFuSkillDictionary _Skill

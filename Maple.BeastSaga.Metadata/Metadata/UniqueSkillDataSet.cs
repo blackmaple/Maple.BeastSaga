@@ -78,10 +78,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.CoreModule"."UnityEngine"."Sprite"]
             /// </summary>
             /// <returns>class UnityEngine.Sprite</returns>
-             /*
+         
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("Icon", "UnityEngine.Sprite")]
             public partial nint ICON { get; set; } 
-*/
+ 
 
             /// <summary>
             /// 0x28 UnityEngine.GameObject Effect
