@@ -17,7 +17,7 @@ namespace Maple.BeastSaga.Metadata
 
             public static implicit operator Ptr_PlayerFriendDataManager(System.IntPtr ptr) => new Ptr_PlayerFriendDataManager(ptr);
             public static implicit operator System.IntPtr(Ptr_PlayerFriendDataManager ptr) => ptr.m_Pointer;
-            public static implicit operator bool (Ptr_PlayerFriendDataManager ptr) => ptr.m_Pointer != System.IntPtr.Zero;
+            public static implicit operator bool(Ptr_PlayerFriendDataManager ptr) => ptr.m_Pointer != System.IntPtr.Zero;
         }
 
         /// <summary>
@@ -30,35 +30,35 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-             /*
-            public const nint OBJECT_IS_NULL_MESSAGE = The Object you want to instantiate is null.; 
+            /*
+           public const nint OBJECT_IS_NULL_MESSAGE = The Object you want to instantiate is null.; 
 */
             /// <summary>
             /// 0x0 System.String cloneDestroyedMessage
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-             /*
-            public const nint CLONE_DESTROYED_MESSAGE = Instantiate failed because the clone was destroyed during creati; 
+            /*
+           public const nint CLONE_DESTROYED_MESSAGE = Instantiate failed because the clone was destroyed during creati; 
 */
             /// <summary>
             /// 0x0 PlayerFriendDataManager _Instance
             /// class ["Model.Runtime".""."PlayerFriendDataManager"]
             /// </summary>
             /// <returns>class PlayerFriendDataManager</returns>
-        
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Instance", "PlayerFriendDataManager")]
-            public static partial PlayerFriendDataManager.Ptr_PlayerFriendDataManager _INSTANCE { get; set; } 
- 
+            public static partial PlayerFriendDataManager.Ptr_PlayerFriendDataManager _INSTANCE { get; set; }
+
 
             /// <summary>
             /// 0x0 System.Int32 OffsetOfInstanceIDInCPlusPlusObject
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("OffsetOfInstanceIDInCPlusPlusObject", "System.Int32")]
-            public static partial System.Int32 OFFSET_OF_INSTANCE_ID_IN_C_PLUS_PLUS_OBJECT { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("OffsetOfInstanceIDInCPlusPlusObject", "System.Int32")]
+           public static partial System.Int32 OFFSET_OF_INSTANCE_ID_IN_C_PLUS_PLUS_OBJECT { get; set; } 
 */
 
             /// <summary>
@@ -66,9 +66,9 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."IntPtr"]
             /// </summary>
             /// <returns>struct System.IntPtr</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("m_CachedPtr", "System.IntPtr")]
-            public partial System.IntPtr M_CACHED_PTR { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("m_CachedPtr", "System.IntPtr")]
+           public partial System.IntPtr M_CACHED_PTR { get; set; } 
 */
 
             /// <summary>
@@ -76,19 +76,19 @@ namespace Maple.BeastSaga.Metadata
             /// class ["Model.Runtime".""."SaveFriendData"]
             /// </summary>
             /// <returns>class SaveFriendData</returns>
-           
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_FriendData", "SaveFriendData")]
-            public partial SaveFriendData.Ptr_SaveFriendData _FRIEND_DATA { get; set; } 
- 
+            public partial ref SaveFriendData.Ptr_SaveFriendData _FRIEND_DATA { get; }
+
 
             /// <summary>
             /// 0x20 System.String _SaveName
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_SaveName", "System.String")]
-            public partial nint _SAVE_NAME { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_SaveName", "System.String")]
+           public partial nint _SAVE_NAME { get; set; } 
 */
 
             /// <summary>
@@ -96,9 +96,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.CoreModule"."UnityEngine"."GameObject"]
             /// </summary>
             /// <returns>class UnityEngine.GameObject</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_FriendManager", "UnityEngine.GameObject")]
-            public partial nint _FRIEND_MANAGER { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_FriendManager", "UnityEngine.GameObject")]
+           public partial nint _FRIEND_MANAGER { get; set; } 
 */
 
             /// <summary>
@@ -106,9 +106,9 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Boolean"]
             /// </summary>
             /// <returns>struct System.Boolean</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_IsLoadOver", "System.Boolean")]
-            public partial System.Boolean _IS_LOAD_OVER { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_IsLoadOver", "System.Boolean")]
+           public partial System.Boolean _IS_LOAD_OVER { get; set; } 
 */
         }
 
@@ -121,9 +121,9 @@ namespace Maple.BeastSaga.Metadata
             ///   System.Void .ctor()
             /// </summary>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute(".ctor", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void CTOR(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute(".ctor", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial void CTOR(); 
 */
             /// <summary>
             ///   System.Void AddFriend(FriendDefaultData friendDefault, System.String abName)
@@ -131,107 +131,107 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "friendDefault">class FriendDefaultData</param>
             /// <param name = "abName">class System.String</param>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("FriendDefaultData", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
-            public partial void ADD_FRIEND(nint friendDefault, nint abName); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("FriendDefaultData", 0)]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
+           public partial void ADD_FRIEND(nint friendDefault, nint abName); 
 */
             /// <summary>
             ///   System.Void AddFriendAll()
             /// </summary>
             /// <returns>struct System.Void</returns>
-       
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddFriendAll", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void ADD_FRIEND_ALL(); 
- 
+            public partial void ADD_FRIEND_ALL();
+
             /// <summary>
             ///   System.Void Awake()
             /// </summary>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("Awake", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void AWAKE(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("Awake", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial void AWAKE(); 
 */
             /// <summary>
             ///   System.Void CheckDataLoad()
             /// </summary>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CheckDataLoad", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void CHECK_DATA_LOAD(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CheckDataLoad", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial void CHECK_DATA_LOAD(); 
 */
             /// <summary>
             ///   System.Void DestroyTempFriend(UnityEngine.GameObject obj)
             /// </summary>
             /// <param name = "obj">class UnityEngine.GameObject</param>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("DestroyTempFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
-            public partial void DESTROY_TEMP_FRIEND(nint obj); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("DestroyTempFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UnityEngine.GameObject", 0)]
+           public partial void DESTROY_TEMP_FRIEND(nint obj); 
 */
             /// <summary>
             ///   System.Void FriendDialogue(System.String friendName)
             /// </summary>
             /// <param name = "friendName">class System.String</param>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("FriendDialogue", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial void FRIEND_DIALOGUE(nint friendName); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("FriendDialogue", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+           public partial void FRIEND_DIALOGUE(nint friendName); 
 */
             /// <summary>
             ///   System.Void FriendDie(System.String name)
             /// </summary>
             /// <param name = "name">class System.String</param>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("FriendDie", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial void FRIEND_DIE(nint name); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("FriendDie", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+           public partial void FRIEND_DIE(nint name); 
 */
             /// <summary>
             ///   System.Boolean get_IsAutomate()
             /// </summary>
             /// <returns>struct System.Boolean</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("get_IsAutomate", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial System.Boolean GET_IS_AUTOMATE(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("get_IsAutomate", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial System.Boolean GET_IS_AUTOMATE(); 
 */
             /// <summary>
             ///   System.Collections.Generic.List<System.String> GetBattleFriends()
             /// </summary>
             /// <returns>class System.Collections.Generic.List<System.String></returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetBattleFriends", "System.Collections.Generic.List<System.String>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial nint GET_BATTLE_FRIENDS(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetBattleFriends", "System.Collections.Generic.List<System.String>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial nint GET_BATTLE_FRIENDS(); 
 */
             /// <summary>
             ///   FriendData GetFriend(System.String name)
             /// </summary>
             /// <param name = "name">class System.String</param>
             /// <returns>class FriendData</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetFriend", "FriendData", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial nint GET_FRIEND(nint name); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetFriend", "FriendData", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+           public partial nint GET_FRIEND(nint name); 
 */
             /// <summary>
             ///   System.Collections.Generic.Dictionary<System.String , FriendData> GetFriends()
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , FriendData></returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetFriends", "System.Collections.Generic.Dictionary<System.String,FriendData>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial nint GET_FRIENDS(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetFriends", "System.Collections.Generic.Dictionary<System.String,FriendData>", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial nint GET_FRIENDS(); 
 */
             /// <summary>
             ///   System.Void HpFull()
             /// </summary>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("HpFull", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void HP_FULL(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("HpFull", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial void HP_FULL(); 
 */
             /// <summary>
             ///   System.Void InitFriend(System.String itemName, FriendData friendData)
@@ -239,67 +239,67 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "itemName">class System.String</param>
             /// <param name = "friendData">class FriendData</param>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("InitFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("FriendData", 1)]
-            public partial void INIT_FRIEND(nint itemName, nint friendData); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("InitFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("FriendData", 1)]
+           public partial void INIT_FRIEND(nint itemName, nint friendData); 
 */
             /// <summary>
             ///   System.Collections.IEnumerator InitFriendData()
             /// </summary>
             /// <returns>interface System.Collections.IEnumerator</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("InitFriendData", "System.Collections.IEnumerator", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial nint INIT_FRIEND_DATA(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("InitFriendData", "System.Collections.IEnumerator", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial nint INIT_FRIEND_DATA(); 
 */
             /// <summary>
             ///   System.Boolean IsHaveFriend(System.String name)
             /// </summary>
             /// <param name = "name">class System.String</param>
             /// <returns>struct System.Boolean</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsHaveFriend", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial System.Boolean IS_HAVE_FRIEND(nint name); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsHaveFriend", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+           public partial System.Boolean IS_HAVE_FRIEND(nint name); 
 */
             /// <summary>
             ///   System.Boolean IsIncludeFriend(System.String name)
             /// </summary>
             /// <param name = "name">class System.String</param>
             /// <returns>struct System.Boolean</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsIncludeFriend", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial System.Boolean IS_INCLUDE_FRIEND(nint name); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IsIncludeFriend", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+           public partial System.Boolean IS_INCLUDE_FRIEND(nint name); 
 */
             /// <summary>
             ///   System.Collections.IEnumerator IStartConversation(System.String title)
             /// </summary>
             /// <param name = "title">class System.String</param>
             /// <returns>interface System.Collections.IEnumerator</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IStartConversation", "System.Collections.IEnumerator", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial nint I_START_CONVERSATION(nint title); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("IStartConversation", "System.Collections.IEnumerator", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+           public partial nint I_START_CONVERSATION(nint title); 
 */
             /// <summary>
             ///   System.Void LeaveFriend(System.String abName)
             /// </summary>
             /// <param name = "abName">class System.String</param>
             /// <returns>struct System.Void</returns>
-      
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LeaveFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial void LEAVE_FRIEND(nint abName); 
- 
+            public partial void LEAVE_FRIEND(nint abName);
+
             /// <summary>
             ///   System.Void LeaveFriendAll()
             /// </summary>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LeaveFriendAll", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void LEAVE_FRIEND_ALL(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LeaveFriendAll", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial void LEAVE_FRIEND_ALL(); 
 */
             /// <summary>
             ///   System.Void OnDayTime(System.Object sender, LJG.Framework.EventHandlerBase hander)
@@ -307,29 +307,29 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "sender">class System.Object</param>
             /// <param name = "hander">abstract class LJG.Framework.EventHandlerBase</param>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("OnDayTime", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Object", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("LJG.Framework.EventHandlerBase", 1)]
-            public partial void ON_DAY_TIME(nint sender, nint hander); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("OnDayTime", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Object", 0)]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("LJG.Framework.EventHandlerBase", 1)]
+           public partial void ON_DAY_TIME(nint sender, nint hander); 
 */
             /// <summary>
             ///   System.Void OnDestroy()
             /// </summary>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("OnDestroy", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void ON_DESTROY(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("OnDestroy", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial void ON_DESTROY(); 
 */
             /// <summary>
             ///   System.Void ReduceFriendsHp(System.Single reduceHp)
             /// </summary>
             /// <param name = "reduceHp">struct System.Single</param>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ReduceFriendsHp", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 0)]
-            public partial void REDUCE_FRIENDS_HP(System.Single reduceHp); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("ReduceFriendsHp", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 0)]
+           public partial void REDUCE_FRIENDS_HP(System.Single reduceHp); 
 */
             /// <summary>
             ///   System.Void SaveFriendData(System.String path, ES3File es3File)
@@ -337,29 +337,29 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "path">class System.String</param>
             /// <param name = "es3File">class ES3File</param>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SaveFriendData", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("ES3File", 1)]
-            public partial void SAVE_FRIEND_DATA(nint path, nint es3File); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SaveFriendData", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("ES3File", 1)]
+           public partial void SAVE_FRIEND_DATA(nint path, nint es3File); 
 */
             /// <summary>
             ///   System.Void SetBattleFriend(System.Collections.Generic.List<System.String> battleFriends)
             /// </summary>
             /// <param name = "battleFriends">class System.Collections.Generic.List<System.String></param>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SetBattleFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.List<System.String>", 0)]
-            public partial void SET_BATTLE_FRIEND(nint battleFriends); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SetBattleFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Collections.Generic.List<System.String>", 0)]
+           public partial void SET_BATTLE_FRIEND(nint battleFriends); 
 */
             /// <summary>
             ///   System.Void Start()
             /// </summary>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("Start", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void START(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("Start", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial void START(); 
 */
             /// <summary>
             ///   System.Void UpdatCurrentUp(System.String name, System.Single hp)
@@ -367,19 +367,19 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "name">class System.String</param>
             /// <param name = "hp">struct System.Single</param>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("UpdatCurrentUp", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
-            public partial void UPDAT_CURRENT_UP(nint name, System.Single hp); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("UpdatCurrentUp", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Single", 1)]
+           public partial void UPDAT_CURRENT_UP(nint name, System.Single hp); 
 */
             /// <summary>
             ///   System.Void UpLv()
             /// </summary>
             /// <returns>struct System.Void</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("UpLv", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            public partial void UP_LV(); 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("UpLv", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+           public partial void UP_LV(); 
 */
         }
 

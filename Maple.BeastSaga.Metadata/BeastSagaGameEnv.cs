@@ -876,6 +876,23 @@ namespace Maple.BeastSaga.Metadata
                 return;
             }
 
+            if (propName.StartsWith(nameof(EnumPlayerPropType.好友)))
+            {
+                if (true == objectDTO.BoolValue)
+                {
+                    var add_friends = this.Ptr_PlayerFriendDataManager._FRIEND_DATA.ADD_FRIENDS;
+                    var leave_friends = this.Ptr_PlayerFriendDataManager._FRIEND_DATA.LEAVE_FRIENDS;
+                    this.Ptr_PlayerFriendDataManager._FRIEND_DATA.ADD_FRIENDS = leave_friends;
+                    this.Ptr_PlayerFriendDataManager._FRIEND_DATA.LEAVE_FRIENDS = add_friends;
+                    this.Ptr_PlayerFriendDataManager.LEAVE_FRIEND(playerData._AB_NAME);
+                    this.Ptr_PlayerFriendDataManager._FRIEND_DATA.ADD_FRIENDS = add_friends;
+                    this.Ptr_PlayerFriendDataManager._FRIEND_DATA.LEAVE_FRIENDS = leave_friends;
+                }
+                else
+                {
+                    this.Ptr_PlayerFriendDataManager.LEAVE_FRIEND(playerData._AB_NAME);
+                }
+            }
 
             if (propName == $"{nameof(EnumPlayerPropType.属性)}.{nameof(PlayerData.Ptr_PlayerData.ADD_PRO_SPOT)}")
             {
