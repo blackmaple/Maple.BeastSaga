@@ -53,10 +53,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.CoreModule"."UnityEngine"."Sprite"]
             /// </summary>
             /// <returns>class UnityEngine.Sprite</returns>
-          
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Head", "UnityEngine.Sprite")]
-           public partial nint _HEAD { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Head", "UnityEngine.Sprite")]
+            public partial nint _HEAD { get; set; }
+
 
             /// <summary>
             /// 0x28 UnityEngine.Sprite _BigHead
@@ -589,10 +589,10 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "addExp">struct System.Int32</param>
             /// <returns>struct System.Boolean</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddKongFuTypeExp", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KFType", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
-            public partial System.Boolean ADD_KONG_FU_TYPE_EXP(KFType kFType, System.Int32 addExp);
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddKongFuTypeExp", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KFType", 0)]
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            //public partial System.Boolean ADD_KONG_FU_TYPE_EXP(KFType kFType, System.Int32 addExp);
 
             /// <summary>
             ///   System.Void AddProPoint(System.Int32 addPower, System.Int32 addPerception, System.Int32 addAgility, System.Int32 addPhysicalPower, System.Int32 addChanel, System.Int32 addBerathSkill)
@@ -620,9 +620,9 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "kFType">enum KFType</param>
             /// <returns>struct System.Boolean</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddShopKongFuType", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KFType", 0)]
-            public partial System.Boolean ADD_SHOP_KONG_FU_TYPE(KFType kFType);
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddShopKongFuType", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KFType", 0)]
+            //public partial System.Boolean ADD_SHOP_KONG_FU_TYPE(KFType kFType);
 
             /// <summary>
             ///   System.Boolean AwardInKongFu(InKangFuDataSet InKangFu)
@@ -630,7 +630,7 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "InKangFu">class InKangFuDataSet</param>
             /// <returns>struct System.Boolean</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardInKongFu", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardInKongFu", "System.Boolean"/*, CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)]*/)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("InKangFuDataSet", 0)]
             public partial System.Boolean AWARD_IN_KONG_FU(InKangFuDataSet.Ptr_InKangFuDataSet InKangFu);
 
@@ -640,7 +640,7 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "KangFuQing">class UniqueSkillDataSet</param>
             /// <returns>struct System.Boolean</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardKangFuQing", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardKangFuQing", "System.Boolean"/*, CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)]*/)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UniqueSkillDataSet", 0)]
             public partial System.Boolean AWARD_KANG_FU_QING(UniqueSkillDataSet.Ptr_UniqueSkillDataSet KangFuQing);
 
@@ -650,7 +650,7 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "KangFu">class KangFuDataSet</param>
             /// <returns>struct System.Boolean</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardKongFu", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardKongFu", "System.Boolean" /*, CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)]*/)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KangFuDataSet", 0)]
             public partial System.Boolean AWARD_KONG_FU(KangFuDataSet.Ptr_KangFuDataSet KangFu);
 
@@ -660,7 +660,7 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "KangFuSkill">class UniqueSkillDataSet</param>
             /// <returns>struct System.Boolean</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardKongFuSkill", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardKongFuSkill", "System.Boolean"/*, CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)]*/)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UniqueSkillDataSet", 0)]
             public partial System.Boolean AWARD_KONG_FU_SKILL(UniqueSkillDataSet.Ptr_UniqueSkillDataSet KangFuSkill);
 
@@ -670,7 +670,7 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "shanhailu">class ShanHaiLuDataSet</param>
             /// <returns>struct System.Boolean</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardShanHaiLu", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardShanHaiLu", "System.Boolean"/*, CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)]*/)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("ShanHaiLuDataSet", 0)]
             public partial System.Boolean AWARD_SHAN_HAI_LU(ShanHaiLuDataSet.Ptr_ShanHaiLuDataSet shanhailu);
 
@@ -688,7 +688,7 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "data">class CharacterDataSet</param>
             /// <returns>struct System.Boolean</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("BuyTeXing", "System.Boolean", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("BuyTeXing", "System.Boolean"/*, CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)]*/)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("CharacterDataSet", 0)]
             public partial System.Boolean BUY_TE_XING(CharacterDataSet.Ptr_CharacterDataSet data);
 
@@ -1010,9 +1010,9 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "kFType">enum KFType</param>
             /// <returns>struct System.Int32</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetKongFuTypeLv", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KFType", 0)]
-            public partial System.Int32 GET_KONG_FU_TYPE_LV(KFType kFType);
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetKongFuTypeLv", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KFType", 0)]
+            //public partial System.Int32 GET_KONG_FU_TYPE_LV(KFType kFType);
 
             /// <summary>
             ///   System.Int32 GetPro(PlayerProType proType, System.Collections.Generic.Dictionary<SkillDataSet , System.Single> equipsSkill)
@@ -1499,7 +1499,7 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <returns>struct System.Void</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SaveProLifePoints", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("SaveProLifePoints", "System.Void"/*, CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)]*/)]
             public partial void SAVE_PRO_LIFE_POINTS();
 
             /// <summary>
