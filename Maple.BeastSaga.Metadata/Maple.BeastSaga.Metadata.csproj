@@ -23,8 +23,8 @@
 
 
 	<ItemGroup>
-		<Compile Include="PlatformTarget_$(PlatformTarget)\Ref_MonoDictionary_BeastSaga.cs" />
-		<Compile Include="PlatformTarget_$(PlatformTarget)\Ref_MonoList_BeastSaga.cs" />
+		<Compile Include="PlatformTarget_X64\Ref_MonoDictionary_BeastSaga.cs" />
+		<Compile Include="PlatformTarget_X64\Ref_MonoList_BeastSaga.cs" />
 	</ItemGroup>
 
 
