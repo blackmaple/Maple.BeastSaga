@@ -51,7 +51,7 @@ namespace Maple.BeastSaga.Metadata
             this.Ptr_OpenUIManager = OpenUIManager.Ptr_OpenUIManager._INST;
             this.Ptr_ExcelDataManager = ExcelDataManager.Ptr_ExcelDataManager.INSTANCE;
             this.Ptr_LogicHelper = LogicHelper.Ptr_LogicHelper._INSTANCE;
- 
+
 
             this.Currencies = [
                 .. GetItemDataSet(),
@@ -133,7 +133,7 @@ namespace Maple.BeastSaga.Metadata
             foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER)
             {
                 var name = item._NAME.ToString()!;
-                this.Logger.LogInformation("name:{name}", name);
+                //     this.Logger.LogInformation("name:{name}", name);
                 yield return new GameCurrencyDisplayDTOEX()
                 {
                     Ptr = item.Ptr,

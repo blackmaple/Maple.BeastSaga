@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<DefineConstants Condition="'$(PlatformTarget)' == 'x86'">$(DefineConstants);WIN32</DefineConstants>
+
 
 	</PropertyGroup>
 

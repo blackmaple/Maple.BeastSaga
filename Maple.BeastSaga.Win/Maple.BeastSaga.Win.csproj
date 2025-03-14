@@ -42,7 +42,7 @@
 		<InterceptorsPreviewNamespaces>$(InterceptorsPreviewNamespaces);Microsoft.AspNetCore.Http.Generated</InterceptorsPreviewNamespaces>
 
 
-		<DefineConstants Condition="'$(PlatformTarget)' == 'x86'">$(DefineConstants);WIN32</DefineConstants>
+
 	</PropertyGroup>
 
 
