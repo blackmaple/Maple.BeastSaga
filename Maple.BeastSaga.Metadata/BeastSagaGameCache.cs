@@ -51,7 +51,7 @@ namespace Maple.BeastSaga.Metadata
             this.Ptr_OpenUIManager = OpenUIManager.Ptr_OpenUIManager._INST;
             this.Ptr_ExcelDataManager = ExcelDataManager.Ptr_ExcelDataManager.INSTANCE;
             this.Ptr_LogicHelper = LogicHelper.Ptr_LogicHelper._INSTANCE;
- 
+
 
             this.Currencies = [
                 .. GetItemDataSet(),
