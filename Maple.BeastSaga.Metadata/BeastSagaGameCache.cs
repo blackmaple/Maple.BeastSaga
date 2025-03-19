@@ -73,8 +73,46 @@ namespace Maple.BeastSaga.Metadata
 
 
         #region GameCharacterDisplayDTOEX
+        static string[] Friends { get; } =
+            [
+//"langying",
+//"pachong",
+//"tuqianqian",
+//"maochunye",
+//"langqitian",
+//"langyuan",
+//"shexing",
+//"friendunit",
+//"fulushou/friendfulushoufu",
+//"fulushou/friendfulushoulu",
+//"shixiao",
+//"debutou",
+//"luxi",
+//"houqianchong",
+//"maohualai",
+//"fulushou/friendfulushoushou",
+//"tanglang",
+//"ashou",
+//"shusanniang",
+//"shou",
+//"zanglinglong",
+"huerjing",
+//"feichong",
+
+
+            ];
         public IEnumerable<GameCharacterDisplayDTOEX> GetCharacter()
         {
+            foreach (var s in Friends)
+            {
+                yield return new GameCharacterDisplayDTOEX()
+                {
+                    ObjectId = s,
+                    DisplayCategory = nameof(FriendData),
+                    DisplayName = s,
+                    DisplayDesc = s,
+                };
+            }
 
             yield return new GameCharacterDisplayDTOEX()
             {
@@ -149,7 +187,7 @@ namespace Maple.BeastSaga.Metadata
             foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER)
             {
                 var name = item._NAME.ToString()!;
-                //     this.Logger.LogInformation("name:{name}", name);
+            //    this.Logger.LogInformation("name:{name}", name);
                 yield return new GameCurrencyDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
