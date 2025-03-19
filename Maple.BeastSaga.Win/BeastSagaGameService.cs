@@ -7,6 +7,7 @@ using Maple.MonoGameAssistant.Windows.HotKey.HookWindowMessage;
 using Maple.MonoGameAssistant.Windows.Service;
 using Maple.MonoGameAssistant.Windows.UITask;
 using Microsoft.Extensions.Logging;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Maple.BeastSaga.Win
 {
@@ -32,25 +33,25 @@ namespace Maple.BeastSaga.Win
             //UnityEngine.Graphics:Blit2+4b - E8 D0B2922B           - call UnityPlayer.dll+75F20
 
             UnityEngineContext_MONO.Func_BLIT2 = 0x9FAD0;
-            UnityEngineContext_MONO.Func_BLIT2 = 0x75F20;
+            // UnityEngineContext_MONO.Func_BLIT2 = 0x75F20;
 
             //UnityEngine.ImageConversion:EncodeToPNG+77 - 48 B8 B0385723FC7F0000 - mov rax,UnityPlayer.dll+1C38B0 { ("@USWH??H??") }
             //UnityEngine.ImageConversion:EncodeToPNG+43 - E8 28B4A02B           - call UnityPlayer.dll+156110
 
             UnityEngineContext_MONO.Func_ENCODE_TO_PNG = 0x1C38B0;
-            UnityEngineContext_MONO.Func_ENCODE_TO_PNG = 0x156110;
+            //    UnityEngineContext_MONO.Func_ENCODE_TO_PNG = 0x156110;
 
             //UnityEngine.Sprite:GetTextureRect_Injected+86 - 48 B8 700B4D23FC7F0000 - mov rax,UnityPlayer.dll+120B70 { (610044232) }
             //UnityEngine.Sprite:GetTextureRect_Injected+57 - E8 6444992B           - call UnityPlayer.dll+DCD70
 
             UnityEngineContext_MONO.Func_GET_TEXTURE_RECT_INJECTED = 0x120B70;
-            UnityEngineContext_MONO.Func_GET_TEXTURE_RECT_INJECTED = 0xDCD70;
+            //     UnityEngineContext_MONO.Func_GET_TEXTURE_RECT_INJECTED = 0xDCD70;
 
             //UnityEngine.Texture2D:ReadPixelsImpl_Injected+8e - 48 B8 30584723FC7F0000 - mov rax,UnityPlayer.dll+C5830 { (610044232) }
             //UnityEngine.Texture2D:ReadPixelsImpl_Injected+6b - E8 00B6942B           - call UnityPlayer.dll+93FE0
 
             UnityEngineContext_MONO.Func_READ_PIXELS_IMPL_INJECTED = 0xC5830;
-            UnityEngineContext_MONO.Func_READ_PIXELS_IMPL_INJECTED = 0x93FE0;
+            //       UnityEngineContext_MONO.Func_READ_PIXELS_IMPL_INJECTED = 0x93FE0;
 
 
 
@@ -314,7 +315,15 @@ namespace Maple.BeastSaga.Win
             var gameEnv = await GetBeastSagaGameEnvThrowIfNotInGameAsync().ConfigureAwait(false);
             await TryGetOrCreateFriendThrowIfCreateTimeout(gameEnv, characterObjectDTO.CharacterId, characterObjectDTO.CharacterCategory).ConfigureAwait(false);
 
-            return await this.MonoTaskAsync((p, args) => args.gameEnv.GetCharacterSkillDTO(args.characterObjectDTO), (gameEnv, characterObjectDTO)).ConfigureAwait(false);
+            var skills = await this.MonoTaskAsync((p, args) => args.gameEnv.GetCharacterSkillDTO(args.characterObjectDTO), (gameEnv, characterObjectDTO)).ConfigureAwait(false);
+            foreach (var skill in skills.SkillInfos ?? [])
+            {
+                if (this.GameSettings.TryGetGameResourceUrl(skill.DisplayCategory!, $"{skill.ObjectId}.png", out var url))
+                {
+                    skill.DisplayImage = url;
+                }
+            }
+            return skills;
         }
 
         public sealed override async ValueTask<GameCharacterSkillDTO> UpdateCharacterSkillAsync(GameCharacterModifyDTO characterModifyDTO)

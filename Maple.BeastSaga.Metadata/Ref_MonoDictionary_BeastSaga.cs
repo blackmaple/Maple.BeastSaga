@@ -3,13 +3,6 @@ using System.Runtime.InteropServices;
 
 namespace Maple.BeastSaga.Metadata
 {
-#if WIN32
-
-
-#else
-
-# endif
-
     partial struct Ref_MonoDictionary_BeastSaga : IRefMonoDictionary
     {
         public int Count => _count;

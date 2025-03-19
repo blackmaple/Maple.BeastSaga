@@ -736,7 +736,7 @@ namespace Maple.BeastSaga.Metadata
             foreach (var table in data.P_FRIEND_LOVE_TABLE.DICT.AsRefArray())
             {
                 var tableItem = table.Value;
-       //         this.Logger.LogInformation("name:{name},name2:{name2},id:{id}", tableItem.NAME.ToString(), tableItem.NAME2.ToString(), tableItem.ID);
+                //         this.Logger.LogInformation("name:{name},name2:{name2},id:{id}", tableItem.NAME.ToString(), tableItem.NAME2.ToString(), tableItem.ID);
                 p.FRIEND_ADD(tableItem.NAME2);
             }
             this.Ptr_PlayerFriendDataManager.LEAVE_FRIEND_ALL();
@@ -749,7 +749,8 @@ namespace Maple.BeastSaga.Metadata
             if (friend is not null)
             {
                 FriendLoveTableItem.Ptr_FriendLoveTableItem tableItem = friend.Ptr;
-                this.GameCache.Ptr_LogicHelper.FRIEND_ADD(tableItem.NAME2);
+                var name2 = tableItem.IsNotNull() ? tableItem.NAME2 : this.Context.TPin(friend.ObjectId, out _);
+                this.GameCache.Ptr_LogicHelper.FRIEND_ADD(name2);
                 return true;
             }
             return false;
