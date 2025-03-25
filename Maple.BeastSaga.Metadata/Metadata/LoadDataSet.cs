@@ -48,10 +48,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["Model.Runtime".""."LoadDataSet"]
             /// </summary>
             /// <returns>class LoadDataSet</returns>
-            
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Instance", "LoadDataSet")]
-           public static partial LoadDataSet.Ptr_LoadDataSet _INSTANCE { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Instance", "LoadDataSet")]
+            public static partial LoadDataSet.Ptr_LoadDataSet _INSTANCE { get; set; }
+
 
             /// <summary>
             /// 0x0 System.Int32 OffsetOfInstanceIDInCPlusPlusObject
@@ -88,109 +88,112 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<ItemDataSet></returns>
-            
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemDataManager", "System.Collections.Generic.List<ItemDataSet>")]
-           public partial PMonoList_BeastSaga<ItemDataSet.Ptr_ItemDataSet> _ITEM_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemDataManager", "System.Collections.Generic.List<ItemDataSet>")]
+            public partial PMonoList_BeastSaga<ItemDataSet.Ptr_ItemDataSet> _ITEM_DATA_MANAGER { get; set; }
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemDataManager", "System.Collections.Generic.List<ItemDataSet>")]
+            public partial ListGeneric<ItemDataSet.Ptr_ItemDataSet>.Ptr_ListGeneric _ITEM_DATA_MANAGER2 { get; set; }
+
 
             /// <summary>
             /// 0x28 System.Collections.Generic.List<KangFuDataSet> _KangFuDataManager
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<KangFuDataSet></returns>
-          
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_KangFuDataManager", "System.Collections.Generic.List<KangFuDataSet>")]
-           public partial PMonoList_BeastSaga<KangFuDataSet.Ptr_KangFuDataSet> _KANG_FU_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_KangFuDataManager", "System.Collections.Generic.List<KangFuDataSet>")]
+            public partial PMonoList_BeastSaga<KangFuDataSet.Ptr_KangFuDataSet> _KANG_FU_DATA_MANAGER { get; set; }
+
 
             /// <summary>
             /// 0x30 System.Collections.Generic.List<InKangFuDataSet> _InKangFuDataManager
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<InKangFuDataSet></returns>
-         
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_InKangFuDataManager", "System.Collections.Generic.List<InKangFuDataSet>")]
-           public partial PMonoList_BeastSaga<InKangFuDataSet.Ptr_InKangFuDataSet> _IN_KANG_FU_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_InKangFuDataManager", "System.Collections.Generic.List<InKangFuDataSet>")]
+            public partial PMonoList_BeastSaga<InKangFuDataSet.Ptr_InKangFuDataSet> _IN_KANG_FU_DATA_MANAGER { get; set; }
+
 
             /// <summary>
             /// 0x38 System.Collections.Generic.List<UniqueSkillDataSet> _UniqueSkillDataManager
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<UniqueSkillDataSet></returns>
-          
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_UniqueSkillDataManager", "System.Collections.Generic.List<UniqueSkillDataSet>")]
-           public partial PMonoList_BeastSaga<UniqueSkillDataSet.Ptr_UniqueSkillDataSet> _UNIQUE_SKILL_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_UniqueSkillDataManager", "System.Collections.Generic.List<UniqueSkillDataSet>")]
+            public partial PMonoList_BeastSaga<UniqueSkillDataSet.Ptr_UniqueSkillDataSet> _UNIQUE_SKILL_DATA_MANAGER { get; set; }
+
             /// <summary>
             /// 0x40 System.Collections.Generic.List<MakeDataSet> _MakeDataManager
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<MakeDataSet></returns>
-            
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_MakeDataManager", "System.Collections.Generic.List<MakeDataSet>")]
-           public partial PMonoList_BeastSaga<MakeDataSet.Ptr_MakeDataSet> _MAKE_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_MakeDataManager", "System.Collections.Generic.List<MakeDataSet>")]
+            public partial PMonoList_BeastSaga<MakeDataSet.Ptr_MakeDataSet> _MAKE_DATA_MANAGER { get; set; }
+
 
             /// <summary>
             /// 0x48 System.Collections.Generic.List<SkillDataSet> _SkillDataManager
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<SkillDataSet></returns>
-          
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_SkillDataManager", "System.Collections.Generic.List<SkillDataSet>")]
-           public partial PMonoList_BeastSaga<SkillDataSet.Ptr_SkillDataSet> _SKILL_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_SkillDataManager", "System.Collections.Generic.List<SkillDataSet>")]
+            public partial PMonoList_BeastSaga<SkillDataSet.Ptr_SkillDataSet> _SKILL_DATA_MANAGER { get; set; }
+
 
             /// <summary>
             /// 0x50 System.Collections.Generic.List<ChongDataSet> _ChongDataManager
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<ChongDataSet></returns>
-           
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ChongDataManager", "System.Collections.Generic.List<ChongDataSet>")]
-           public partial PMonoList_BeastSaga<ChongDataSet.Ptr_ChongDataSet> _CHONG_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ChongDataManager", "System.Collections.Generic.List<ChongDataSet>")]
+            public partial PMonoList_BeastSaga<ChongDataSet.Ptr_ChongDataSet> _CHONG_DATA_MANAGER { get; set; }
+
 
             /// <summary>
             /// 0x58 System.Collections.Generic.List<ChongPotDataSet> _ChongPotDataManager
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<ChongPotDataSet></returns>
-         
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ChongPotDataManager", "System.Collections.Generic.List<ChongPotDataSet>")]
-           public partial PMonoList_BeastSaga<ChongPotDataSet.Ptr_ChongPotDataSet> _CHONG_POT_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ChongPotDataManager", "System.Collections.Generic.List<ChongPotDataSet>")]
+            public partial PMonoList_BeastSaga<ChongPotDataSet.Ptr_ChongPotDataSet> _CHONG_POT_DATA_MANAGER { get; set; }
+
 
             /// <summary>
             /// 0x60 System.Collections.Generic.List<ShanHaiLuDataSet> _ShanHaiLuDataManager
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<ShanHaiLuDataSet></returns>
-           
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ShanHaiLuDataManager", "System.Collections.Generic.List<ShanHaiLuDataSet>")]
-           public partial PMonoList_BeastSaga<ShanHaiLuDataSet.Ptr_ShanHaiLuDataSet> _SHAN_HAI_LU_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ShanHaiLuDataManager", "System.Collections.Generic.List<ShanHaiLuDataSet>")]
+            public partial PMonoList_BeastSaga<ShanHaiLuDataSet.Ptr_ShanHaiLuDataSet> _SHAN_HAI_LU_DATA_MANAGER { get; set; }
+
 
             /// <summary>
             /// 0x68 System.Collections.Generic.List<CharacterDataSet> _CharacterDataManager
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<CharacterDataSet></returns>
-          
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_CharacterDataManager", "System.Collections.Generic.List<CharacterDataSet>")]
-           public partial PMonoList_BeastSaga<CharacterDataSet.Ptr_CharacterDataSet> _CHARACTER_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_CharacterDataManager", "System.Collections.Generic.List<CharacterDataSet>")]
+            public partial PMonoList_BeastSaga<CharacterDataSet.Ptr_CharacterDataSet> _CHARACTER_DATA_MANAGER { get; set; }
+
 
             /// <summary>
             /// 0x70 System.Collections.Generic.List<RandomBoxDataSet> _BoxDataManager
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<RandomBoxDataSet></returns>
-          
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_BoxDataManager", "System.Collections.Generic.List<RandomBoxDataSet>")]
-           public partial PMonoList_BeastSaga<RandomBoxDataSet.Ptr_RandomBoxDataSet> _BOX_DATA_MANAGER { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_BoxDataManager", "System.Collections.Generic.List<RandomBoxDataSet>")]
+            public partial PMonoList_BeastSaga<RandomBoxDataSet.Ptr_RandomBoxDataSet> _BOX_DATA_MANAGER { get; set; }
+
 
             /// <summary>
             /// 0x78 System.Collections.Generic.List<System.String> _PathList

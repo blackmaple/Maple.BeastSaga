@@ -2,6 +2,7 @@
 using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Maple.MonoGameAssistant.MetadataExtensions.MetadataCollector;
+using Maple.MonoGameAssistant.MetadataExtensions.MetadataObject;
 using Microsoft.Extensions.Logging;
 using System.Xml.Linq;
 
@@ -25,6 +26,7 @@ namespace Maple.BeastSaga.Metadata
         public GameSkillDisplayDTOEX[] Skills { get; }
 
 
+        public ListGeneric<ItemDataSet.Ptr_ItemDataSet>? List_Ptr_ItemDataSet { get; set; }
 
 
         public KFSchool[] KFSchools { get; } = [KFSchool.五子, KFSchool.昆仑, KFSchool.必报, KFSchool.破道, KFSchool.穹空, KFSchool.百灵, KFSchool.皇羽, KFSchool.江湖];
@@ -168,10 +170,16 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameCurrencyDisplayDTOEX> GetItemDataSet()
         {
-            foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER)
+            if (List_Ptr_ItemDataSet is null && this.Context.RuntimeContext.TryGetClassMetadata(this.Ptr_LoadDataSet._ITEM_DATA_MANAGER2.Ptr, out var classMetadataCollection))
+            {
+                List_Ptr_ItemDataSet = new ListGeneric<ItemDataSet.Ptr_ItemDataSet>(this.Context.RuntimeContext, classMetadataCollection);
+            }
+
+
+            foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER2.PtrListAsSpan<ListGeneric<ItemDataSet.Ptr_ItemDataSet>.Ptr_ListGeneric,ItemDataSet.Ptr_ItemDataSet>().ToArray())
             {
                 var name = item._NAME.ToString()!;
-            //    this.Logger.LogInformation("name:{name}", name);
+                this.Logger.LogInformation("name:{name}", name);
                 yield return new GameCurrencyDisplayDTOEX()
                 {
                     Ptr = item.Ptr,
