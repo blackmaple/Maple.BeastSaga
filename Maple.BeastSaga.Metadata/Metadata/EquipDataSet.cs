@@ -19,7 +19,7 @@ namespace Maple.BeastSaga.Metadata
 
             public static implicit operator Ptr_EquipDataSet(System.IntPtr ptr) => new Ptr_EquipDataSet(ptr);
             public static implicit operator System.IntPtr(Ptr_EquipDataSet ptr) => ptr.m_Pointer;
-            public static implicit operator bool (Ptr_EquipDataSet ptr) => ptr.m_Pointer != System.IntPtr.Zero;
+            public static implicit operator bool(Ptr_EquipDataSet ptr) => ptr.m_Pointer != System.IntPtr.Zero;
         }
 
         /// <summary>
@@ -32,25 +32,25 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-             /*
-            public const nint OBJECT_IS_NULL_MESSAGE = The Object you want to instantiate is null.; 
+            /*
+           public const nint OBJECT_IS_NULL_MESSAGE = The Object you want to instantiate is null.; 
 */
             /// <summary>
             /// 0x0 System.String cloneDestroyedMessage
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-             /*
-            public const nint CLONE_DESTROYED_MESSAGE = Instantiate failed because the clone was destroyed during creati; 
+            /*
+           public const nint CLONE_DESTROYED_MESSAGE = Instantiate failed because the clone was destroyed during creati; 
 */
             /// <summary>
             /// 0x0 System.Int32 OffsetOfInstanceIDInCPlusPlusObject
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("OffsetOfInstanceIDInCPlusPlusObject", "System.Int32")]
-            public static partial System.Int32 OFFSET_OF_INSTANCE_ID_IN_C_PLUS_PLUS_OBJECT { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("OffsetOfInstanceIDInCPlusPlusObject", "System.Int32")]
+           public static partial System.Int32 OFFSET_OF_INSTANCE_ID_IN_C_PLUS_PLUS_OBJECT { get; set; } 
 */
 
             /// <summary>
@@ -58,9 +58,9 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."IntPtr"]
             /// </summary>
             /// <returns>struct System.IntPtr</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("m_CachedPtr", "System.IntPtr")]
-            public partial System.IntPtr M_CACHED_PTR { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("m_CachedPtr", "System.IntPtr")]
+           public partial System.IntPtr M_CACHED_PTR { get; set; } 
 */
 
             /// <summary>
@@ -68,39 +68,39 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-         
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Name", "System.String")]
-            public partial PMonoString _NAME { get; set; } 
- 
+            public partial PMonoString _NAME { get; set; }
+
 
             /// <summary>
             /// 0x20 System.String _Rank
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-           
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Rank", "System.String")]
-            public partial PMonoString _RANK { get; set; } 
- 
+            public partial PMonoString _RANK { get; set; }
+
 
             /// <summary>
             /// 0x28 UnityEngine.Sprite _Icon
             /// class ["UnityEngine.CoreModule"."UnityEngine"."Sprite"]
             /// </summary>
             /// <returns>class UnityEngine.Sprite</returns>
-           
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Icon", "UnityEngine.Sprite")]
-            public partial nint _ICON { get; set; } 
- 
+            public partial nint _ICON { get; set; }
+
 
             /// <summary>
             /// 0x30 UnityEngine.Sprite _ScenceIcon
             /// class ["UnityEngine.CoreModule"."UnityEngine"."Sprite"]
             /// </summary>
             /// <returns>class UnityEngine.Sprite</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ScenceIcon", "UnityEngine.Sprite")]
-            public partial nint _SCENCE_ICON { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ScenceIcon", "UnityEngine.Sprite")]
+           public partial nint _SCENCE_ICON { get; set; } 
 */
 
             /// <summary>
@@ -108,9 +108,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["Model.Runtime".""."ProNumDictionary"]
             /// </summary>
             /// <returns>class ProNumDictionary</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("PreconditionTwo", "ProNumDictionary")]
-            public partial nint PRECONDITION_TWO { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("PreconditionTwo", "ProNumDictionary")]
+           public partial nint PRECONDITION_TWO { get; set; } 
 */
 
             /// <summary>
@@ -118,9 +118,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<KFType></returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_KfType", "System.Collections.Generic.List<KFType>")]
-            public partial nint _KF_TYPE { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_KfType", "System.Collections.Generic.List<KFType>")]
+           public partial nint _KF_TYPE { get; set; } 
 */
 
             /// <summary>
@@ -128,9 +128,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["Model.Runtime".""."KangFuSkillDictionary"]
             /// </summary>
             /// <returns>class KangFuSkillDictionary</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Skill", "KangFuSkillDictionary")]
-            public partial nint _SKILL { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Skill", "KangFuSkillDictionary")]
+           public partial nint _SKILL { get; set; } 
 */
 
             /// <summary>
@@ -138,19 +138,19 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-            
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Des", "System.String")]
-            public partial PMonoString _DES { get; set; } 
- 
+            public partial PMonoString _DES { get; set; }
+
 
             /// <summary>
             /// 0x58 System.Collections.Generic.List<SkillDataSet> _ItemSkills
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<SkillDataSet></returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemSkills", "System.Collections.Generic.List<SkillDataSet>")]
-            public partial nint _ITEM_SKILLS { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ItemSkills", "System.Collections.Generic.List<SkillDataSet>")]
+           public partial nint _ITEM_SKILLS { get; set; } 
 */
 
             /// <summary>
@@ -158,9 +158,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.AudioModule"."UnityEngine"."AudioClip"]
             /// </summary>
             /// <returns>class UnityEngine.AudioClip</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_UseAudio", "UnityEngine.AudioClip")]
-            public partial nint _USE_AUDIO { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_UseAudio", "UnityEngine.AudioClip")]
+           public partial nint _USE_AUDIO { get; set; } 
 */
 
             /// <summary>
@@ -168,9 +168,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.AudioModule"."UnityEngine"."AudioClip"]
             /// </summary>
             /// <returns>class UnityEngine.AudioClip</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_DragAudio", "UnityEngine.AudioClip")]
-            public partial nint _DRAG_AUDIO { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_DragAudio", "UnityEngine.AudioClip")]
+           public partial nint _DRAG_AUDIO { get; set; } 
 */
 
             /// <summary>
@@ -178,9 +178,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["UnityEngine.AudioModule"."UnityEngine"."AudioClip"]
             /// </summary>
             /// <returns>class UnityEngine.AudioClip</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_DropAudio", "UnityEngine.AudioClip")]
-            public partial nint _DROP_AUDIO { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_DropAudio", "UnityEngine.AudioClip")]
+           public partial nint _DROP_AUDIO { get; set; } 
 */
 
             /// <summary>
@@ -188,19 +188,19 @@ namespace Maple.BeastSaga.Metadata
             /// enum ["Model.Runtime".""."EquipPosition"]
             /// </summary>
             /// <returns>enum EquipPosition</returns>
-           
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_EquipPosition", "EquipPosition")]
-            public partial EquipPosition _EQUIP_POSITION { get; set; } 
- 
+            public partial EquipPosition _EQUIP_POSITION { get; set; }
+
 
             /// <summary>
             /// 0x7C System.Single _HutPower
             /// struct ["mscorlib"."System"."Single"]
             /// </summary>
             /// <returns>struct System.Single</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_HutPower", "System.Single")]
-            public partial System.Single _HUT_POWER { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_HutPower", "System.Single")]
+           public partial System.Single _HUT_POWER { get; set; } 
 */
 
             /// <summary>
@@ -208,9 +208,9 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Weight", "System.Int32")]
-            public partial System.Int32 _WEIGHT { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Weight", "System.Int32")]
+           public partial System.Int32 _WEIGHT { get; set; } 
 */
 
             /// <summary>
@@ -218,9 +218,9 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Durable", "System.Int32")]
-            public partial System.Int32 _DURABLE { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Durable", "System.Int32")]
+           public partial System.Int32 _DURABLE { get; set; } 
 */
 
             /// <summary>
@@ -228,9 +228,9 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ButPrice", "System.Int32")]
-            public partial System.Int32 _BUT_PRICE { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_ButPrice", "System.Int32")]
+           public partial System.Int32 _BUT_PRICE { get; set; } 
 */
 
             /// <summary>
@@ -238,9 +238,9 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_SellPrice", "System.Int32")]
-            public partial System.Int32 _SELL_PRICE { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_SellPrice", "System.Int32")]
+           public partial System.Int32 _SELL_PRICE { get; set; } 
 */
 
             /// <summary>
@@ -248,19 +248,19 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Lv", "System.Int32")]
-            public partial System.Int32 _LV { get; set; } 
-*/
+            public partial System.Int32 _LV { get; set; }
+
 
             /// <summary>
             /// 0x94 EquipDressName PreconditionUtil
             /// enum ["Model.Runtime".""."EquipDressName"]
             /// </summary>
             /// <returns>enum EquipDressName</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("PreconditionUtil", "EquipDressName")]
-            public partial EquipDressName PRECONDITION_UTIL { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("PreconditionUtil", "EquipDressName")]
+           public partial EquipDressName PRECONDITION_UTIL { get; set; } 
 */
 
             /// <summary>
@@ -268,9 +268,9 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Boolean"]
             /// </summary>
             /// <returns>struct System.Boolean</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_IsRong", "System.Boolean")]
-            public partial System.Boolean _IS_RONG { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_IsRong", "System.Boolean")]
+           public partial System.Boolean _IS_RONG { get; set; } 
 */
 
             /// <summary>
@@ -278,10 +278,10 @@ namespace Maple.BeastSaga.Metadata
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_SkillNum", "System.Int32")]
-            public partial System.Int32 _SKILL_NUM { get; set; } 
-*/
+            public partial System.Int32 _SKILL_NUM { get; set; }
+
         }
 
         /// <summary>
