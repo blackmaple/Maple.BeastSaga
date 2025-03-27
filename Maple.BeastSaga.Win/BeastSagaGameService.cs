@@ -1,6 +1,7 @@
 ﻿using Maple.BeastSaga.Metadata;
 using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
+using Maple.MonoGameAssistant.MetadataCollections;
 using Maple.MonoGameAssistant.Model;
 using Maple.MonoGameAssistant.UnityCore.UnityEngine;
 using Maple.MonoGameAssistant.Windows.HotKey.HookWindowMessage;
@@ -77,28 +78,28 @@ namespace Maple.BeastSaga.Win
 
                 foreach (var item in this.GameCache.Currencies)
                 {
-                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ObjectId}.png", out var url))
+                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ImageName}.png", out var url))
                     {
                         item.DisplayImage = url;
                     }
                 }
                 foreach (var item in this.GameCache.Items)
                 {
-                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ObjectId}.png", out var url))
+                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ImageName}.png", out var url))
                     {
                         item.DisplayImage = url;
                     }
                 }
                 foreach (var item in this.GameCache.Skills)
                 {
-                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ObjectId}.png", out var url))
+                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ImageName}.png", out var url))
                     {
                         item.DisplayImage = url;
                     }
                 }
                 foreach (var item in this.GameCache.Characters)
                 {
-                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ObjectId}.png", out var url))
+                    if (this.GameSettings.TryGetGameResourceUrl(item.DisplayCategory!, $"{item.ImageName}.png", out var url))
                     {
                         item.DisplayImage = url;
                     }
@@ -190,7 +191,7 @@ namespace Maple.BeastSaga.Win
                 }
                 var frienddata = @this.Ptr_PlayerFriendDataManager._FRIEND_DATA;
 
-                foreach (var friend in frienddata.ADD_FRIENDS.AsRefArray())
+                foreach (var friend in frienddata.ADD_FRIENDS.AsRefEnumerable())
                 {
 
                     var friendObj = friend.Value;
@@ -207,7 +208,7 @@ namespace Maple.BeastSaga.Win
 
                 }
 
-                foreach (var friend in frienddata.LEAVE_FRIENDS.AsRefArray())
+                foreach (var friend in frienddata.LEAVE_FRIENDS.AsRefEnumerable())
                 {
                     var friendObj = friend.Value;
                     var spriteData = friendObj._HEAD;
@@ -318,9 +319,19 @@ namespace Maple.BeastSaga.Win
             var skills = await this.MonoTaskAsync((p, args) => args.gameEnv.GetCharacterSkillDTO(args.characterObjectDTO), (gameEnv, characterObjectDTO)).ConfigureAwait(false);
             foreach (var skill in skills.SkillInfos ?? [])
             {
-                if (this.GameSettings.TryGetGameResourceUrl(skill.DisplayCategory!, $"{skill.ObjectId}.png", out var url))
+                if (skill is GameSkillInfoDTOEX ex)
                 {
-                    skill.DisplayImage = url;
+                    if (this.GameSettings.TryGetGameResourceUrl(skill.DisplayCategory!, $"{ex.ImageName}.png", out var url))
+                    {
+                        skill.DisplayImage = url;
+                    }
+                }
+                else
+                {
+                    if (this.GameSettings.TryGetGameResourceUrl(skill.DisplayCategory!, $"{skill.ObjectId}.png", out var url))
+                    {
+                        skill.DisplayImage = url;
+                    }
                 }
             }
             return skills;

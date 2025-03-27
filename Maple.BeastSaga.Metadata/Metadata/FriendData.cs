@@ -1,5 +1,6 @@
 using Maple.BeastSaga.Metadata.Metadata;
 using Maple.MonoGameAssistant.Core;
+using Maple.MonoGameAssistant.MetadataCollections;
 
 namespace Maple.BeastSaga.Metadata
 {
@@ -165,7 +166,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerInKangFu></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_InKangFuHad", "System.Collections.Generic.Dictionary<System.String,PlayerInKangFu>")]
-            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerInKangFu.Ptr_PlayerInKangFu> _IN_KANG_FU_HAD { get; set; }
+            public partial SysPtrDictionary<PMonoString, PlayerInKangFu.Ptr_PlayerInKangFu> _IN_KANG_FU_HAD { get; set; }
 
 
             /// <summary>
@@ -175,7 +176,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFu></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_KangFuHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFu>")]
-            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFu.Ptr_PlayerKangFu> _KANG_FU_HAD { get; set; }
+            public partial SysPtrDictionary<PMonoString, PlayerKangFu.Ptr_PlayerKangFu> _KANG_FU_HAD { get; set; }
 
 
             /// <summary>
@@ -185,7 +186,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFu></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_DressKangFu", "System.Collections.Generic.Dictionary<System.String,PlayerKangFu>")]
-            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFu.Ptr_PlayerKangFu> _DRESS_KANG_FU { get; set; }
+            public partial SysPtrDictionary<PMonoString, PlayerKangFu.Ptr_PlayerKangFu> _DRESS_KANG_FU { get; set; }
 
 
             /// <summary>
@@ -205,7 +206,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_KangFuSkillHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> _KANG_FU_SKILL_HAD { get; set; }
+            public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> _KANG_FU_SKILL_HAD { get; set; }
 
 
             /// <summary>
@@ -215,7 +216,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_KangFuQingHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> _KANG_FU_QING_HAD { get; set; }
+            public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> _KANG_FU_QING_HAD { get; set; }
 
 
             /// <summary>
@@ -225,7 +226,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_DressBigLoop", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> _DRESS_BIG_LOOP { get; set; }
+            public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> _DRESS_BIG_LOOP { get; set; }
 
 
             /// <summary>
@@ -235,7 +236,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_DressSmallLoop", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> _DRESS_SMALL_LOOP { get; set; }
+            public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> _DRESS_SMALL_LOOP { get; set; }
 
 
             /// <summary>
@@ -245,7 +246,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<KFType , System.Int32></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_KongFuTypeLv", "System.Collections.Generic.Dictionary<KFType,System.Int32>")]
-            public partial PMonoDictionary_BeastSaga<KFType, int> _KONG_FU_TYPE_LV { get; set; }
+            public partial SysPtrDictionary<KFType, int> _KONG_FU_TYPE_LV { get; set; }
 
 
             /// <summary>
@@ -265,7 +266,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerCharacter></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("CharacterHad", "System.Collections.Generic.Dictionary<System.String,PlayerCharacter>")]
-            public partial PMonoDictionary_BeastSaga<PMonoString, PlayerCharacter.Ptr_PlayerCharacter> CHARACTER_HAD { get; set; }
+            public partial SysPtrDictionary<PMonoString, PlayerCharacter.Ptr_PlayerCharacter> CHARACTER_HAD { get; set; }
 
 
             /// <summary>
@@ -275,7 +276,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<KFSchool></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("AddSchool", "System.Collections.Generic.List<KFSchool>")]
-            public partial PMonoList_BeastSaga<KFSchool> ADD_SCHOOL { get; set; }
+            public partial SysPtrList<KFSchool> ADD_SCHOOL { get; set; }
 
 
             /// <summary>
@@ -285,7 +286,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<KFType></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("EquipTypeCan", "System.Collections.Generic.List<KFType>")]
-            public partial PMonoList_BeastSaga<KFType> EQUIP_TYPE_CAN { get; set; }
+            public partial SysPtrList<KFType> EQUIP_TYPE_CAN { get; set; }
 
 
             /// <summary>

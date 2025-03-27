@@ -1,6 +1,7 @@
 ﻿using Maple.BeastSaga.Metadata.Metadata;
 using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
+using Maple.MonoGameAssistant.MetadataCollections;
 using Maple.MonoGameAssistant.MetadataExtensions.MetadataCollector;
 using Maple.MonoGameAssistant.MetadataExtensions.MetadataObject;
 using Microsoft.Extensions.Logging;
@@ -26,7 +27,7 @@ namespace Maple.BeastSaga.Metadata
         public GameSkillDisplayDTOEX[] Skills { get; }
 
 
-        public ListGeneric<ItemDataSet.Ptr_ItemDataSet>? List_Ptr_ItemDataSet { get; set; }
+        //    public ListGeneric<ItemDataSet.Ptr_ItemDataSet>? List_Ptr_ItemDataSet { get; set; }
 
 
         public KFSchool[] KFSchools { get; } = Enum.GetValues<KFSchool>();// [KFSchool.五子, KFSchool.昆仑, KFSchool.必报, KFSchool.破道, KFSchool.穹空, KFSchool.百灵, KFSchool.皇羽, KFSchool.江湖];
@@ -109,6 +110,7 @@ namespace Maple.BeastSaga.Metadata
             {
                 yield return new GameCharacterDisplayDTOEX()
                 {
+                    ImageName = s,
                     ObjectId = s,
                     DisplayCategory = nameof(FriendData),
                     DisplayName = s,
@@ -118,6 +120,7 @@ namespace Maple.BeastSaga.Metadata
 
             yield return new GameCharacterDisplayDTOEX()
             {
+                ImageName = "huerjing",
                 Ptr = nint.Zero,
                 ObjectId = "huerjing",
                 DisplayCategory = nameof(FriendData),
@@ -131,6 +134,7 @@ namespace Maple.BeastSaga.Metadata
 
             yield return new GameCharacterDisplayDTOEX()
             {
+                ImageName = "九思",
                 ObjectId = "九思",
                 DisplayCategory = nameof(PlayerData),
                 DisplayName = "九思",
@@ -139,16 +143,18 @@ namespace Maple.BeastSaga.Metadata
             };
 
 
-            foreach (var table in this.Ptr_ExcelDataManager.P_FRIEND_LOVE_TABLE.DICT.AsRefArray())
+            foreach (var table in this.Ptr_ExcelDataManager.P_FRIEND_LOVE_TABLE.DICT.AsRefEnumerable())
             {
                 var tableItem = table.Value;
                 //   this.Logger.LogInformation("name:{name},name2:{name2},id:{id}", tableItem.NAME.ToString(), tableItem.NAME2.ToString(), tableItem.ID);
                 var name = tableItem.NAME.ToString();
                 var name2 = tableItem.NAME2;
+                var fullname = name2.ToString()!;
                 yield return new GameCharacterDisplayDTOEX()
                 {
+                    ImageName= fullname,
                     Ptr = tableItem,
-                    ObjectId = name2.ToString()!,
+                    ObjectId = fullname,
                     DisplayCategory = nameof(FriendData),
                     DisplayName = name,
                     DisplayDesc = name
@@ -161,14 +167,15 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameInventoryDisplayDTOEX> GetEquipDataSet()
         {
-            foreach (var item in this.Ptr_LoadDataSet._EQUIPS_DATA_MANAGER)
+            foreach (var item in this.Ptr_LoadDataSet._EQUIPS_DATA_MANAGER.AsEnumerable())
             {
                 var name = item._NAME.ToString()!;
                 yield return new GameInventoryDisplayDTOEX()
                 {
+                    ImageName = name,
                     Ptr = item.Ptr,
                     SpriteData = item._ICON,
-                    ObjectId = name,
+                    ObjectId = item.Ptr.ToString(),
                     DisplayName = $"{item._EQUIP_POSITION}.{item._NAME}",
                     DisplayDesc = item._DES.ToString(),
                     DisplayCategory = nameof(EquipDataSet),
@@ -185,23 +192,19 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameCurrencyDisplayDTOEX> GetItemDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._ITEM_DATA_MANAGER.Valid());
-            foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER)
-            if (List_Ptr_ItemDataSet is null && this.Context.RuntimeContext.TryGetClassMetadata(this.Ptr_LoadDataSet._ITEM_DATA_MANAGER2.Ptr, out var classMetadataCollection))
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._ITEM_DATA_MANAGER.IsNotNull());
+ 
+            foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER.AsEnumerable())
             {
-                List_Ptr_ItemDataSet = new ListGeneric<ItemDataSet.Ptr_ItemDataSet>(this.Context.RuntimeContext, classMetadataCollection);
-            }
-
-
-            foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER2.PtrListAsSpan<ListGeneric<ItemDataSet.Ptr_ItemDataSet>.Ptr_ListGeneric,ItemDataSet.Ptr_ItemDataSet>().ToArray())
-            {
+              
                 var name = item._NAME.ToString()!;
                 this.Logger.LogInformation("name:{name}", name);
                 yield return new GameCurrencyDisplayDTOEX()
                 {
+                    ImageName = name,
                     Ptr = item.Ptr,
                     SpriteData = item._ICON,
-                    ObjectId = name,
+                    ObjectId = item.Ptr.ToString(),
                     DisplayName = $"{item._EQUIP_TYPE}.{name}",
                     DisplayDesc = item._ITEM_DES.ToString(),
                     DisplayCategory = item._EQUIP_TYPE.ToString(),
@@ -214,15 +217,17 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameSkillDisplayDTOEX> GetKangFuDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._KANG_FU_DATA_MANAGER.Valid());
-            foreach (var item in this.Ptr_LoadDataSet._KANG_FU_DATA_MANAGER)
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._KANG_FU_DATA_MANAGER.IsNotNull());
+            foreach (var item in this.Ptr_LoadDataSet._KANG_FU_DATA_MANAGER.AsEnumerable())
             {
+                var fullname = item.NAME.ToString()!;
                 yield return new GameSkillDisplayDTOEX()
                 {
+                    ImageName = fullname,
                     Ptr = item.Ptr,
                     SpriteData = item.ICON,
-                    ObjectId = item.NAME.ToString()!,
-                    DisplayName = $"{item.KF_TYPE}.{item.NAME}",
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = $"{item.KF_TYPE}.{fullname}",
                     DisplayDesc = item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(KangFuDataSet)
                 };
@@ -232,16 +237,18 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameSkillDisplayDTOEX> GetInKangFuDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._IN_KANG_FU_DATA_MANAGER.Valid());
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._IN_KANG_FU_DATA_MANAGER.IsNotNull());
 
-            foreach (var item in this.Ptr_LoadDataSet._IN_KANG_FU_DATA_MANAGER)
+            foreach (var item in this.Ptr_LoadDataSet._IN_KANG_FU_DATA_MANAGER.AsEnumerable())
             {
+                var fullname = item.NAME.ToString()!;
                 yield return new GameSkillDisplayDTOEX()
                 {
+                    ImageName = fullname,
                     Ptr = item.Ptr,
                     SpriteData = item.ICON,
-                    ObjectId = item.NAME.ToString()!,
-                    DisplayName = item.NAME.ToString(),
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = fullname,
                     DisplayDesc = item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(InKangFuDataSet)
                 };
@@ -250,15 +257,17 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameSkillDisplayDTOEX> GetUniqueSkillDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._UNIQUE_SKILL_DATA_MANAGER.Valid());
-            foreach (var item in this.Ptr_LoadDataSet._UNIQUE_SKILL_DATA_MANAGER)
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._UNIQUE_SKILL_DATA_MANAGER.IsNotNull());
+            foreach (var item in this.Ptr_LoadDataSet._UNIQUE_SKILL_DATA_MANAGER.AsEnumerable())
             {
+                var fullname = item.NAME.ToString()!;
                 yield return new GameSkillDisplayDTOEX()
                 {
+                    ImageName = fullname,
                     Ptr = item.Ptr,
                     SpriteData = item.ICON,
-                    ObjectId = item.NAME.ToString()!,
-                    DisplayName = $"{item.KF_TYPE}.{item.NAME}",
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = $"{item.KF_TYPE}.{fullname}",
                     DisplayDesc = item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(UniqueSkillDataSet)
                 };
@@ -267,15 +276,17 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameInventoryDisplayDTOEX> GetMakeDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._MAKE_DATA_MANAGER.Valid());
-            foreach (var item in this.Ptr_LoadDataSet._MAKE_DATA_MANAGER)
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._MAKE_DATA_MANAGER.IsNotNull());
+            foreach (var item in this.Ptr_LoadDataSet._MAKE_DATA_MANAGER.AsEnumerable())
             {
+                var fullname = item._NAME.ToString()!;
                 yield return new GameInventoryDisplayDTOEX()
                 {
+                    ImageName = fullname,
                     Ptr = item.Ptr,
                     SpriteData = nint.Zero,
-                    ObjectId = item._NAME.ToString()!,
-                    DisplayName = item._NAME.ToString(),
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = fullname,
                     DisplayDesc = string.Empty,//item.DESCRIBE.ToString(),
                     DisplayCategory = nameof(MakeDataSet)
                 };
@@ -284,15 +295,17 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameInventoryDisplayDTOEX> GetSkillDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._SKILL_DATA_MANAGER.Valid());
-            foreach (var item in this.Ptr_LoadDataSet._SKILL_DATA_MANAGER)
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._SKILL_DATA_MANAGER.IsNotNull());
+            foreach (var item in this.Ptr_LoadDataSet._SKILL_DATA_MANAGER.AsEnumerable())
             {
+                var fullname = item.NAME.ToString()!;
                 yield return new GameInventoryDisplayDTOEX()
                 {
+                    ImageName = fullname,
                     Ptr = item.Ptr,
                     SpriteData = item.ICON,
-                    ObjectId = item.NAME.ToString()!,
-                    DisplayName = item.NAME.ToString(),
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = fullname,
                     DisplayDesc = item.DES_UI.ToString(),
                     DisplayCategory = nameof(SkillDataSet)
                 };
@@ -301,15 +314,17 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameInventoryDisplayDTOEX> GetChongDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._CHONG_DATA_MANAGER.Valid());
-            foreach (var item in this.Ptr_LoadDataSet._CHONG_DATA_MANAGER)
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._CHONG_DATA_MANAGER.IsNotNull());
+            foreach (var item in this.Ptr_LoadDataSet._CHONG_DATA_MANAGER.AsEnumerable())
             {
+                var fullname = item._NAME.ToString()!;
                 yield return new GameInventoryDisplayDTOEX()
                 {
+                    ImageName = fullname,
                     Ptr = item.Ptr,
                     SpriteData = item._ICON,
-                    ObjectId = item._NAME.ToString()!,
-                    DisplayName = $"Lv{item._RANK}.{item._NAME}",
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = $"Lv{item._RANK}.{fullname}",
                     DisplayDesc = item._TYPE.ToString(),
                     DisplayCategory = nameof(ChongDataSet)
                 };
@@ -318,15 +333,17 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameInventoryDisplayDTOEX> GetChongPotDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._CHONG_POT_DATA_MANAGER.Valid());
-            foreach (var item in this.Ptr_LoadDataSet._CHONG_POT_DATA_MANAGER)
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._CHONG_POT_DATA_MANAGER.IsNotNull());
+            foreach (var item in this.Ptr_LoadDataSet._CHONG_POT_DATA_MANAGER.AsEnumerable())
             {
+                var fullname = item._NAME.ToString()!;
                 yield return new GameInventoryDisplayDTOEX()
                 {
+                    ImageName = fullname,
                     Ptr = item.Ptr,
                     SpriteData = item._ICON,
-                    ObjectId = item._NAME.ToString()!,
-                    DisplayName = $"Lv{item._RANK}.{item._NAME}",
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = $"Lv{item._RANK}.{fullname}",
                     DisplayDesc = item._EXPLAN.ToString(),
                     DisplayCategory = nameof(ChongPotDataSet)
                 };
@@ -335,16 +352,18 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameSkillDisplayDTOEX> GetShanHaiLuDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._SHAN_HAI_LU_DATA_MANAGER.Valid());
-            foreach (var item in this.Ptr_LoadDataSet._SHAN_HAI_LU_DATA_MANAGER)
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._SHAN_HAI_LU_DATA_MANAGER.IsNotNull());
+            foreach (var item in this.Ptr_LoadDataSet._SHAN_HAI_LU_DATA_MANAGER.AsEnumerable())
             {
+                var fullname = item. NAME.ToString()!;
                 yield return new GameSkillDisplayDTOEX()
                 {
+                    ImageName = fullname,
                     Ptr = item.Ptr,
                     SpriteData = nint.Zero,
 
-                    ObjectId = item.NAME.ToString()!,
-                    DisplayName = item.NAME.ToString(),
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = fullname,
                     DisplayDesc = item.EXPLAIN.ToString(),
                     DisplayCategory = nameof(ShanHaiLuDataSet)
                 };
@@ -353,15 +372,17 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameInventoryDisplayDTOEX> GetCharacterDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._CHARACTER_DATA_MANAGER.Valid());
-            foreach (var item in this.Ptr_LoadDataSet._CHARACTER_DATA_MANAGER)
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._CHARACTER_DATA_MANAGER.IsNotNull());
+            foreach (var item in this.Ptr_LoadDataSet._CHARACTER_DATA_MANAGER.AsEnumerable())
             {
+                var fullname = item.NAME.ToString()!;
                 yield return new GameInventoryDisplayDTOEX()
                 {
+                    ImageName = fullname,
                     Ptr = item.Ptr,
                     SpriteData = nint.Zero,
-                    ObjectId = item.NAME.ToString()!,
-                    DisplayName = item.NAME.ToString(),
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = fullname,
                     DisplayDesc = string.Empty,//; item.EXPLAIN.ToString(),
                     DisplayCategory = nameof(CharacterDataSet),
 
@@ -372,15 +393,17 @@ namespace Maple.BeastSaga.Metadata
 
         private IEnumerable<GameInventoryDisplayDTOEX> GetRandomBoxDataSet()
         {
-            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._BOX_DATA_MANAGER.Valid());
-            foreach (var item in this.Ptr_LoadDataSet._BOX_DATA_MANAGER)
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._BOX_DATA_MANAGER.IsNotNull());
+            foreach (var item in this.Ptr_LoadDataSet._BOX_DATA_MANAGER.AsEnumerable())
             {
+                var fullname = item.NAME.ToString()!;
                 yield return new GameInventoryDisplayDTOEX()
                 {
+                    ImageName = fullname,
                     Ptr = item.Ptr,
                     SpriteData = nint.Zero,
-                    ObjectId = item.NAME.ToString()!,
-                    DisplayName = item.NAME.ToString(),
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = fullname,
                     DisplayDesc = string.Empty,//; item.EXPLAIN.ToString(),
                     DisplayCategory = nameof(RandomBoxDataSet)
                 };
@@ -405,6 +428,7 @@ namespace Maple.BeastSaga.Metadata
 
     public sealed class GameInventoryDisplayDTOEX : GameInventoryDisplayDTO
     {
+        public required string ImageName { set; get; }
         public required nint Ptr { set; get; }
         public nint SpriteData { set; get; }
 
@@ -412,6 +436,7 @@ namespace Maple.BeastSaga.Metadata
 
     public sealed class GameCharacterDisplayDTOEX : GameCharacterDisplayDTO
     {
+        public required string ImageName { set; get; }
         public nint Ptr { set; get; }
         //    public nint SpriteData { set; get; }
     }
@@ -419,6 +444,7 @@ namespace Maple.BeastSaga.Metadata
 
     public sealed class GameCurrencyDisplayDTOEX : GameCurrencyDisplayDTO
     {
+        public required string ImageName { set; get; }
         public required nint Ptr { set; get; }
         public nint SpriteData { set; get; }
 
@@ -426,6 +452,7 @@ namespace Maple.BeastSaga.Metadata
 
     public sealed class GameSkillDisplayDTOEX : GameSkillDisplayDTO
     {
+        public required string ImageName { set; get; }
         public required nint Ptr { set; get; }
         public nint SpriteData { set; get; }
 

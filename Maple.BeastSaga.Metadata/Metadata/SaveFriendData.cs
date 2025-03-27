@@ -1,4 +1,5 @@
 using Maple.MonoGameAssistant.Core;
+using Maple.MonoGameAssistant.MetadataCollections;
 
 namespace Maple.BeastSaga.Metadata
 {
@@ -34,7 +35,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , FriendData></returns>
           
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("AddFriends", "System.Collections.Generic.Dictionary<System.String,FriendData>")]
-            public partial  PMonoDictionary_BeastSaga<PMonoString,FriendData.Ptr_FriendData> ADD_FRIENDS { get; set; } 
+            public partial  SysPtrDictionary<PMonoString,FriendData.Ptr_FriendData> ADD_FRIENDS { get; set; } 
  
 
             /// <summary>
@@ -44,7 +45,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.String , FriendData></returns>
             
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("LeaveFriends", "System.Collections.Generic.Dictionary<System.String,FriendData>")]
-            public partial PMonoDictionary_BeastSaga<PMonoString, FriendData.Ptr_FriendData> LEAVE_FRIENDS { get; set; } 
+            public partial SysPtrDictionary<PMonoString, FriendData.Ptr_FriendData> LEAVE_FRIENDS { get; set; } 
  
 
             /// <summary>

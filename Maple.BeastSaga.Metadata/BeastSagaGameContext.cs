@@ -66,4 +66,10 @@ namespace Maple.BeastSaga.Metadata
 
     public partial class BeastSagaGameContext
     { }
+
+
+    partial class BeastSagaGameContext
+    { 
+    
+    }
 }

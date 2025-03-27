@@ -1,3 +1,5 @@
+using Maple.MonoGameAssistant.MetadataCollections;
+
 namespace Maple.BeastSaga.Metadata
 {
     /// <summary>
@@ -32,7 +34,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.Dictionary<System.Int32 , ExcelData.FriendLoveTableItem></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("Dict", "System.Collections.Generic.Dictionary<System.Int32,ExcelData.FriendLoveTableItem>")]
-            public partial PMonoDictionary_BeastSaga<int, FriendLoveTableItem.Ptr_FriendLoveTableItem> DICT { get; set; }
+            public partial SysPtrDictionary<int, FriendLoveTableItem.Ptr_FriendLoveTableItem> DICT { get; set; }
 
         }
 

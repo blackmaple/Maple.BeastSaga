@@ -1,6 +1,7 @@
 ﻿using Maple.BeastSaga.Metadata.Metadata;
 using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
+using Maple.MonoGameAssistant.MetadataCollections;
 using Maple.MonoGameAssistant.MetadataExtensions.MetadataCollector;
 using Microsoft.Extensions.Logging;
 using System.Collections.Immutable;
@@ -84,7 +85,7 @@ namespace Maple.BeastSaga.Metadata
         private bool TryGetItemByDress(ReadOnlySpan<char> name, out PlayerItemData.Ptr_PlayerItemData ptr_PlayerItemData)
         {
             Unsafe.SkipInit(out ptr_PlayerItemData);
-            foreach (var item in this.Ptr_PlayerData.DRESS_ITEM.AsRefArray())
+            foreach (var item in this.Ptr_PlayerData.DRESS_ITEM.AsRefEnumerable())
             {
                 ptr_PlayerItemData = item.Value;
                 if (ptr_PlayerItemData._ITEM_DATA._NAME.AsReadOnlySpan().SequenceEqual(name))
@@ -98,7 +99,7 @@ namespace Maple.BeastSaga.Metadata
         private bool TryGetItemByHad(ReadOnlySpan<char> name, out PlayerItemData.Ptr_PlayerItemData ptr_PlayerItemData)
         {
             Unsafe.SkipInit(out ptr_PlayerItemData);
-            foreach (var item in this.Ptr_PlayerData.ITEM_HAD.AsRefArray())
+            foreach (var item in this.Ptr_PlayerData.ITEM_HAD.AsRefEnumerable())
             {
                 ptr_PlayerItemData = item.Value;
                 if (ptr_PlayerItemData._ITEM_DATA._NAME.AsReadOnlySpan().SequenceEqual(name))
@@ -112,7 +113,7 @@ namespace Maple.BeastSaga.Metadata
         private bool TryGetEquipByDress(ReadOnlySpan<char> name, out PlayerEquipData.Ptr_PlayerEquipData ptr_PlayerEquipData)
         {
             Unsafe.SkipInit(out ptr_PlayerEquipData);
-            foreach (var item in this.Ptr_PlayerData.PLAYER_DRESS_EQUIP.AsRefArray())
+            foreach (var item in this.Ptr_PlayerData.PLAYER_DRESS_EQUIP.AsRefEnumerable())
             {
                 ptr_PlayerEquipData = item.Value;
                 if (ptr_PlayerEquipData._EQUIP_DATA._NAME.AsReadOnlySpan().SequenceEqual(name))
@@ -125,7 +126,7 @@ namespace Maple.BeastSaga.Metadata
         private bool TryGetEquipByHad(ReadOnlySpan<char> name, out ReadOnlySpan<PlayerEquipData.Ptr_PlayerEquipData> playerEquipDatas)
         {
             Unsafe.SkipInit(out playerEquipDatas);
-            foreach (var item in this.Ptr_PlayerData.EQUIP_HAD.AsRefArray())
+            foreach (var item in this.Ptr_PlayerData.EQUIP_HAD.AsRefEnumerable())
             {
                 if (item.Key.AsReadOnlySpan().SequenceEqual(name))
                 {
@@ -141,7 +142,7 @@ namespace Maple.BeastSaga.Metadata
         private bool TryGetInKangFuByHad(ReadOnlySpan<char> name, out PlayerInKangFu.Ptr_PlayerInKangFu ptr_PlayerInKangFu)
         {
             Unsafe.SkipInit(out ptr_PlayerInKangFu);
-            foreach (var item in this.Ptr_PlayerData.IN_KANG_FU_HAD.AsRefArray())
+            foreach (var item in this.Ptr_PlayerData.IN_KANG_FU_HAD.AsRefEnumerable())
             {
                 ptr_PlayerInKangFu = item.Value;
 
@@ -162,7 +163,7 @@ namespace Maple.BeastSaga.Metadata
         private bool TryGetKangFuByHad(ReadOnlySpan<char> name, out PlayerKangFu.Ptr_PlayerKangFu ptr_PlayerKangFu)
         {
             Unsafe.SkipInit(out ptr_PlayerKangFu);
-            foreach (var item in this.Ptr_PlayerData.KANG_FU_HAD.AsRefArray())
+            foreach (var item in this.Ptr_PlayerData.KANG_FU_HAD.AsRefEnumerable())
             {
                 ptr_PlayerKangFu = item.Value;
 
@@ -177,7 +178,7 @@ namespace Maple.BeastSaga.Metadata
         private bool TryGetKangFuByDress(ReadOnlySpan<char> name, out PlayerKangFu.Ptr_PlayerKangFu ptr_PlayerKangFu)
         {
             Unsafe.SkipInit(out ptr_PlayerKangFu);
-            foreach (var item in this.Ptr_PlayerData.DRESS_KANG_FU.AsRefArray())
+            foreach (var item in this.Ptr_PlayerData.DRESS_KANG_FU.AsRefEnumerable())
             {
                 ptr_PlayerKangFu = item.Value;
                 if (ptr_PlayerKangFu._KANG_FU_DATA.NAME.AsReadOnlySpan().SequenceEqual(name))
@@ -193,7 +194,7 @@ namespace Maple.BeastSaga.Metadata
         private bool TryGetChongByHad(ReadOnlySpan<char> name, out PlayerChong.Ptr_PlayerChong ptr_PlayerChong)
         {
             Unsafe.SkipInit(out ptr_PlayerChong);
-            foreach (var item in this.Ptr_PlayerData.CHONG_HAD)
+            foreach (var item in this.Ptr_PlayerData.CHONG_HAD.AsEnumerable())
             {
                 ptr_PlayerChong = item;
 
@@ -214,7 +215,7 @@ namespace Maple.BeastSaga.Metadata
         private bool TryGetChongPotByHad(ReadOnlySpan<char> name, out PlayerChongPot.Ptr_PlayerChongPot ptr_PlayerChongPot)
         {
             Unsafe.SkipInit(out ptr_PlayerChongPot);
-            foreach (var item in this.Ptr_PlayerData.CHONG_POT_HAD)
+            foreach (var item in this.Ptr_PlayerData.CHONG_POT_HAD.AsEnumerable())
             {
                 ptr_PlayerChongPot = item;
 
@@ -263,7 +264,7 @@ namespace Maple.BeastSaga.Metadata
 
 
 
-            foreach (var item in playerData.KONG_FU_TYPE_LV.AsRefArray())
+            foreach (var item in playerData.KONG_FU_TYPE_LV.AsRefEnumerable())
             {
                 var key = item.Key;
                 var lv = this.Ptr_PlayerDataManager.GET_KONG_FU_TYPE_LV(key);
@@ -273,7 +274,7 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, ContentValue = lv.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
             }
 
-            foreach (var item in playerData.LIFE_PRO.AsRefArray())
+            foreach (var item in playerData.LIFE_PRO.AsRefEnumerable())
             {
                 var name = item.Key.ToString();
 
@@ -306,7 +307,7 @@ namespace Maple.BeastSaga.Metadata
             //    yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, ContentValue = item.Value.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
             //}
 
-            var characterHad = playerData.CHARACTER_HAD.AsRefArray();
+            var characterHad = playerData.CHARACTER_HAD.AsRefEnumerable();
             foreach (var item in this.GameCache.CharacterDataSets)
             {
                 var had = characterHad.Where(p => p.Key.AsReadOnlySpan().SequenceEqual(item.ObjectId.AsSpan())).Any();
@@ -316,7 +317,7 @@ namespace Maple.BeastSaga.Metadata
 
             }
 
-            var friendLove = playerData.FRIEND_LOVE_NUM.AsRefArray();
+            var friendLove = playerData.FRIEND_LOVE_NUM.AsRefEnumerable();
             foreach (var item in this.GameCache.Characters.Where(p => p.DisplayCategory == nameof(FriendData)))
             {
                 var love = friendLove.Where(p => p.Key.AsReadOnlySpan().SequenceEqual(item.DisplayName.AsSpan())).Select(p => p.Value).FirstOrDefault();
@@ -439,7 +440,7 @@ namespace Maple.BeastSaga.Metadata
             }
             else if (propName.StartsWith(nameof(EnumPlayerPropType.武学)))
             {
-                foreach (var item in playerData.KONG_FU_TYPE_LV.AsRefArray())
+                foreach (var item in playerData.KONG_FU_TYPE_LV.AsRefEnumerable())
                 {
                     var key = item.Key;
                     var id = $"{nameof(EnumPlayerPropType.武学)}.{key}";
@@ -469,7 +470,7 @@ namespace Maple.BeastSaga.Metadata
             }
             else if (propName.StartsWith(nameof(EnumPlayerPropType.生活)))
             {
-                foreach (var item in playerData.LIFE_PRO.AsRefArray())
+                foreach (var item in playerData.LIFE_PRO.AsRefEnumerable())
                 {
                     var id = $"{nameof(EnumPlayerPropType.生活)}.{item.Key}";
                     if (propName == id)
@@ -521,14 +522,14 @@ namespace Maple.BeastSaga.Metadata
 
         }
 
-        private IEnumerable<GameSkillInfoDTO> GetPlayerSkill()
+        private IEnumerable<GameSkillInfoDTOEX> GetPlayerSkill()
         {
             var playerData = this.Ptr_PlayerData;
 
-            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = string.Empty, CanWrite = true };
-            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = string.Empty, CanWrite = true };
-            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(UniqueSkillDataSet), DisplayDesc = string.Empty, CanWrite = true };
-            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTOEX() {ImageName = string.Empty, ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTOEX() { ImageName = string.Empty, ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTOEX() { ImageName = string.Empty, ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(UniqueSkillDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTOEX() { ImageName = string.Empty, ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = string.Empty, CanWrite = true };
 
 
 
@@ -538,32 +539,32 @@ namespace Maple.BeastSaga.Metadata
             {
                 var skillInfo = in_kf_dress._IN_KANG_FU_DATA;
                 var skillName = skillInfo.NAME.ToString()!;
-                yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillInfo.Ptr.ToString(), DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
 
 
             }
 
-            foreach (var skill in playerData.IN_KANG_FU_HAD.AsRefArray())
+            foreach (var skill in playerData.IN_KANG_FU_HAD.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
                 {
                     var skillInfo = skillObj._IN_KANG_FU_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName,ObjectId = skillInfo.Ptr.ToString(), DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
 
                 }
             }
 
 
-            foreach (var skill in playerData.DRESS_KANG_FU.AsRefArray())
+            foreach (var skill in playerData.DRESS_KANG_FU.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
                 {
                     var skillInfo = skillObj._KANG_FU_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillInfo.Ptr.ToString(), DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
                     foreach (var shan in GetShanHaiLuDataSet(skillObj))
                     {
                         yield return shan;
@@ -574,14 +575,14 @@ namespace Maple.BeastSaga.Metadata
             }
 
 
-            foreach (var skill in playerData.KANG_FU_HAD.AsRefArray())
+            foreach (var skill in playerData.KANG_FU_HAD.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
                 {
                     var skillInfo = skillObj._KANG_FU_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() {  ImageName = skillName, ObjectId = skillInfo.Ptr.ToString(), DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
                     foreach (var shan in GetShanHaiLuDataSet(skillObj))
                     {
                         yield return shan;
@@ -592,7 +593,7 @@ namespace Maple.BeastSaga.Metadata
             }
 
 
-            foreach (var skill in playerData.KANG_FU_SKILL_HAD.AsRefArray())
+            foreach (var skill in playerData.KANG_FU_SKILL_HAD.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
@@ -600,7 +601,7 @@ namespace Maple.BeastSaga.Metadata
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
                     var skillDesc = skillInfo.DESCRIBE.ToString();
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillInfo.Ptr.ToString(), DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
 
 
                 }
@@ -608,7 +609,7 @@ namespace Maple.BeastSaga.Metadata
             }
 
 
-            foreach (var skill in playerData.KANG_FU_QING_HAD.AsRefArray())
+            foreach (var skill in playerData.KANG_FU_QING_HAD.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
@@ -616,7 +617,7 @@ namespace Maple.BeastSaga.Metadata
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
                     var skillDesc = skillInfo.DESCRIBE.ToString();
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillInfo.Ptr.ToString(), DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
 
 
                 }
@@ -626,7 +627,7 @@ namespace Maple.BeastSaga.Metadata
 
 
 
-            foreach (var skill in playerData.DRESS_SMALL_LOOP.AsRefArray())
+            foreach (var skill in playerData.DRESS_SMALL_LOOP.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
@@ -634,14 +635,14 @@ namespace Maple.BeastSaga.Metadata
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
                     var skillDesc = skillInfo.DESCRIBE.ToString();
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillInfo.Ptr.ToString(), DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
 
 
                 }
             }
 
 
-            foreach (var skill in playerData.DRESS_BIG_LOOP.AsRefArray())
+            foreach (var skill in playerData.DRESS_BIG_LOOP.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
@@ -649,20 +650,20 @@ namespace Maple.BeastSaga.Metadata
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
                     var skillDesc = skillInfo.DESCRIBE.ToString();
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillInfo.Ptr.ToString(), DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
 
                 }
             }
 
-            IEnumerable<GameSkillInfoDTO> GetShanHaiLuDataSet(PlayerKangFu.Ptr_PlayerKangFu skillObj)
+            IEnumerable<GameSkillInfoDTOEX> GetShanHaiLuDataSet(PlayerKangFu.Ptr_PlayerKangFu skillObj)
             {
-                foreach (var shan in skillObj.HAVE_SHAN_HAI_LU)
+                foreach (var shan in skillObj.HAVE_SHAN_HAI_LU.AsEnumerable())
                 {
                     foreach (var shanhailu in this.GameCache.Skills.Where(p => p.DisplayCategory == nameof(ShanHaiLuDataSet)))
                     {
                         if (shan.AsReadOnlySpan().EndsWith(shanhailu.ObjectId))
                         {
-                            yield return new GameSkillInfoDTO() { ObjectId = shanhailu.ObjectId, DisplayName = shanhailu.DisplayName, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = shanhailu.DisplayDesc, CanWrite = false };
+                            yield return new GameSkillInfoDTOEX() { ImageName = shanhailu.ObjectId, ObjectId = shanhailu.ObjectId, DisplayName = shanhailu.DisplayName, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = shanhailu.DisplayDesc, CanWrite = false };
                         }
                     }
                 }
@@ -733,7 +734,7 @@ namespace Maple.BeastSaga.Metadata
             var p = LogicHelper.Ptr_LogicHelper._INSTANCE;
 
             var data = ExcelDataManager.Ptr_ExcelDataManager.INSTANCE;
-            foreach (var table in data.P_FRIEND_LOVE_TABLE.DICT.AsRefArray())
+            foreach (var table in data.P_FRIEND_LOVE_TABLE.DICT.AsRefEnumerable())
             {
                 var tableItem = table.Value;
                 //         this.Logger.LogInformation("name:{name},name2:{name2},id:{id}", tableItem.NAME.ToString(), tableItem.NAME2.ToString(), tableItem.ID);
@@ -786,7 +787,7 @@ namespace Maple.BeastSaga.Metadata
 
             var frienddata = this.Ptr_PlayerFriendDataManager._FRIEND_DATA;
 
-            foreach (var friend in frienddata.ADD_FRIENDS.AsRefArray())
+            foreach (var friend in frienddata.ADD_FRIENDS.AsRefEnumerable())
             {
                 ptr_FriendData = friend.Value;
                 if (ptr_FriendData._AB_NAME.AsReadOnlySpan().SequenceEqual(name))
@@ -797,7 +798,7 @@ namespace Maple.BeastSaga.Metadata
 
             }
 
-            foreach (var friend in frienddata.LEAVE_FRIENDS.AsRefArray())
+            foreach (var friend in frienddata.LEAVE_FRIENDS.AsRefEnumerable())
             {
                 ptr_FriendData = friend.Value;
                 if (ptr_FriendData._AB_NAME.AsReadOnlySpan().SequenceEqual(name))
@@ -835,7 +836,7 @@ namespace Maple.BeastSaga.Metadata
 
 
 
-            foreach (var item in playerData._KONG_FU_TYPE_LV.AsRefArray())
+            foreach (var item in playerData._KONG_FU_TYPE_LV.AsRefEnumerable() )
             {
                 var key = item.Key;
                 var lv = this.Ptr_PlayerDataManager.GET_KONG_FU_TYPE_LV(key);
@@ -849,7 +850,7 @@ namespace Maple.BeastSaga.Metadata
 
 
 
-            var characterHad = playerData.CHARACTER_HAD.AsRefArray();
+            var characterHad =  playerData.CHARACTER_HAD.AsRefEnumerable();
             foreach (var item in this.GameCache.CharacterDataSets)
             {
                 var had = characterHad.Where(p => p.Key.AsReadOnlySpan().SequenceEqual(item.ObjectId.AsSpan())).Any();
@@ -859,7 +860,7 @@ namespace Maple.BeastSaga.Metadata
 
             }
 
-            var add_school = playerData.ADD_SCHOOL.AsReadOnlySpan().ToImmutableArray();
+            var add_school = playerData.ADD_SCHOOL.AsEnumerable();
             foreach (var item in this.GameCache.KFSchools)
             {
                 var had = add_school.Contains(item);
@@ -868,7 +869,7 @@ namespace Maple.BeastSaga.Metadata
 
             }
 
-            var equip_type = playerData.EQUIP_TYPE_CAN.AsReadOnlySpan().ToImmutableArray();
+            var equip_type = playerData.EQUIP_TYPE_CAN.AsEnumerable();
             foreach (var item in this.GameCache.KFTypes)
             {
                 var had = equip_type.Contains(item);
@@ -989,7 +990,7 @@ namespace Maple.BeastSaga.Metadata
 
             else if (propName.StartsWith(nameof(EnumPlayerPropType.武学)))
             {
-                foreach (var item in playerData._KONG_FU_TYPE_LV.AsRefArray())
+                foreach (var item in playerData._KONG_FU_TYPE_LV.AsRefEnumerable())
                 {
                     var key = item.Key;
                     var id = $"{nameof(EnumPlayerPropType.武学)}.{key}";
@@ -1056,7 +1057,7 @@ namespace Maple.BeastSaga.Metadata
 
 
 
-        private IEnumerable<GameSkillInfoDTO> GetFriendSkill(string name)
+        private IEnumerable<GameSkillInfoDTOEX> GetFriendSkill(string name)
         {
             if (false == TryGetFriend(name, out var playerData, out var friendLocaltion))
             {
@@ -1064,10 +1065,10 @@ namespace Maple.BeastSaga.Metadata
             }
 
 
-            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = string.Empty, CanWrite = true };
-            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = string.Empty, CanWrite = true };
-            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(UniqueSkillDataSet), DisplayDesc = string.Empty, CanWrite = true };
-            yield return new GameSkillInfoDTO() { ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTOEX() {ImageName = string.Empty, ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTOEX() {ImageName = string.Empty, ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTOEX() {ImageName = string.Empty, ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(UniqueSkillDataSet), DisplayDesc = string.Empty, CanWrite = true };
+            yield return new GameSkillInfoDTOEX() { ImageName = string.Empty, ObjectId = string.Empty, DisplayName = string.Empty, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = string.Empty, CanWrite = true };
 
 
 
@@ -1077,32 +1078,32 @@ namespace Maple.BeastSaga.Metadata
             {
                 var skillInfo = in_kf_dress._IN_KANG_FU_DATA;
                 var skillName = skillInfo.NAME.ToString()!;
-                yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
 
 
             }
 
-            foreach (var skill in playerData._IN_KANG_FU_HAD.AsRefArray())
+            foreach (var skill in playerData._IN_KANG_FU_HAD.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
                 {
                     var skillInfo = skillObj._IN_KANG_FU_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(InKangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
 
                 }
             }
 
 
-            foreach (var skill in playerData._DRESS_KANG_FU.AsRefArray())
+            foreach (var skill in playerData._DRESS_KANG_FU.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
                 {
                     var skillInfo = skillObj._KANG_FU_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
                     foreach (var shan in GetShanHaiLuDataSet(skillObj))
                     {
                         yield return shan;
@@ -1113,14 +1114,14 @@ namespace Maple.BeastSaga.Metadata
             }
 
 
-            foreach (var skill in playerData._KANG_FU_HAD.AsRefArray())
+            foreach (var skill in playerData._KANG_FU_HAD.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
                 {
                     var skillInfo = skillObj._KANG_FU_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillName, DisplayName = skillName, DisplayCategory = nameof(KangFuDataSet), DisplayDesc = skillInfo.DESCRIBE.ToString(), CanWrite = false };
                     foreach (var shan in GetShanHaiLuDataSet(skillObj))
                     {
                         yield return shan;
@@ -1131,7 +1132,7 @@ namespace Maple.BeastSaga.Metadata
             }
 
 
-            foreach (var skill in playerData._KANG_FU_SKILL_HAD.AsRefArray())
+            foreach (var skill in playerData._KANG_FU_SKILL_HAD.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
@@ -1139,7 +1140,7 @@ namespace Maple.BeastSaga.Metadata
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
                     var skillDesc = skillInfo.DESCRIBE.ToString();
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
 
 
                 }
@@ -1147,7 +1148,7 @@ namespace Maple.BeastSaga.Metadata
             }
 
 
-            foreach (var skill in playerData._KANG_FU_QING_HAD.AsRefArray())
+            foreach (var skill in playerData._KANG_FU_QING_HAD.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
@@ -1155,7 +1156,7 @@ namespace Maple.BeastSaga.Metadata
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
                     var skillDesc = skillInfo.DESCRIBE.ToString();
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
 
 
                 }
@@ -1165,7 +1166,7 @@ namespace Maple.BeastSaga.Metadata
 
 
 
-            foreach (var skill in playerData._DRESS_SMALL_LOOP.AsRefArray())
+            foreach (var skill in playerData._DRESS_SMALL_LOOP.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
@@ -1173,14 +1174,14 @@ namespace Maple.BeastSaga.Metadata
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
                     var skillDesc = skillInfo.DESCRIBE.ToString();
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() { ImageName = skillName, ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
 
 
                 }
             }
 
 
-            foreach (var skill in playerData._DRESS_BIG_LOOP.AsRefArray())
+            foreach (var skill in playerData._DRESS_BIG_LOOP.AsRefEnumerable())
             {
                 var skillObj = skill.Value;
                 if (skillObj)
@@ -1188,20 +1189,20 @@ namespace Maple.BeastSaga.Metadata
                     var skillInfo = skillObj._UNIQUE_SKILL_DATA;
                     var skillName = skillInfo.NAME.ToString()!;
                     var skillDesc = skillInfo.DESCRIBE.ToString();
-                    yield return new GameSkillInfoDTO() { ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
+                    yield return new GameSkillInfoDTOEX() {ImageName = skillName, ObjectId = skillName, DisplayName = skillName, DisplayDesc = skillDesc, DisplayCategory = nameof(UniqueSkillDataSet), CanWrite = false };
 
                 }
             }
 
-            IEnumerable<GameSkillInfoDTO> GetShanHaiLuDataSet(PlayerKangFu.Ptr_PlayerKangFu skillObj)
+            IEnumerable<GameSkillInfoDTOEX> GetShanHaiLuDataSet(PlayerKangFu.Ptr_PlayerKangFu skillObj)
             {
-                foreach (var shan in skillObj.HAVE_SHAN_HAI_LU)
+                foreach (var shan in skillObj.HAVE_SHAN_HAI_LU.AsEnumerable())
                 {
                     foreach (var shanhailu in this.GameCache.Skills.Where(p => p.DisplayCategory == nameof(ShanHaiLuDataSet)))
                     {
                         if (shan.AsReadOnlySpan().EndsWith(shanhailu.ObjectId))
                         {
-                            yield return new GameSkillInfoDTO() { ObjectId = shanhailu.ObjectId, DisplayName = shanhailu.DisplayName, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = shanhailu.DisplayDesc, CanWrite = false };
+                            yield return new GameSkillInfoDTOEX() { ImageName = shanhailu.ObjectId, ObjectId = shanhailu.ObjectId, DisplayName = shanhailu.DisplayName, DisplayCategory = nameof(ShanHaiLuDataSet), DisplayDesc = shanhailu.DisplayDesc, CanWrite = false };
                         }
                     }
                 }
@@ -1434,5 +1435,11 @@ namespace Maple.BeastSaga.Metadata
         未创建 = 0,
         队伍内 = 1,
         已离队 = 2,
+    }
+
+
+    public class GameSkillInfoDTOEX : GameSkillInfoDTO
+    { 
+        public required string ImageName { get; set; }
     }
 }

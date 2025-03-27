@@ -1,4 +1,5 @@
 using Maple.MonoGameAssistant.Core;
+using Maple.MonoGameAssistant.MetadataCollections;
 using static Maple.BeastSaga.Metadata.InKangFuDataSet;
 
 namespace Maple.BeastSaga.Metadata
@@ -81,7 +82,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<EquipDataSet></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("EquipData", "System.Collections.Generic.List<EquipDataSet>")]
-            public partial PMonoList_BeastSaga<EquipDataSet.Ptr_EquipDataSet> EQUIP_DATA { get; }
+            public partial SysPtrList<EquipDataSet.Ptr_EquipDataSet> EQUIP_DATA { get; }
 
 
             /// <summary>
@@ -91,7 +92,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<ItemDataSet></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("ItemData", "System.Collections.Generic.List<ItemDataSet>")]
-            public partial PMonoList_BeastSaga<ItemDataSet.Ptr_ItemDataSet> ITEM_DATA { get; }
+            public partial SysPtrList<ItemDataSet.Ptr_ItemDataSet> ITEM_DATA { get; }
 
 
             /// <summary>
@@ -101,7 +102,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<InKangFuDataSet></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("InKangFuData", "System.Collections.Generic.List<InKangFuDataSet>")]
-            public partial PMonoList_BeastSaga<InKangFuDataSet.Ptr_InKangFuDataSet> IN_KANG_FU_DATA { get; }
+            public partial SysPtrList<InKangFuDataSet.Ptr_InKangFuDataSet> IN_KANG_FU_DATA { get; }
 
 
             /// <summary>
@@ -111,7 +112,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<KangFuDataSet></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KangFuData", "System.Collections.Generic.List<KangFuDataSet>")]
-            public partial PMonoList_BeastSaga<KangFuDataSet.Ptr_KangFuDataSet> KangFuData { get; }
+            public partial SysPtrList<KangFuDataSet.Ptr_KangFuDataSet> KangFuData { get; }
 
 
             /// <summary>
@@ -121,7 +122,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<UniqueSkillDataSet></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("UniqueSkillData", "System.Collections.Generic.List<UniqueSkillDataSet>")]
-            public partial PMonoList_BeastSaga<UniqueSkillDataSet.Ptr_UniqueSkillDataSet> UNIQUE_SKILL_DATA { get; }
+            public partial SysPtrList<UniqueSkillDataSet.Ptr_UniqueSkillDataSet> UNIQUE_SKILL_DATA { get; }
 
         }
 
