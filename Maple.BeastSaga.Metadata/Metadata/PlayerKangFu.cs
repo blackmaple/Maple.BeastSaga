@@ -43,20 +43,20 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Name", "System.String")]
-           public partial nint _NAME { get; set; } 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Name", "System.String")]
+            public partial nint _NAME { get; set; }
+
 
             /// <summary>
             /// 0x20 System.Collections.Generic.List<System.String> HaveShanHaiLu
             /// class ["mscorlib"."System.Collections.Generic"."List`1"]
             /// </summary>
             /// <returns>class System.Collections.Generic.List<System.String></returns>
-        
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("HaveShanHaiLu", "System.Collections.Generic.List<System.String>")]
-           public partial SysPtrList<PMonoString> HAVE_SHAN_HAI_LU { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("HaveShanHaiLu", "System.Collections.Generic.List<System.String>")]
+            public partial SysPtrList<PMonoString> HAVE_SHAN_HAI_LU { get; set; }
+
 
             /// <summary>
             /// 0x28 System.Int32 _Lv

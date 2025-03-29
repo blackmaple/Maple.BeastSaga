@@ -8,7 +8,6 @@ using Maple.MonoGameAssistant.Windows.HotKey.HookWindowMessage;
 using Maple.MonoGameAssistant.Windows.Service;
 using Maple.MonoGameAssistant.Windows.UITask;
 using Microsoft.Extensions.Logging;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Maple.BeastSaga.Win
 {

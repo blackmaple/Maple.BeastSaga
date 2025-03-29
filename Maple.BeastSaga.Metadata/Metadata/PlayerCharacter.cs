@@ -17,7 +17,7 @@ namespace Maple.BeastSaga.Metadata
 
             public static implicit operator Ptr_PlayerCharacter(System.IntPtr ptr) => new Ptr_PlayerCharacter(ptr);
             public static implicit operator System.IntPtr(Ptr_PlayerCharacter ptr) => ptr.m_Pointer;
-            public static implicit operator bool (Ptr_PlayerCharacter ptr) => ptr.m_Pointer != System.IntPtr.Zero;
+            public static implicit operator bool(Ptr_PlayerCharacter ptr) => ptr.m_Pointer != System.IntPtr.Zero;
         }
 
         /// <summary>
@@ -30,9 +30,9 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Name", "System.String")]
-            public partial nint _NAME { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Name", "System.String")]
+           public partial nint _NAME { get; set; } 
 */
 
             /// <summary>
@@ -40,19 +40,19 @@ namespace Maple.BeastSaga.Metadata
             /// class ["Model.Runtime".""."CharacterDataSet"]
             /// </summary>
             /// <returns>class CharacterDataSet</returns>
-             /*
+
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_CharacterDataSet", "CharacterDataSet")]
-            public partial nint _CHARACTER_DATA_SET { get; set; } 
-*/
+            public partial CharacterDataSet.Ptr_CharacterDataSet _CHARACTER_DATA_SET { get; set; }
+
 
             /// <summary>
             /// 0x20 System.Int32 Num
             /// struct ["mscorlib"."System"."Int32"]
             /// </summary>
             /// <returns>struct System.Int32</returns>
-             /*
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("Num", "System.Int32")]
-            public partial System.Int32 NUM { get; set; } 
+            /*
+           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("Num", "System.Int32")]
+           public partial System.Int32 NUM { get; set; } 
 */
         }
 

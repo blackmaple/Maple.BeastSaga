@@ -30,10 +30,10 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System"."String"]
             /// </summary>
             /// <returns>class System.String</returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Name", "System.String")]
-           public partial nint _NAME { get; set; } 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_Name", "System.String")]
+            public partial nint _NAME { get; set; }
+
 
             /// <summary>
             /// 0x18 InKangFuDataSet _InKangFuData

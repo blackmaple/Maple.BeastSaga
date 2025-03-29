@@ -21,11 +21,30 @@
 		<None Remove="PlatformTarget_\**" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<Compile Remove="PMonoDictionary_BeastSaga.cs" />
+		<Compile Remove="PMonoList_BeastSaga.cs" />
+		<Compile Remove="Ref_MonoDictionary_BeastSaga.cs" />
+		<Compile Remove="Ref_MonoList_BeastSaga.cs" />
+	</ItemGroup>
+
+	<!--<ItemGroup>
+		<Compile Remove="PlatformTarget_X64\**" />
+		<Compile Remove="PlatformTarget_X86\**" />
+		<Compile Remove="PlatformTarget_\**" />
+		<EmbeddedResource Remove="PlatformTarget_X64\**" />
+		<EmbeddedResource Remove="PlatformTarget_X86\**" />
+		<EmbeddedResource Remove="PlatformTarget_\**" />
+		<None Remove="PlatformTarget_X64\**" />
+		<None Remove="PlatformTarget_X86\**" />
+		<None Remove="PlatformTarget_\**" />
+	</ItemGroup>
+
 
 	<ItemGroup>
 		<Compile Include="PlatformTarget_X64\Ref_MonoDictionary_BeastSaga.cs" />
 		<Compile Include="PlatformTarget_X64\Ref_MonoList_BeastSaga.cs" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 
 	<ItemGroup>

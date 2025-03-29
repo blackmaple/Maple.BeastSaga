@@ -106,17 +106,17 @@ namespace Maple.BeastSaga.Metadata
             ];
         public IEnumerable<GameCharacterDisplayDTOEX> GetCharacter()
         {
-            foreach (var s in Friends)
-            {
-                yield return new GameCharacterDisplayDTOEX()
-                {
-                    ImageName = s,
-                    ObjectId = s,
-                    DisplayCategory = nameof(FriendData),
-                    DisplayName = s,
-                    DisplayDesc = s,
-                };
-            }
+            //foreach (var s in Friends)
+            //{
+            //    yield return new GameCharacterDisplayDTOEX()
+            //    {
+            //        ImageName = s,
+            //        ObjectId = s,
+            //        DisplayCategory = nameof(FriendData),
+            //        DisplayName = s,
+            //        DisplayDesc = s,
+            //    };
+            //}
 
             yield return new GameCharacterDisplayDTOEX()
             {
@@ -152,7 +152,7 @@ namespace Maple.BeastSaga.Metadata
                 var fullname = name2.ToString()!;
                 yield return new GameCharacterDisplayDTOEX()
                 {
-                    ImageName= fullname,
+                    ImageName = fullname,
                     Ptr = tableItem,
                     ObjectId = fullname,
                     DisplayCategory = nameof(FriendData),
@@ -193,10 +193,10 @@ namespace Maple.BeastSaga.Metadata
         private IEnumerable<GameCurrencyDisplayDTOEX> GetItemDataSet()
         {
             SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._ITEM_DATA_MANAGER.IsNotNull());
- 
+
             foreach (var item in this.Ptr_LoadDataSet._ITEM_DATA_MANAGER.AsEnumerable())
             {
-              
+
                 var name = item._NAME.ToString()!;
                 this.Logger.LogInformation("name:{name}", name);
                 yield return new GameCurrencyDisplayDTOEX()
@@ -355,7 +355,7 @@ namespace Maple.BeastSaga.Metadata
             SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._SHAN_HAI_LU_DATA_MANAGER.IsNotNull());
             foreach (var item in this.Ptr_LoadDataSet._SHAN_HAI_LU_DATA_MANAGER.AsEnumerable())
             {
-                var fullname = item. NAME.ToString()!;
+                var fullname = item.NAME.ToString()!;
                 yield return new GameSkillDisplayDTOEX()
                 {
                     ImageName = fullname,
