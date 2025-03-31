@@ -3,7 +3,6 @@ using Maple.MonoGameAssistant.Core;
 using Maple.MonoGameAssistant.GameDTO;
 using Maple.MonoGameAssistant.MetadataCollections;
 using Maple.MonoGameAssistant.Model;
-using Maple.MonoGameAssistant.UnityCore.UnityEngine;
 using Maple.MonoGameAssistant.Windows.HotKey.HookWindowMessage;
 using Maple.MonoGameAssistant.Windows.Service;
 using Maple.MonoGameAssistant.Windows.UITask;
@@ -27,35 +26,39 @@ namespace Maple.BeastSaga.Win
             return new BeastSagaGameContext(Logger, searchService, RuntimeContext);
         }
 
-        protected sealed override UnityEngineContext? LoadUnityEngineContext()
+        protected sealed override IUnityPlayerNativeMethods? LoadUnityEngineContext()
         {
             //UnityEngine.Graphics:Blit2+7f - 48 B8 D0FA4423FC7F0000 - mov rax,UnityPlayer.dll+9FAD0 { (610044232) }
             //UnityEngine.Graphics:Blit2+4b - E8 D0B2922B           - call UnityPlayer.dll+75F20
 
-            UnityEngineContext_MONO.Func_BLIT2 = 0x9FAD0;
+            //      UnityEngineContext_MONO.Func_BLIT2 = 0x9FAD0;
             // UnityEngineContext_MONO.Func_BLIT2 = 0x75F20;
 
             //UnityEngine.ImageConversion:EncodeToPNG+77 - 48 B8 B0385723FC7F0000 - mov rax,UnityPlayer.dll+1C38B0 { ("@USWH??H??") }
             //UnityEngine.ImageConversion:EncodeToPNG+43 - E8 28B4A02B           - call UnityPlayer.dll+156110
 
-            UnityEngineContext_MONO.Func_ENCODE_TO_PNG = 0x1C38B0;
+            //        UnityEngineContext_MONO.Func_ENCODE_TO_PNG = 0x1C38B0;
             //    UnityEngineContext_MONO.Func_ENCODE_TO_PNG = 0x156110;
 
             //UnityEngine.Sprite:GetTextureRect_Injected+86 - 48 B8 700B4D23FC7F0000 - mov rax,UnityPlayer.dll+120B70 { (610044232) }
             //UnityEngine.Sprite:GetTextureRect_Injected+57 - E8 6444992B           - call UnityPlayer.dll+DCD70
 
-            UnityEngineContext_MONO.Func_GET_TEXTURE_RECT_INJECTED = 0x120B70;
+            //        UnityEngineContext_MONO.Func_GET_TEXTURE_RECT_INJECTED = 0x120B70;
             //     UnityEngineContext_MONO.Func_GET_TEXTURE_RECT_INJECTED = 0xDCD70;
 
             //UnityEngine.Texture2D:ReadPixelsImpl_Injected+8e - 48 B8 30584723FC7F0000 - mov rax,UnityPlayer.dll+C5830 { (610044232) }
             //UnityEngine.Texture2D:ReadPixelsImpl_Injected+6b - E8 00B6942B           - call UnityPlayer.dll+93FE0
 
-            UnityEngineContext_MONO.Func_READ_PIXELS_IMPL_INJECTED = 0xC5830;
+            //         UnityEngineContext_MONO.Func_READ_PIXELS_IMPL_INJECTED = 0xC5830;
             //       UnityEngineContext_MONO.Func_READ_PIXELS_IMPL_INJECTED = 0x93FE0;
 
+            var cache = Maple.MonoGameAssistant.MetadataUnity.UnityMetadataContext_MONO.MethodOffsetCache;
+            cache[Maple.MonoGameAssistant.MetadataUnity.Graphics.Code_FunctionPointerType_BLIT2_E9370053514A1DE4] = 0x9FAD0;
+            cache[Maple.MonoGameAssistant.MetadataUnity.ImageConversion.Code_FunctionPointerType_ENCODE_TO_PNG_B997C8D2C1188DD2] = 0x1C38B0;
+            cache[Maple.MonoGameAssistant.MetadataUnity.Sprite.Code_FunctionPointerType_GET_TEXTURE_9E369564B1447B9B] = 0x120B70;
+            cache[Maple.MonoGameAssistant.MetadataUnity.Texture2D.Code_FunctionPointerType_READ_PIXELS_IMPL_INJECTED_3D6557C7BC276B18] = 0xC5830;
 
-
-            return base.LoadUnityEngineContext();
+            return Maple.MonoGameAssistant.MetadataUnity.UnityMetadataContext.CreateUnityMetadataContext(this.RuntimeContext, this.Logger);
         }
 
         //protected override async ValueTask F9_KeyDown()
@@ -150,7 +153,7 @@ namespace Maple.BeastSaga.Win
                     var spriteData = item.SpriteData;
                     if (spriteData != nint.Zero)
                     {
-                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, 2);
+                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, IUnityPlayerNativeMethods.ReadSpriteType.TYPE2);
                         if (arrayData != nint.Zero)
                         {
                             yield return new GameSpriteData() { ObjectId = item.ObjectId, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
@@ -162,7 +165,7 @@ namespace Maple.BeastSaga.Win
                     var spriteData = item.SpriteData;
                     if (spriteData != nint.Zero)
                     {
-                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, 2);
+                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, IUnityPlayerNativeMethods.ReadSpriteType.TYPE2);
                         if (arrayData != nint.Zero)
                         {
                             yield return new GameSpriteData() { ObjectId = item.ObjectId, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
@@ -174,7 +177,7 @@ namespace Maple.BeastSaga.Win
                     var spriteData = item.SpriteData;
                     if (spriteData != nint.Zero)
                     {
-                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, 2);
+                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, IUnityPlayerNativeMethods.ReadSpriteType.TYPE2);
                         if (arrayData != nint.Zero)
                         {
                             yield return new GameSpriteData() { ObjectId = item.ObjectId, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
@@ -198,7 +201,7 @@ namespace Maple.BeastSaga.Win
                     if (spriteData != nint.Zero)
                     {
 
-                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, 2);
+                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, IUnityPlayerNativeMethods.ReadSpriteType.TYPE2);
                         if (arrayData != nint.Zero)
                         {
                             yield return new GameSpriteData() { ObjectId = friendObj._AB_NAME.ToString()!, DisplayCategory = nameof(FriendData), SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
@@ -214,7 +217,7 @@ namespace Maple.BeastSaga.Win
                     if (spriteData != nint.Zero)
                     {
 
-                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, 2);
+                        var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, IUnityPlayerNativeMethods.ReadSpriteType.TYPE2);
                         if (arrayData != nint.Zero)
                         {
                             yield return new GameSpriteData() { ObjectId = friendObj._AB_NAME.ToString()!, DisplayCategory = nameof(FriendData), SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
