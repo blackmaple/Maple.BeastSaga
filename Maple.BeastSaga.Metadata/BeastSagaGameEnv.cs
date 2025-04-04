@@ -360,12 +360,26 @@ namespace Maple.BeastSaga.Metadata
                 yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, ContentValue = lv.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
             }
 
-            foreach (var item in playerData.LIFE_PRO.AsRefEnumerable())
+            foreach (var item in playerData.LIFE_EXP.AsRefEnumerable())
             {
-                var name = item.Key.ToString();
+                var key = item.Key;
+                var name = key.ToString();
 
                 var id = $"{nameof(EnumPlayerPropType.生活)}.{name}";
-                yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, ContentValue = item.Value.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+                var lv = this.Ptr_PlayerDataManager.GET_LIFE_TYPE_LV(key);
+                yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, ContentValue = lv.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
+            }
+
+            var lifePerkHad = playerData.LIFE_TYPE_HAD_PERK.AsRefEnumerable().SelectMany(p => p.Value.AsEnumerable()).ToArray();
+            foreach (var item in this.GameCache.LifePerk)
+            {
+                //     var had = lifePerkHad.Where(p=>p._LIFE_PERK_DATA_SET.)
+                var had = lifePerkHad.Where(p => p._LIFE_PERK_DATA_SET.Ptr.ToString().AsSpan().SequenceEqual(item.ObjectId.AsSpan())).Any();
+
+                var id = $"{nameof(EnumPlayerPropType.艺)}.{item.DisplayDesc}.{item.DisplayName}";
+                yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, ContentValue = id, SwitchValue = had, UIType = (int)EnumGameSwitchUIType.Switches };
+
+
             }
 
             //foreach (var item in playerData.LIFE_PRO_CURRENT.AsRefArray())
@@ -393,7 +407,7 @@ namespace Maple.BeastSaga.Metadata
             //    yield return new GameSwitchDisplayDTO() { ObjectId = id, DisplayName = id, ContentValue = item.Value.ToString(), UIType = (int)EnumGameSwitchUIType.TextEditor };
             //}
 
-            var characterHad = playerData.CHARACTER_HAD.AsRefEnumerable();
+            var characterHad = playerData.CHARACTER_HAD.AsRefEnumerable().ToArray();
             foreach (var item in this.GameCache.CharacterDataSets)
             {
                 var had = characterHad.Where(p => p.Value._CHARACTER_DATA_SET.Ptr.ToString().AsSpan().SequenceEqual(item.ObjectId.AsSpan())).Any();
@@ -403,7 +417,7 @@ namespace Maple.BeastSaga.Metadata
 
             }
 
-            var friendLove = playerData.FRIEND_LOVE_NUM.AsRefEnumerable();
+            var friendLove = playerData.FRIEND_LOVE_NUM.AsRefEnumerable().ToArray();
             foreach (var item in this.GameCache.Characters.Where(p => p.Ptr != nint.Zero && p.DisplayCategory == nameof(FriendData)))
             {
                 var love = friendLove.Where(p => p.Key.AsReadOnlySpan().SequenceEqual(item.DisplayName.AsSpan())).Select(p => p.Value).FirstOrDefault();
@@ -556,17 +570,71 @@ namespace Maple.BeastSaga.Metadata
             }
             else if (propName.StartsWith(nameof(EnumPlayerPropType.生活)))
             {
-                foreach (var item in playerData.LIFE_PRO.AsRefEnumerable())
+                foreach (var item in playerData.LIFE_EXP.AsRefEnumerable())
                 {
-                    var id = $"{nameof(EnumPlayerPropType.生活)}.{item.Key}";
+                    var key = item.Key;
+                    var id = $"{nameof(EnumPlayerPropType.生活)}.{key}";
                     if (propName == id)
                     {
-                        ref int ref_value = ref Unsafe.AsRef(in item.Value);
-                        ref_value = objectDTO.IntValue;
+                        //ref int ref_value = ref Unsafe.AsRef(in item.Value);
+                        //ref_value = objectDTO.IntValue;
+
+                        var lv = objectDTO.IntValue;
+                        var expItem = this.GameCache.Ptr_ExcelDataManager.GET_YI_EXP_ITEM_BY_ID(lv);
+                        if (expItem.IsNull())
+                        {
+                            lv = this.Ptr_PlayerDataManager.GET_LIFE_TYPE_LV(key);
+                            expItem = this.GameCache.Ptr_ExcelDataManager.GET_YI_EXP_ITEM_BY_ID(lv);
+                        }
+                        if (expItem)
+                        {
+                            ref int ref_value = ref Unsafe.AsRef(in item.Value);
+                            ref_value = expItem.TOTALEXP;
+                        }
                     }
                 }
-                this.Ptr_PlayerDataManager.SAVE_PRO_LIFE_POINTS();
+                // this.Ptr_PlayerDataManager.SAVE_PRO_LIFE_POINTS();
 
+            }
+            else if (propName.StartsWith(nameof(EnumPlayerPropType.艺)))
+            {
+                foreach (var item in this.GameCache.LifePerk)
+                {
+                    var id = $"{nameof(EnumPlayerPropType.艺)}.{item.DisplayDesc}.{item.DisplayName}";
+                    if (propName == id)
+                    {
+                        LifePerkDataSet.Ptr_LifePerkDataSet ptr_LifePerkDataSet = item.Ptr;
+                        if (playerData.LIFE_TYPE_HAD_PERK.TryGetValue(ptr_LifePerkDataSet.TO_LIFE_TYPE, out var sysPtrList))
+                        {
+                            PlayerLifePerk.Ptr_PlayerLifePerk selectedObj = default;
+                            foreach (var obj in sysPtrList.AsEnumerable())
+                            {
+                                if (obj._LIFE_PERK_DATA_SET.Ptr == ptr_LifePerkDataSet.Ptr)
+                                {
+                                    selectedObj = obj;
+                                    break;
+                                }
+                            }
+
+                            if (objectDTO.BoolValue == true)
+                            {
+                                if (selectedObj.IsNull())
+                                {
+                                    selectedObj = this.Context.PlayerLifePerk.CtorPin(out _);
+                                    selectedObj.INIT_DATA(ptr_LifePerkDataSet);
+                                    sysPtrList.Add(selectedObj);
+                                }
+
+                            }
+                            else if (selectedObj)
+                            {
+                                sysPtrList.Remove(selectedObj);
+                            }
+
+                        }
+
+                    }
+                }
             }
             else if (propName.StartsWith(nameof(EnumPlayerPropType.特性)))
             {
@@ -1497,6 +1565,10 @@ namespace Maple.BeastSaga.Metadata
 
         #endregion
 
+
+
+        #region Api
+
         public GameInventoryInfoDTO GetInventoryInfoDTO(GameInventoryObjectDTO objectDTO)
         {
             var count = 0;
@@ -1614,6 +1686,9 @@ namespace Maple.BeastSaga.Metadata
 
 
         }
+
+        #endregion
+
     }
 
 
@@ -1623,7 +1698,9 @@ namespace Maple.BeastSaga.Metadata
         属性,
         武学,
         生活,
+        艺,
         当前生活,
+
         六维,
         赌博,
         特性,

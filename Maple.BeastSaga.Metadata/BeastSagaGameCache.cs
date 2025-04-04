@@ -23,6 +23,7 @@ namespace Maple.BeastSaga.Metadata
         public GameInventoryDisplayDTOEX[] Items { get; }
         public GameCharacterDisplayDTOEX[] Characters { get; }
         public GameInventoryDisplayDTOEX[] CharacterDataSets { get; }
+        public GameInventoryDisplayDTOEX[] LifePerk { get; }
 
         public GameSkillDisplayDTOEX[] Skills { get; }
 
@@ -72,6 +73,8 @@ namespace Maple.BeastSaga.Metadata
                 ..GetChongPotDataSet(),
 
                 ];
+
+            this.LifePerk = [.. GetLifePerkDataSet()];
         }
 
 
@@ -406,6 +409,28 @@ namespace Maple.BeastSaga.Metadata
                     DisplayName = fullname,
                     DisplayDesc = string.Empty,//; item.EXPLAIN.ToString(),
                     DisplayCategory = nameof(RandomBoxDataSet)
+                };
+            }
+        }
+
+
+        private IEnumerable<GameInventoryDisplayDTOEX> GetLifePerkDataSet()
+        {
+            SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._LIFE_PERK_DATA_MANAGER.IsNotNull());
+            foreach (var item in this.Ptr_LoadDataSet._LIFE_PERK_DATA_MANAGER.AsEnumerable())
+            {
+                var fullname = item.NAME.ToString()!;
+                yield return new GameInventoryDisplayDTOEX()
+                {
+                    ImageName = fullname,
+                    Ptr = item.Ptr,
+                    SpriteData = nint.Zero,
+                    ObjectId = item.Ptr.ToString(),
+                    DisplayName = fullname,
+                    DisplayDesc = item.TO_LIFE_TYPE.ToString(),//; item.EXPLAIN.ToString(),
+                    DisplayCategory = nameof(LifePerkDataSet),
+
+
                 };
             }
         }

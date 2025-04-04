@@ -7,6 +7,7 @@ using Maple.MonoGameAssistant.Windows.HotKey.HookWindowMessage;
 using Maple.MonoGameAssistant.Windows.Service;
 using Maple.MonoGameAssistant.Windows.UITask;
 using Microsoft.Extensions.Logging;
+using System.Runtime.Intrinsics.X86;
 
 namespace Maple.BeastSaga.Win
 {
@@ -30,6 +31,7 @@ namespace Maple.BeastSaga.Win
         {
             //UnityEngine.Graphics:Blit2+7f - 48 B8 D0FA4423FC7F0000 - mov rax,UnityPlayer.dll+9FAD0 { (610044232) }
             //UnityEngine.Graphics:Blit2+4b - E8 D0B2922B           - call UnityPlayer.dll+75F20
+
 
             //      UnityEngineContext_MONO.Func_BLIT2 = 0x9FAD0;
             // UnityEngineContext_MONO.Func_BLIT2 = 0x75F20;
@@ -55,7 +57,7 @@ namespace Maple.BeastSaga.Win
             var cache = Maple.MonoGameAssistant.MetadataUnity.UnityMetadataContext_MONO.MethodOffsetCache;
             cache[Maple.MonoGameAssistant.MetadataUnity.Graphics.Code_FunctionPointerType_BLIT2_E9370053514A1DE4] = 0x9FAD0;
             cache[Maple.MonoGameAssistant.MetadataUnity.ImageConversion.Code_FunctionPointerType_ENCODE_TO_PNG_B997C8D2C1188DD2] = 0x1C38B0;
-            cache[Maple.MonoGameAssistant.MetadataUnity.Sprite.Code_FunctionPointerType_GET_TEXTURE_9E369564B1447B9B] = 0x120B70;
+            cache[Maple.MonoGameAssistant.MetadataUnity.Sprite.Code_FunctionPointerType_GET_TEXTURE_RECT_INJECTED_991A7878D43EDC7F] = 0x120B70;
             cache[Maple.MonoGameAssistant.MetadataUnity.Texture2D.Code_FunctionPointerType_READ_PIXELS_IMPL_INJECTED_3D6557C7BC276B18] = 0xC5830;
 
             return Maple.MonoGameAssistant.MetadataUnity.UnityMetadataContext.CreateUnityMetadataContext(this.RuntimeContext, this.Logger);

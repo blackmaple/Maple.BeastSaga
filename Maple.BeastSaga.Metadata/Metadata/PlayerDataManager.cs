@@ -281,6 +281,31 @@ namespace Maple.BeastSaga.Metadata
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
            public partial System.Boolean ADD_KONG_FU_TYPE_EXP(KFType kFType, System.Int32 addExp); 
 */
+
+            /// <summary>
+            ///   System.Void AddLifeExp(LifeType lifeType, System.Int32 exp)
+            /// </summary>
+            /// <param name = "lifeType">enum LifeType</param>
+            /// <param name = "exp">struct System.Int32</param>
+            /// <returns>struct System.Void</returns>
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddLifeExp", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("LifeType", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            public partial void ADD_LIFE_EXP(LifeType lifeType, System.Int32 exp);
+
+            /// <summary>
+            ///   System.Void AddLifePerk(LifeType lifeType, LifePerkDataSet lifePerkData)
+            /// </summary>
+            /// <param name = "lifeType">enum LifeType</param>
+            /// <param name = "lifePerkData">class LifePerkDataSet</param>
+            /// <returns>struct System.Void</returns>
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AddLifePerk", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("LifeType", 0)]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("LifePerkDataSet", 1)]
+            public partial void ADD_LIFE_PERK(LifeType lifeType, LifePerkDataSet.Ptr_LifePerkDataSet lifePerkData);
+
             /// <summary>
             ///   System.Void AddProPoint(System.Int32 addPower, System.Int32 addPerception, System.Int32 addAgility, System.Int32 addPhysicalPower, System.Int32 addChanel, System.Int32 addBerathSkill, System.Collections.Generic.Dictionary<LifeType , System.Int32> _addLifePoints)
             /// </summary>
@@ -986,6 +1011,16 @@ namespace Maple.BeastSaga.Metadata
             public partial System.Int32 GET_KONG_FU_TYPE_LV(KFType kFType);
 
             /// <summary>
+            ///   System.Int32 GetLifeTypeLV(LifeType lifeType)
+            /// </summary>
+            /// <param name = "lifeType">enum LifeType</param>
+            /// <returns>struct System.Int32</returns>
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetLifeTypeLV", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("LifeType", 0)]
+            public partial System.Int32 GET_LIFE_TYPE_LV(LifeType lifeType);
+
+            /// <summary>
             ///   System.Int32 GetLifeLV(LifeType lifeType)
             /// </summary>
             /// <param name = "lifeType">enum LifeType</param>
@@ -994,7 +1029,7 @@ namespace Maple.BeastSaga.Metadata
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetLifeLV", "System.Int32", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("LifeType", 0)]
            public partial System.Int32 GET_LIFE_LV(LifeType lifeType); 
-*/
+ */
             /// <summary>
             ///   System.Int32 GetPlaTeXingPoint()
             /// </summary>

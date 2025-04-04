@@ -45,7 +45,7 @@ namespace Maple.BeastSaga.Metadata
     [ContextMemberMetadata<PlayerKangFu>]
     [ContextMemberMetadata<PlayerKangFuSkill>]
 
-    
+
     //    [ContextMemberMetadata<PlayerProType>]
     [ContextMemberMetadata<ProNumDictionary>]
     [ContextMemberMetadata<RandomBoxDataSet>]
@@ -56,6 +56,9 @@ namespace Maple.BeastSaga.Metadata
     [ContextMemberMetadata<UniqueSkillDataSet>]
     //    [ContextMemberMetadata<WeaponEquipUIIndex>]
 
+    [ContextMemberMetadata<PlayerLifePerk>]
+    [ContextMemberMetadata<LifePerkDataSet>]
+    [ContextMemberMetadata<YiExpItem>]
 
 
     [ContextMemberMetadata<ExcelDataManager>]
@@ -69,7 +72,7 @@ namespace Maple.BeastSaga.Metadata
 
 
     partial class BeastSagaGameContext
-    { 
-    
+    {
+
     }
 }

@@ -81,7 +81,7 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>class System.Collections.Generic.List<EquipDataSet></returns>
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_EquipsDataManager", "System.Collections.Generic.List<EquipDataSet>")]
-            public partial  SysPtrList<EquipDataSet.Ptr_EquipDataSet> _EQUIPS_DATA_MANAGER { get; set; }
+            public partial SysPtrList<EquipDataSet.Ptr_EquipDataSet> _EQUIPS_DATA_MANAGER { get; set; }
 
 
             /// <summary>
@@ -195,6 +195,19 @@ namespace Maple.BeastSaga.Metadata
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_BoxDataManager", "System.Collections.Generic.List<RandomBoxDataSet>")]
             public partial SysPtrList<RandomBoxDataSet.Ptr_RandomBoxDataSet> _BOX_DATA_MANAGER { get; set; }
 
+
+
+
+
+
+            /// <summary>
+            /// 0x88 System.Collections.Generic.List<LifePerkDataSet> _LifePerkDataManager
+            /// class ["mscorlib"."System.Collections.Generic"."List`1"]
+            /// </summary>
+            /// <returns>class System.Collections.Generic.List<LifePerkDataSet></returns>
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("_LifePerkDataManager", "System.Collections.Generic.List<LifePerkDataSet>")]
+            public partial SysPtrList<LifePerkDataSet.Ptr_LifePerkDataSet> _LIFE_PERK_DATA_MANAGER { get; set; }
 
             /// <summary>
             /// 0x78 System.Collections.Generic.List<System.String> _PathList

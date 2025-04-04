@@ -164,20 +164,20 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
-      
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KangFuSkillHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-           public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> KANG_FU_SKILL_HAD { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KangFuSkillHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
+            public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> KANG_FU_SKILL_HAD { get; set; }
+
 
             /// <summary>
             /// 0x80 System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill> KangFuQingHad
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
-      
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KangFuQingHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-           public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> KANG_FU_QING_HAD { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("KangFuQingHad", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
+            public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> KANG_FU_QING_HAD { get; set; }
+
 
             /// <summary>
             /// 0x88 System.Collections.Generic.List<PlayerChong> ChongHad
@@ -234,20 +234,20 @@ namespace Maple.BeastSaga.Metadata
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
-         
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressBigLoop", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-           public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> DRESS_BIG_LOOP { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressBigLoop", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
+            public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> DRESS_BIG_LOOP { get; set; }
+
 
             /// <summary>
             /// 0xB8 System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill> DressSmallLoop
             /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<System.String , PlayerKangFuSkill></returns>
-      
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressSmallLoop", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
-           public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> DRESS_SMALL_LOOP { get; set; } 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("DressSmallLoop", "System.Collections.Generic.Dictionary<System.String,PlayerKangFuSkill>")]
+            public partial SysPtrDictionary<PMonoString, PlayerKangFuSkill.Ptr_PlayerKangFuSkill> DRESS_SMALL_LOOP { get; set; }
+
 
             /// <summary>
             /// 0xC0 System.Collections.Generic.Dictionary<System.Int32 , System.Int32> SkinHad
@@ -285,9 +285,11 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<LifeType , System.Int32></returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("LifePro", "System.Collections.Generic.Dictionary<LifeType,System.Int32>")]
-            public partial SysPtrDictionary<LifeType, System.Int32> LIFE_PRO { get; set; }
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("LifePro", "System.Collections.Generic.Dictionary<LifeType,System.Int32>")]
+            //public partial SysPtrDictionary<LifeType, System.Int32> LIFE_PRO { get; set; }
 
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("LifeExp", "System.Collections.Generic.Dictionary<LifeType,System.Int32>")]
+            public partial SysPtrDictionary<LifeType, System.Int32> LIFE_EXP { get; set; }
 
             /// <summary>
             /// 0xE0 System.Collections.Generic.Dictionary<LifeType , System.Int32> LifeProCurrent
@@ -295,9 +297,17 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <returns>class System.Collections.Generic.Dictionary<LifeType , System.Int32></returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("LifeProCurrent", "System.Collections.Generic.Dictionary<LifeType,System.Int32>")]
-            public partial SysPtrDictionary<LifeType, int> LIFE_PRO_CURRENT { get; set; }
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("LifeProCurrent", "System.Collections.Generic.Dictionary<LifeType,System.Int32>")]
+            //public partial SysPtrDictionary<LifeType, int> LIFE_PRO_CURRENT { get; set; }
 
+            /// <summary>
+            /// 0xF0 System.Collections.Generic.Dictionary<LifeType , System.Collections.Generic.List<PlayerLifePerk>> LifeTypeHadPerk
+            /// class ["mscorlib"."System.Collections.Generic"."Dictionary`2"]
+            /// </summary>
+            /// <returns>class System.Collections.Generic.Dictionary<LifeType , System.Collections.Generic.List<PlayerLifePerk>></returns>
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("LifeTypeHadPerk", "System.Collections.Generic.Dictionary<LifeType,System.Collections.Generic.List<PlayerLifePerk>>")]
+            public partial SysPtrDictionary<LifeType, SysPtrList<PlayerLifePerk.Ptr_PlayerLifePerk>> LIFE_TYPE_HAD_PERK { get; set; }
 
             /// <summary>
             /// 0xE8 System.Collections.Generic.Dictionary<PlayerProType , System.Int32> SixProCurrent
@@ -317,7 +327,7 @@ namespace Maple.BeastSaga.Metadata
             /*
            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassPropertyMetadataAttribute("Fish", "System.Collections.Generic.Dictionary<System.String,System.Single>")]
            public partial nint FISH { get; set; } 
-*/
+ */
 
             /// <summary>
             /// 0xF8 System.Collections.Generic.Dictionary<System.String , System.Int32> Gamble

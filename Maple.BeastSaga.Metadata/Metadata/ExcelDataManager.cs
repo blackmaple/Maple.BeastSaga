@@ -604,11 +604,12 @@ namespace Maple.BeastSaga.Metadata
             /// </summary>
             /// <param name = "id">struct System.Int32</param>
             /// <returns>class ExcelData.YiExpItem</returns>
-            /*
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetYiExpItemByID", "ExcelData.YiExpItem", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 0)]
-           public partial nint GET_YI_EXP_ITEM_BY_ID(System.Int32 id); 
-*/
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("GetYiExpItemByID", "ExcelData.YiExpItem", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 0)]
+            public partial YiExpItem.Ptr_YiExpItem GET_YI_EXP_ITEM_BY_ID(System.Int32 id);
+
+
             /// <summary>
             ///   System.Object Load(System.String name)
             /// </summary>
