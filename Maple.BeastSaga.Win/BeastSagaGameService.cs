@@ -158,7 +158,7 @@ namespace Maple.BeastSaga.Win
                         var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, IUnityPlayerNativeMethods.ReadSpriteType.TYPE2);
                         if (arrayData != nint.Zero)
                         {
-                            yield return new GameSpriteData() { ObjectId = item.ObjectId, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
+                            yield return new GameSpriteData() { ObjectId = item.ImageName, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
                         }
                     }
                 }
@@ -170,7 +170,7 @@ namespace Maple.BeastSaga.Win
                         var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, IUnityPlayerNativeMethods.ReadSpriteType.TYPE2);
                         if (arrayData != nint.Zero)
                         {
-                            yield return new GameSpriteData() { ObjectId = item.ObjectId, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
+                            yield return new GameSpriteData() { ObjectId = item.ImageName, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
                         }
                     }
                 }
@@ -182,7 +182,7 @@ namespace Maple.BeastSaga.Win
                         var arrayData = this.UnityEngineContext.ReadSprite2Png(spriteData, IUnityPlayerNativeMethods.ReadSpriteType.TYPE2);
                         if (arrayData != nint.Zero)
                         {
-                            yield return new GameSpriteData() { ObjectId = item.ObjectId, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
+                            yield return new GameSpriteData() { ObjectId = item.ImageName, DisplayCategory = item.DisplayCategory!, SpriteData = nint.Zero, SpriteData2 = arrayData.AsReadOnlySpan().ToArray() };
                         }
                     }
                 }
