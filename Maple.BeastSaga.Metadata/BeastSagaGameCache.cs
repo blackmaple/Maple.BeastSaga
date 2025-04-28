@@ -263,6 +263,10 @@ namespace Maple.BeastSaga.Metadata
             SpinWait.SpinUntil(() => this.Ptr_LoadDataSet._UNIQUE_SKILL_DATA_MANAGER.IsNotNull());
             foreach (var item in this.Ptr_LoadDataSet._UNIQUE_SKILL_DATA_MANAGER.AsEnumerable())
             {
+                if (item.IsNull())
+                {
+                    continue;
+                }
                 var fullname = item.NAME.ToString()!;
                 yield return new GameSkillDisplayDTOEX()
                 {
