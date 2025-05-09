@@ -505,9 +505,9 @@ namespace Maple.BeastSaga.Metadata
             /// <returns>struct System.Void</returns>
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CrateFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial void FRIEND_ADD(nint friendName);
-
-
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Boolean", 1)]
+            public partial void FRIEND_ADD(nint friendName, System.Boolean isLeaveAllAddBattle = false); 
+ 
             /// <summary>
             ///   UnityEngine.Vector2 FriendGetRandomPositionAroundPlayer(UnityEngine.Vector2 playerPosition, System.Single spawnRadius, System.Single colliderRadius)
             /// </summary>
