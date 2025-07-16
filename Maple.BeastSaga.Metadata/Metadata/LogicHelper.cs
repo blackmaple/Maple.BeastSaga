@@ -499,15 +499,15 @@ namespace Maple.BeastSaga.Metadata
 
 
             /// <summary>
-            ///   System.Void CrateFriend(System.String friendName)
+            ///   void FriendAdd(string friendName, bool isLeaveAllAddBattle = false)
             /// </summary>
             /// <param name = "friendName">class System.String</param>
             /// <returns>struct System.Void</returns>
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("CrateFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("FriendAdd", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Boolean", 1)]
-            public partial void FRIEND_ADD(nint friendName, System.Boolean isLeaveAllAddBattle = false); 
- 
+            public partial void FRIEND_ADD(nint friendName, System.Boolean isLeaveAllAddBattle = false);
+
             /// <summary>
             ///   UnityEngine.Vector2 FriendGetRandomPositionAroundPlayer(UnityEngine.Vector2 playerPosition, System.Single spawnRadius, System.Single colliderRadius)
             /// </summary>
