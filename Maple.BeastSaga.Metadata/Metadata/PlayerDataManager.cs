@@ -353,10 +353,10 @@ namespace Maple.BeastSaga.Metadata
             /// <param name = "num">struct System.Int32</param>
             /// <returns>struct System.Void</returns>
 
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardBagItem", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("ItemDataSet", 0)]
-            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
-            public partial void AWARD_BAG_ITEM(ItemDataSet.Ptr_ItemDataSet item, System.Int32 num);
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardBagItem", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("ItemDataSet", 0)]
+            //[Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
+            //public partial void AWARD_BAG_ITEM(ItemDataSet.Ptr_ItemDataSet item, System.Int32 num);
 
             /// <summary>
             ///   System.Boolean AwardChong(ChongDataSet dataset)
@@ -442,7 +442,8 @@ namespace Maple.BeastSaga.Metadata
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardItem", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("ItemDataSet", 0)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Int32", 1)]
-            public partial void AWARD_ITEM(ItemDataSet.Ptr_ItemDataSet item, System.Int32 num);
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Boolean", 2)]
+            public partial void AWARD_ITEM(ItemDataSet.Ptr_ItemDataSet item, System.Int32 num, bool isTip = false);
 
             /// <summary>
             ///   System.Boolean AwardItemLogic(System.Collections.Generic.Dictionary<ItemDataSet , System.Int32> costItem)
