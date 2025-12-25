@@ -633,7 +633,8 @@ namespace Maple.BeastSaga.Metadata
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardInKongFu", "System.Boolean"/*, CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)]*/)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("InKangFuDataSet", 0)]
-            public partial System.Boolean AWARD_IN_KONG_FU(InKangFuDataSet.Ptr_InKangFuDataSet InKangFu);
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
+            public partial System.Boolean AWARD_IN_KONG_FU(InKangFuDataSet.Ptr_InKangFuDataSet InKangFu, PMonoString showName);
 
             /// <summary>
             ///   System.Boolean AwardKangFuQing(UniqueSkillDataSet KangFuQing)
@@ -653,7 +654,8 @@ namespace Maple.BeastSaga.Metadata
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardKongFu", "System.Boolean" /*, CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)]*/)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("KangFuDataSet", 0)]
-            public partial System.Boolean AWARD_KONG_FU(KangFuDataSet.Ptr_KangFuDataSet KangFu);
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
+            public partial System.Boolean AWARD_KONG_FU(KangFuDataSet.Ptr_KangFuDataSet KangFu, PMonoString friendShowName);
 
             /// <summary>
             ///   System.Boolean AwardKongFuSkill(UniqueSkillDataSet KangFuSkill)
@@ -663,7 +665,8 @@ namespace Maple.BeastSaga.Metadata
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("AwardKongFuSkill", "System.Boolean"/*, CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition)]*/)]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("UniqueSkillDataSet", 0)]
-            public partial System.Boolean AWARD_KONG_FU_SKILL(UniqueSkillDataSet.Ptr_UniqueSkillDataSet KangFuSkill);
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 1)]
+            public partial System.Boolean AWARD_KONG_FU_SKILL(UniqueSkillDataSet.Ptr_UniqueSkillDataSet KangFuSkill, PMonoString showName);
 
             /// <summary>
             ///   System.Boolean AwardShanHaiLu(ShanHaiLuDataSet shanhailu)

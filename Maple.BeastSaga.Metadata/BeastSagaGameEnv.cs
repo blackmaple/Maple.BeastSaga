@@ -902,20 +902,20 @@ namespace Maple.BeastSaga.Metadata
                     var ok = false;
                     if (objectDTO.ModifyCategory == nameof(InKangFuDataSet))
                     {
-                        ok = this.Ptr_PlayerDataManager.AWARD_IN_KONG_FU(skill.Ptr);
+                        ok = this.Ptr_PlayerDataManager.AWARD_IN_KONG_FU(skill.Ptr, IntPtr.Zero);
                     }
                     else if (objectDTO.ModifyCategory == nameof(KangFuDataSet))
                     {
-                        ok = this.Ptr_PlayerDataManager.AWARD_KONG_FU(skill.Ptr);
+                        ok = this.Ptr_PlayerDataManager.AWARD_KONG_FU(skill.Ptr, IntPtr.Zero);
                     }
                     else if (objectDTO.ModifyCategory == nameof(UniqueSkillDataSet))
                     {
                         UniqueSkillDataSet.Ptr_UniqueSkillDataSet skillDataSet = skill.Ptr;
                         if (skillDataSet.KF_TYPE == KFType.轻)
                         {
-                            ok = this.Ptr_PlayerDataManager.AWARD_KANG_FU_QING(skill.Ptr);
+                            ok = this.Ptr_PlayerDataManager.AWARD_KANG_FU_QING(skill.Ptr, IntPtr.Zero);
                         }
-                        ok = this.Ptr_PlayerDataManager.AWARD_KONG_FU_SKILL(skill.Ptr);
+                        ok = this.Ptr_PlayerDataManager.AWARD_KONG_FU_SKILL(skill.Ptr, IntPtr.Zero);
                     }
                     else if (objectDTO.ModifyCategory == nameof(ShanHaiLuDataSet))
                     {
@@ -1532,11 +1532,11 @@ namespace Maple.BeastSaga.Metadata
                     var ok = false;
                     if (objectDTO.ModifyCategory == nameof(InKangFuDataSet))
                     {
-                        ok = playerData.AWARD_IN_KONG_FU(skill.Ptr);
+                        ok = playerData.AWARD_IN_KONG_FU(skill.Ptr, IntPtr.Zero);
                     }
                     else if (objectDTO.ModifyCategory == nameof(KangFuDataSet))
                     {
-                        ok = playerData.AWARD_KONG_FU(skill.Ptr);
+                        ok = playerData.AWARD_KONG_FU(skill.Ptr, IntPtr.Zero);
                     }
                     else if (objectDTO.ModifyCategory == nameof(UniqueSkillDataSet))
                     {
@@ -1545,7 +1545,7 @@ namespace Maple.BeastSaga.Metadata
                         {
                             ok = playerData.AWARD_KANG_FU_QING(skill.Ptr);
                         }
-                        ok = playerData.AWARD_KONG_FU_SKILL(skill.Ptr);
+                        ok = playerData.AWARD_KONG_FU_SKILL(skill.Ptr, IntPtr.Zero);
                     }
                     else if (objectDTO.ModifyCategory == nameof(ShanHaiLuDataSet))
                     {

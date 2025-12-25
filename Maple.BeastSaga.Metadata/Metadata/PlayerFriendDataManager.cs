@@ -291,16 +291,18 @@ namespace Maple.BeastSaga.Metadata
 
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LeaveFriend", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
             [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.String", 0)]
-            public partial void LEAVE_FRIEND(nint abName);
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Boolean", 1)]
+            public partial void LEAVE_FRIEND(nint abName, bool isUiTip = false);
 
             /// <summary>
             ///   System.Void LeaveFriendAll()
             /// </summary>
             /// <returns>struct System.Void</returns>
-         
-           [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LeaveFriendAll", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
-           public partial void LEAVE_FRIEND_ALL(); 
- 
+
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodMetadataAttribute("LeaveFriendAll", "System.Void", CallConvs = [typeof(System.Runtime.CompilerServices.CallConvSuppressGCTransition), typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+            [Maple.MonoGameAssistant.MetadataExtensions.MetadataGenerator.ClassMethodParameterMetadataAttribute("System.Boolean", 0)]
+            public partial void LEAVE_FRIEND_ALL(bool isUiTip = false);
+
             /// <summary>
             ///   System.Void OnDayTime(System.Object sender, LJG.Framework.EventHandlerBase hander)
             /// </summary>
